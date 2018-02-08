@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/service/!svn/ver/1203/selfmanagementsystem/src/main/resources/templates/Users/Right
+END
+Right_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/service/!svn/ver/1203/selfmanagementsystem/src/main/resources/templates/Users/Right/Right_list.html
+END
+Right_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/service/!svn/ver/1048/selfmanagementsystem/src/main/resources/templates/Users/Right/Right_details.html
+END
+Right_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/service/!svn/ver/1080/selfmanagementsystem/src/main/resources/templates/Users/Right/Right_add.html
+END
+Right_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/service/!svn/ver/1080/selfmanagementsystem/src/main/resources/templates/Users/Right/Right_edit.html
+END

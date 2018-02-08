@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>主页</title>
+<!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+
+<!-- Bootstrap -->
+<link th:href="@{../css/bootstrap.min.css}" rel="stylesheet">
+<!-- 字体图标 -->
+<link th:href="@{../css/font-awesome.min.css}" rel="stylesheet">
+<!-- NProgress -->
+<link th:href="@{../css/nprogress.css}" rel="stylesheet">
+<!-- toastr -->
+<link th:href="@{../css/toastr.min.css}" rel="stylesheet">
+<!-- 公共样式 -->
+<link th:href="@{../css/general.css}" rel="stylesheet" media="screen">
+<!-- bootstrap-dialog -->
+<link th:href="@{../css/bootstrap-dialog.min.css}" rel="stylesheet">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" th:href="@{../css/build.css}">
+<!-- 主页样式 -->
+<link th:href="@{../css/index.css}" rel="stylesheet" media="screen">
+</head>
+<body>
+	<!-- 头部 -->
+	<div th:replace="fragments/header :: header">头部</div>
+
+	<div class="content_x">
+		<!-- 左菜单 -->
+		<div th:replace="fragments/menu :: menu">左菜单</div>
+
+		<!--右内容 -->
+		<div class="right_col">
+			<div class="padding_20">
+				<div class="title_sj">
+					<span class="icon fa-plus-about"></span>
+					<div>数据概览</div>
+				</div>
+				<div class="m_content">
+					<div class="menu_tab">
+						<ul>
+							<li>
+								<div class="bg_white">
+									<img class="pull-left" src="img/lan.png" />
+									<div class="text_x pull-left">
+										<div class="dropdown">
+											<p data-toggle="dropdown">
+												所有建筑 <span class="caret blue"></span>
+											</p>
+
+											<dl class="dropdown-menu" role="menu">
+												<dd>
+													<a href="#">功能</a>
+												</dd>
+												<dd>
+													<a href="#">另一个功能</a>
+												</dd>
+												<dd>
+													<a href="#">其他</a>
+												</dd>
+											</dl>
+										</div>
+										<h1 class="blue">13</h1>
+									</div>
+									<img class="pull-right menu_img" src="img/bei1.png" />
+									<div class="clear"></div>
+								</div></li>
+
+							<li>
+								<div class="bg_white">
+									<img class="pull-left" src="img/qing.png" />
+									<div class="text_x pull-left">
+										<div class="dropdown">
+											<p data-toggle="dropdown">
+												入驻单位总数 <span class="caret ching"></span>
+											</p>
+
+											<dl class="dropdown-menu" role="menu">
+												<dd>
+													<a href="#">功能</a>
+												</dd>
+												<dd>
+													<a href="#">另一个功能</a>
+												</dd>
+												<dd>
+													<a href="#">其他</a>
+												</dd>
+											</dl>
+										</div>
+										<h1 class="ching">115</h1>
+									</div>
+									<img class="pull-right menu_img" src="img/bei2.png" />
+									<div class="clear"></div>
+								</div></li>
+
+							<li>
+								<div class="bg_white">
+									<img class="pull-left" src="img/cheng.png" />
+									<div class="text_x pull-left">
+										<div class="dropdown">
+											<p data-toggle="dropdown">
+												人员总数 <span class="caret orange"></span>
+											</p>
+
+											<dl class="dropdown-menu" role="menu">
+												<dd>
+													<a href="#">功能</a>
+												</dd>
+												<dd>
+													<a href="#">另一个功能</a>
+												</dd>
+												<dd>
+													<a href="#">其他</a>
+												</dd>
+											</dl>
+										</div>
+										<h1 class="orange">1269</h1>
+									</div>
+									<img class="pull-right menu_img" src="img/bei3.png" />
+									<div class="clear"></div>
+								</div></li>
+
+							<li>
+								<div class="bg_white">
+									<img class="pull-left" src="img/lan2.png" />
+									<div class="text_x pull-left">
+										<div class="dropdown">
+											<p data-toggle="dropdown">
+												图纸总数 <span class="caret blue1"></span>
+											</p>
+
+											<dl class="dropdown-menu" role="menu">
+												<dd>
+													<a href="#">功能</a>
+												</dd>
+												<dd>
+													<a href="#">另一个功能</a>
+												</dd>
+												<dd>
+													<a href="#">其他</a>
+												</dd>
+											</dl>
+										</div>
+										<h1 class="blue1">14321</h1>
+									</div>
+									<img class="pull-right menu_img" src="img/bei4.png" />
+									<div class="clear"></div>
+								</div></li>
+						</ul>
+					</div>
+				</div>
+				<div class="m_content margin_j">
+					<div class="content_b">
+						<div class="gzsj">
+							<div class="bg_white">
+								<div class="gzsj_title">
+									<h5>工作数据</h5>
+									<div class="gzsj_title_tab">
+										<span class="blue">日</span><span>周</span><span>月</span>
+									</div>
+								</div>
+								<!--日-->
+								<ul style="display: block">
+									<li>
+										<div class="margin5">
+											<h5>日巡查</h5>
+											<div class="line_y">
+												<span class="line_btn_col line_btn" style="left: 15px;"></span>
+											</div>
+										</div>
+										<div class="progress">
+											<div class="progress-bar progress-bar-success"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 40%;">
+												<span class="sr-only">40% 已检查</span>
+											</div>
+											<div class="progress-bar progress-bar-info"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 异常数</span>
+											</div>
+											<div class="progress-bar progress-bar-warning"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 未整改</span>
+											</div>
+										</div></li>
+
+									<li>
+										<div class="margin5">
+											<h5>月检查</h5>
+											<div class="line_y">
+												<span class="line_btn"></span>
+											</div>
+										</div>
+										<div class="progress">
+											<div class="progress-bar progress-bar-success"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 40%;">
+												<span class="sr-only">40% 已检查</span>
+											</div>
+											<div class="progress-bar progress-bar-info"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 异常数</span>
+											</div>
+											<div class="progress-bar progress-bar-warning"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 未整改</span>
+											</div>
+										</div></li>
+
+									<li>
+										<div class="margin5">
+											<h5>控制室检查</h5>
+											<div class="line_y">
+												<span class="line_btn"></span>
+											</div>
+										</div>
+										<div class="progress">
+											<div class="progress-bar progress-bar-success"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 40%;">
+												<span class="sr-only">40% 已检查</span>
+											</div>
+											<div class="progress-bar progress-bar-info"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 异常数</span>
+											</div>
+											<div class="progress-bar progress-bar-warning"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 未整改</span>
+											</div>
+										</div></li>
+
+									<li>
+										<div class="margin5">
+											<h5>设备检查</h5>
+											<div class="line_y">
+												<span class="line_btn"></span>
+											</div>
+										</div>
+										<div class="progress">
+											<div class="progress-bar progress-bar-success"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 40%;">
+												<span class="sr-only">40% 已检查</span>
+											</div>
+											<div class="progress-bar progress-bar-info"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 异常数</span>
+											</div>
+											<div class="progress-bar progress-bar-warning"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 未整改</span>
+											</div>
+										</div></li>
+
+									<li>
+										<p class="text-right">
+											<i class="icon_yy progress-bar-success"></i>已检查<i
+												class="icon_yy progress-bar-info"></i>异常数 <i
+												class="icon_yy progress-bar-warning"></i>未整改
+										</p></li>
+								</ul>
+								<!--日结束-->
+
+								<!--周-->
+								<ul>
+									<li>
+										<div class="margin5">
+											<h5>日巡查(周)</h5>
+											<div class="line_y">
+												<span class="line_btn_col line_btn" style="left: 15px;"></span>
+											</div>
+										</div>
+										<div class="progress">
+											<div class="progress-bar progress-bar-success"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 40%;">
+												<span class="sr-only">40% 已检查</span>
+											</div>
+											<div class="progress-bar progress-bar-info"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 异常数</span>
+											</div>
+											<div class="progress-bar progress-bar-warning"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 未整改</span>
+											</div>
+										</div></li>
+
+									<li>
+										<div class="margin5">
+											<h5>月检查</h5>
+											<div class="line_y">
+												<span class="line_btn"></span>
+											</div>
+										</div>
+										<div class="progress">
+											<div class="progress-bar progress-bar-success"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 40%;">
+												<span class="sr-only">40% 已检查</span>
+											</div>
+											<div class="progress-bar progress-bar-info"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 异常数</span>
+											</div>
+											<div class="progress-bar progress-bar-warning"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 未整改</span>
+											</div>
+										</div></li>
+
+									<li>
+										<div class="margin5">
+											<h5>控制室检查</h5>
+											<div class="line_y">
+												<span class="line_btn"></span>
+											</div>
+										</div>
+										<div class="progress">
+											<div class="progress-bar progress-bar-success"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 40%;">
+												<span class="sr-only">40% 已检查</span>
+											</div>
+											<div class="progress-bar progress-bar-info"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 异常数</span>
+											</div>
+											<div class="progress-bar progress-bar-warning"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 未整改</span>
+											</div>
+										</div></li>
+
+									<li>
+										<div class="margin5">
+											<h5>设备检查</h5>
+											<div class="line_y">
+												<span class="line_btn"></span>
+											</div>
+										</div>
+										<div class="progress">
+											<div class="progress-bar progress-bar-success"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 40%;">
+												<span class="sr-only">40% 已检查</span>
+											</div>
+											<div class="progress-bar progress-bar-info"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 异常数</span>
+											</div>
+											<div class="progress-bar progress-bar-warning"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 未整改</span>
+											</div>
+										</div></li>
+
+									<li>
+										<p class="text-right">
+											<i class="icon_yy progress-bar-success"></i>已检查<i
+												class="icon_yy progress-bar-info"></i>异常数 <i
+												class="icon_yy progress-bar-warning"></i>未整改
+										</p></li>
+								</ul>
+								<!--周结束-->
+
+								<!--月-->
+								<ul>
+									<li>
+										<div class="margin5">
+											<h5>日巡查(月)</h5>
+											<div class="line_y">
+												<span class="line_btn_col line_btn" style="left: 15px;"></span>
+											</div>
+										</div>
+										<div class="progress">
+											<div class="progress-bar progress-bar-success"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 40%;">
+												<span class="sr-only">40% 已检查</span>
+											</div>
+											<div class="progress-bar progress-bar-info"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 异常数</span>
+											</div>
+											<div class="progress-bar progress-bar-warning"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 未整改</span>
+											</div>
+										</div></li>
+
+									<li>
+										<div class="margin5">
+											<h5>月检查</h5>
+											<div class="line_y">
+												<span class="line_btn"></span>
+											</div>
+										</div>
+										<div class="progress">
+											<div class="progress-bar progress-bar-success"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 40%;">
+												<span class="sr-only">40% 已检查</span>
+											</div>
+											<div class="progress-bar progress-bar-info"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 异常数</span>
+											</div>
+											<div class="progress-bar progress-bar-warning"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 未整改</span>
+											</div>
+										</div></li>
+
+									<li>
+										<div class="margin5">
+											<h5>控制室检查</h5>
+											<div class="line_y">
+												<span class="line_btn"></span>
+											</div>
+										</div>
+										<div class="progress">
+											<div class="progress-bar progress-bar-success"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 40%;">
+												<span class="sr-only">40% 已检查</span>
+											</div>
+											<div class="progress-bar progress-bar-info"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 异常数</span>
+											</div>
+											<div class="progress-bar progress-bar-warning"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 未整改</span>
+											</div>
+										</div></li>
+
+									<li>
+										<div class="margin5">
+											<h5>设备检查</h5>
+											<div class="line_y">
+												<span class="line_btn"></span>
+											</div>
+										</div>
+										<div class="progress">
+											<div class="progress-bar progress-bar-success"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 40%;">
+												<span class="sr-only">40% 已检查</span>
+											</div>
+											<div class="progress-bar progress-bar-info"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 异常数</span>
+											</div>
+											<div class="progress-bar progress-bar-warning"
+												role="progressbar" aria-valuenow="60" aria-valuemin="0"
+												aria-valuemax="100" style="width: 30%;">
+												<span class="sr-only">30% 未整改</span>
+											</div>
+										</div></li>
+
+									<li>
+										<p class="text-right">
+											<i class="icon_yy progress-bar-success"></i>已检查<i
+												class="icon_yy progress-bar-info"></i>异常数 <i
+												class="icon_yy progress-bar-warning"></i>未整改
+										</p></li>
+								</ul>
+								<!--月结束-->
+							</div>
+						</div>
+						<div class="gzsj_xc">
+							<div id="container"></div>
+						</div>
+					</div>
+				</div>
+				<div class="m_content">
+					<div class="content_tb bg_white">
+						<div class="x_top clearfix">
+							<div class="font-left">
+								<h5>数据明细</h5>
+							</div>
+							<div class="pull-right font_black">
+								<a href="#"><i class="fa fa-sign-in "></i>导出</a>
+							</div>
+						</div>
+						<div id="dv_scroll">
+
+							<table class="table table-hover text-center">
+								<thead>
+									<tr class="active">
+										<th>日期</th>
+										<th>日巡查</th>
+										<th>月检查</th>
+										<th>控制室检查</th>
+										<th>设施检查</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>2017-07-26</td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+									</tr>
+
+									<tr>
+										<td>2017-07-26</td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+									</tr>
+									<tr>
+										<td>2017-07-26</td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+									</tr>
+									<tr>
+										<td>2017-07-26</td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+									</tr>
+									<tr>
+										<td>2017-07-26</td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+									</tr>
+									<tr>
+										<td>2017-07-26</td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+									</tr>
+									<tr>
+										<td>2017-07-26</td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+									</tr>
+									<tr>
+										<td>2017-07-26</td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+									</tr>
+									<tr>
+										<td>2017-07-26</td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+										<td>已检查<span class="font_lan"> 52</span>异常数<span
+											class="font_hong"> 11</span>未整改<span class="font_hui">
+												5</span></td>
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- highcharts -->
+<script type="text/javascript" th:src="@{../js/highstock.js}"></script>
+<script type="text/javascript" th:src="@{../js/highcharts-zh_CN.js}"></script>
+<script type="text/javascript" th:src="@{../js/exporting.js}"></script>
+ <!-- 手机端-->
+<script src="../js/jquery.dcjqaccordion.2.7.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 滚动条-->
+<script src="../js/jquery.nicescroll.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<!-- NProgress -->
+<script type="text/javascript" th:src="@{../js/nprogress.js}"></script>
+<!-- toastr -->
+<script type="text/javascript" th:src="@{../js/toastr.js}"></script>
+<script type="text/javascript" th:src="@{../js/statistics.js}"></script>
+<!-- 弹窗框  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<script type="text/javascript" th:src="@{../js/style.js}"></script>
+<script type="text/javascript" th:src="@{../js/menu.js}"></script>
+<script type="text/javascript" th:src="@{../js/message.js}"></script>
+<script type="text/javascript" th:src="@{../js/right.js}"></script>
+</html>

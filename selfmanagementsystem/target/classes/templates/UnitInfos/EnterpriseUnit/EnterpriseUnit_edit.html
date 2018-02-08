@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+<meta charset="UTF-8"></meta>
+</head>
+<body>
+	<header th:fragment="EnterpriseUnit_edit">
+		<h4 class="font_ioc_blue">
+			<strong><i class="fa fa-gear"></i>填写企业单位</strong>
+		</h4>
+		<form class="form-horizontal" id="enterpriseUnitDto_form"
+			onsubmit="return false;">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="item form-group">
+						<label
+							class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label"><span
+							class="required">*</span>组织机构代码: </label>
+						<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+							<input class="form-control" name="organizationCode"
+								placeholder="请输入组织机构代码" type="text"
+								th:value="${enterpriseUnitDto.organizationCode}">
+						</div>
+					</div>
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">纳税人识别号:
+						</label>
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							<input type="text" name="taxpayerIdentificationNo"
+								placeholder="请输入纳税人识别号" class="form-control"
+								th:value="${enterpriseUnitDto.taxpayerIdentificationNo}">
+						</div>
+					</div>
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">注册资本:
+						</label>
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							<input type="text" name="registeredCapital" placeholder="请输入注册资本"
+								class="form-control"
+								th:value="${enterpriseUnitDto.registeredCapital}">
+						</div>
+					</div>
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">工商注册号:
+						</label>
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							<input type="text" name="registeredNo" placeholder="请输入工商注册号"
+								class="form-control"
+								th:value="${enterpriseUnitDto.registeredNo}">
+						</div>
+					</div>
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">登记机关:
+						</label>
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							<input type="text" name="registrationAuthority"
+								placeholder="请输入登记机关" class="form-control"
+								th:value="${enterpriseUnitDto.registrationAuthority}">
+						</div>
+					</div>
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">企业类型:
+						</label>
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							<input type="text" name="enterpriseType" placeholder="请输入企业类型"
+								class="form-control"
+								th:value="${enterpriseUnitDto.enterpriseType}">
+						</div>
+					</div>
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">统一信用代码:
+						</label>
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							<input type="text" name="uniformCreditCode"
+								placeholder="请输入统一信用代码" class="form-control"
+								　th:value="${enterpriseUnitDto.uniformCreditCode}">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">电话:
+						</label>
+						<div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							<input class="form-control" name="tel" placeholder="请输入电话"
+								type="text" 　th:value="${enterpriseUnitDto.tel}">
+						</div>
+					</div>
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">营业执照:
+						</label>
+						<div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							<input class="form-control" name="businessLicense"
+								placeholder="请输入营业执照" type="text"
+								　th:value="${enterpriseUnitDto.businessLicense}">
+						</div>
+					</div>
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">经营状态:
+						</label>
+						<div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							<select name="operateStatus" class="form-control">
+								<option selected="true" disabled="true">-- 请选择类型 --</option>
+								<option value="1">存续</option>
+								<option value="2">在业</option>
+								<option value="3">吊销</option>
+								<option value="4">注销</option>
+								<option value="5">迁入</option>
+								<option value="6">迁出</option>
+								<option value="7">停业</option>
+								<option value="8">清算</option>
+							</select>
+
+						</div>
+					</div>
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">邮箱:
+						</label>
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							<input type="text" name="email" placeholder="请输入邮箱"
+								class="form-control" th:value="${enterpriseUnitDto.email}">
+						</div>
+					</div>
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">网址:
+						</label>
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							<input type="text" name="url" placeholder="请输入网址"
+								class="form-control" th:value="${enterpriseUnitDto.url}">
+						</div>
+					</div>
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">成立日期:
+						</label>
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 ">
+							<div class="input-group date">
+								<input type="text" class="form-control" name="registerDate"
+									th:value="${enterpriseUnitDto.registerDate}" /> <span
+									class="input-group-addon"> <span
+									class="glyphicon glyphicon-calendar"></span> </span>
+							</div>
+						</div>
+					</div>
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">核准日期:
+						</label>
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 ">
+							<div class="input-group date">
+								<input type="text" class="form-control" name="approvalDate"
+									th:value="${enterpriseUnitDto.approvalDate}" /> <span
+									class="input-group-addon"> <span
+									class="glyphicon glyphicon-calendar"></span> </span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="item form-group">
+				<label
+					class="text-left col-lg-2 col-md-4 col-sm-3 col-xs-12 control-label">营业期限:
+				</label>
+				<div class="col-lg-10 col-md-8 col-sm-9 col-xs-12">
+
+					<div class="input-daterange input-group" id="datepicker">
+						<input type="text" class=" form-control" name="businessFromDate"
+							th:value="${enterpriseUnitDto.businessFromDate}" /> <span
+							class="input-group-addon">to</span> <input type="text"
+							class=" form-control" name="businessToDate"
+							th:value="${enterpriseUnitDto.businessToDate}" />
+					</div>
+
+
+
+				</div>
+			</div>
+			<div class="item form-group">
+				<label
+					class="text-left col-lg-2 col-md-4 col-sm-3 col-xs-12 control-label">所属行业:
+				</label>
+				<div class="col-lg-10 col-md-8 col-sm-9 col-xs-12">
+					<input type="text" class=" form-control" name="industryInvolved"
+						th:value="${enterpriseUnitDto.industryInvolved}" />
+				</div>
+			</div>
+			<div class="item form-group">
+				<label
+					class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">经营范围:
+				</label>
+				<div class=" col-lg-10 col-md-10 col-sm-10 col-xs-12">
+					<textarea class="form-control" name="operateScope"
+						placeholder="请输入经营范围" th:text="${enterpriseUnitDto.operateScope}"></textarea>
+				</div>
+			</div>
+		</form>
+		<h4 class="font_ioc_blue">
+			<strong><i class="fa fa-gear"></i>填写企业主体责任</strong>
+		</h4>
+		<form class="form-horizontal" id="enterpriseSubjectDutyDto_form"
+			onsubmit="return false;">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="item form-group">
+						<label
+							class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label"><span
+							class="required">*</span>姓名: </label>
+						<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+							<input class="form-control" name="name" placeholder="请输入姓名"
+								type="text" th:value="${enterpriseSubjectDutyDto.name}">
+						</div>
+					</div>
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">职务:
+						</label>
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							<input type="text" name="duty" placeholder="请输入管辖职务"
+								class="form-control" th:value="${enterpriseSubjectDutyDto.duty}">
+						</div>
+					</div>
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">证件类型:
+						</label>
+						<div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							<select name="documentType" class="form-control">
+								<option selected="true" disabled="true">-- 请选择类型 --</option>
+								<option value="1"
+									th:checked="${enterpriseSubjectDutyDto.documentType}==1">身份证</option>
+								<option value="2"
+									th:checked="${enterpriseSubjectDutyDto.documentType}==2">护照</option>
+								<option value="3"
+									th:checked="${enterpriseSubjectDutyDto.documentType}==3">澳台通行证</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">联系电话:
+						</label>
+						<div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							<input class="form-control" name="contactNumber"
+								placeholder="请输入联系电话" type="text"
+								th:value="${enterpriseSubjectDutyDto.contactNumber}">
+						</div>
+					</div>
+					<div class="item form-group">
+						<label
+							class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">主体责任类型:
+						</label>
+						<div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+							<select class="form-control" name="subjectDutyType">
+								<option selected="true" disabled="true">-- 请选择类型 --</option>
+								<option value="1">法人代表</option>
+								<option value="2">（党建、工、青、妇）责任人</option>
+								<option value="3">（党建、工、青、妇）管理人</option>
+								<option value="4">钢筋混凝土（砼）结构</option>
+								<option value="5">（劳动、人事、行政）责任人</option>
+								<option value="6">安全生产责任人</option>
+								<option value="7">安全生产管理人</option>
+								<option value="8">消防安全责任人</option>
+								<option value="9">消防安全管理人</option>
+								<option value="10">城市管理责任人</option>
+								<option value="11">城市管理管理人</option>
+							</select>
+						</div>
+					</div>
+					<div class="item form-group">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 documentNo">
+							<input class="form-control " name="documentNo"
+								placeholder="先选择证件类型" disabled="disabled" type="text">
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</header>
+</body>
+</html>
+
+

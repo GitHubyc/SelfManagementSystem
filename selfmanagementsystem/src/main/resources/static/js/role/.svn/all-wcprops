@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/service/!svn/ver/1209/selfmanagementsystem/src/main/resources/static/js/role
+END
+role_list.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/service/!svn/ver/1080/selfmanagementsystem/src/main/resources/static/js/role/role_list.js
+END
+role_edit.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/service/!svn/ver/1209/selfmanagementsystem/src/main/resources/static/js/role/role_edit.js
+END
+role_right.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/service/!svn/ver/1207/selfmanagementsystem/src/main/resources/static/js/role/role_right.js
+END
+role_del.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/service/!svn/ver/724/selfmanagementsystem/src/main/resources/static/js/role/role_del.js
+END
+role_details.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/service/!svn/ver/724/selfmanagementsystem/src/main/resources/static/js/role/role_details.js
+END
+role_add.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/service/!svn/ver/1207/selfmanagementsystem/src/main/resources/static/js/role/role_add.js
+END

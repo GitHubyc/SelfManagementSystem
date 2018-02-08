@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/service/!svn/ver/1096/selfmanagementsystem/src/main/resources/templates/BuildInfos/HouseInfo
+END
+HouseInfo_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/service/!svn/ver/1068/selfmanagementsystem/src/main/resources/templates/BuildInfos/HouseInfo/HouseInfo_details.html
+END
+HouseInfo_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/service/!svn/ver/917/selfmanagementsystem/src/main/resources/templates/BuildInfos/HouseInfo/HouseInfo_add.html
+END
+HouseInfo_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/service/!svn/ver/1096/selfmanagementsystem/src/main/resources/templates/BuildInfos/HouseInfo/HouseInfo_list.html
+END
+HouseInfo_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/service/!svn/ver/895/selfmanagementsystem/src/main/resources/templates/BuildInfos/HouseInfo/HouseInfo_edit.html
+END

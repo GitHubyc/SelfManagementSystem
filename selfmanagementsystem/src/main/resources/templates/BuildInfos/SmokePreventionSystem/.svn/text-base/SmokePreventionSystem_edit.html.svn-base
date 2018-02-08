@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+<!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+<!-- Bootstrap -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!-- 字体图标 -->
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../css/nprogress.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../css/general.css" rel="stylesheet" media="screen">
+<!-- toastr -->
+<link href="../css/toastr.min.css" rel="stylesheet">
+<link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../css/build.css">
+<link href="../css/add.css" rel="stylesheet" media="screen">
+
+</head>
+<body class="bg_white">
+	<div class="padding_15">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="x_top  clearfix">
+					<h4>编辑防烟系统</h4>
+				</div>
+				<div class="x_content">
+					<from class="form-horizontal form_style" id="SmokePreventionSystem">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="form_content">
+							<h4 class="font_ioc_blue">
+								<strong><i class="fa fa-gear"></i>基本信息</strong>
+							</h4>
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<div class="item form-group has-feedback">
+										<label
+											class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">设置部位:
+										</label>
+										<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+											<input type="text" name="installingPositions"
+												placeholder="设置部位"
+												th:value="${object.data.installingPositions}"
+												class="form-control " value="value">
+										</div>
+									</div>
+
+									<div class="item form-group has-feedback">
+										<label
+											class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">责任部门:
+										</label>
+										<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+											<input class="form-control col-md-7 col-xs-12"
+												th:value="${object.data.responsibleDepartment}"
+												name="responsibleDepartment" placeholder="责任部门" type="text"
+												value="value">
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<div class="item form-group has-feedback">
+										<label
+											class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">系统状态:
+										</label>
+										<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+											<select class="form-control" name="systemState" value="1">
+												<option selected="true" disabled="true">-- 请选择状态 --</option>
+												<option value="1"
+													th:selected="${object.data.systemState}==1">无故障运行</option>
+												<option value="2"
+													th:selected="${object.data.systemState}==2">有故障运行</option>
+												<option value="3"
+													th:selected="${object.data.systemState}==3">有故障停用</option>
+												<option value="4"
+													th:selected="${object.data.systemState}==4">停用</option>
+												<option value="5"
+													th:selected="${object.data.systemState}==5">其他</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="item form-group has-feedback">
+										<label
+											class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">责任人:
+										</label>
+										<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+											<input class="form-control col-md-7 col-xs-12"
+												th:value="${object.data.personCharge}" name="personCharge"
+												placeholder="责任人" type="text" value="value">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form_content">
+							<h4 class="font_ioc_blue">
+								<strong><i class="fa fa-gear"></i>单位</strong>
+							</h4>
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<div class="item form-group has-feedback">
+										<label
+											class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">维修保养单位:
+										</label>
+										<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+											<input class="form-control col-md-7 col-xs-12"
+												th:value="${object.data.maintainingUnit}"
+												name="maintainingUnit" placeholder="维修保养单位" type="text"
+												value="value">
+										</div>
+									</div>
+
+									<div class="item form-group has-feedback">
+										<label
+											class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">设计单位:
+										</label>
+										<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+											<input class="form-control col-md-7 col-xs-12"
+												name="designUnit" th:value="${object.data.designUnit}"
+												placeholder="设计单位" type="text" value="value">
+										</div>
+									</div>
+
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<div class="item form-group has-feedback">
+										<label
+											class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">施工单位:
+										</label>
+										<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+											<input class="form-control col-md-7 col-xs-12 "
+												th:value="${object.data.constructionUnit}"
+												name="constructionUnit" placeholder="施工单位" type="text"
+												value="value">
+										</div>
+									</div>
+									<div class="item form-group has-feedback">
+										<label
+											class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">监理单位:
+										</label>
+										<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+											<input class="form-control col-md-7 col-xs-12"
+												th:value="${object.data.supervisingUnit}"
+												name="supervisingUnit" placeholder="监理单位" type="text"
+												value="value">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form_content">
+							<h4 class="font_ioc_blue">
+								<strong><i class="fa fa-gear"></i>其它</strong>
+							</h4>
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+									<div class="item form-group has-feedback">
+										<label
+											class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">是否设置消防标识:
+										</label>
+										<div class="col-lg-10  col-md-10 col-sm-10 col-xs-12">
+											<select class="form-control" name="doYouHaveFireSign"
+												value="value">
+												<option value="1"
+													th:selected="${object.data.doYouHaveFireSign}==1">是</option>
+												<option value="2"
+													th:selected="${object.data.doYouHaveFireSign}==2">否</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="item form-group has-feedback">
+										<label
+											class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">操作使用方法:
+										</label>
+										<div class="col-lg-10  col-md-10 col-sm-10 col-xs-12">
+											<textarea name="operationMethod"
+												th:text="${object.data.operationMethod}"
+												class="form-control col-md-7 col-xs-12" placeholder="操作使用方法">value</textarea>
+										</div>
+									</div>
+
+									<div class="item form-group has-feedback">
+										<label
+											class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">其它情况:
+										</label>
+										<div class="col-lg-10  col-md-10 col-sm-10 col-xs-12">
+											<textarea name="otherSituations"
+												th:text="${object.data.otherSituations}"
+												class="form-control col-md-7 col-xs-12" placeholder="其它情况">value</textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form_content">
+							<h4 class="font_ioc_blue">
+								<strong><i class="fa fa-gear"></i>数据</strong>
+							</h4>
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<div class="item form-group">
+										<label
+											class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">防烟设施类型:
+										</label>
+										<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+											<select class="form-control" name="smokeControlFacilitType">
+												<option value="1"
+													th:selected="${object.data.smokeControlFacilitType}==1">是</option>
+												<option value="2"
+													th:selected="${object.data.smokeControlFacilitType}==2">否</option>
+
+											</select>
+										</div>
+									</div>
+									<div class="item form-group">
+										<label
+											class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">风机数量:
+										</label>
+										<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+											<input type="text" name="draughtFanQuantity"
+												placeholder="风机数量"
+												th:value="${object.data.draughtFanQuantity}"
+												class="form-control " value="value"><span
+												class="font_unit">个</span>
+										</div>
+									</div>
+									<div class="item form-group">
+										<label
+											class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">风机类型:
+										</label>
+										<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+											<input type="text" name="draughtFanType" placeholder="风机类型"
+												th:value="${object.data.draughtFanType}"
+												class="form-control " value="value">
+										</div>
+									</div>
+									<div class="item form-group">
+										<label
+											class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">风机安装位置:
+										</label>
+										<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+											<input type="text" name="tuyereSettingPosition"
+												th:value="${object.data.tuyereSettingPosition}"
+												placeholder="风机安装位置" class="form-control " value="value">
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<div class="item form-group">
+										<label
+											class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">动作方式:
+										</label>
+										<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+											<div class="checkbox checkbox-inline">
+												<input type="checkbox" name="actionMethod" value="1" id="b1"><label
+													for="b1">联动控制</label>
+											</div>
+											<div class="checkbox checkbox-inline">
+												<input type="checkbox" name="actionMethod" value="2" id="b2"><label
+													for="b2">手动控制</label>
+											</div>
+											<div class="checkbox checkbox-inline">
+												<input type="checkbox" name="actionMethod" value="3" id="b3"><label
+													for="b3">消防控制室</label>
+											</div>
+										</div>
+									</div>
+									<div class="item form-group">
+										<label
+											class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">风机风量:
+										</label>
+										<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+											<input type="text" name="draughtFanBlastCapacity"
+												th:value="${object.data.draughtFanBlastCapacity}"
+												placeholder="风机风量" class="form-control " value="value"><span
+												class="font_unit">m/h</span>
+										</div>
+									</div>
+									<div class="item form-group">
+										<label
+											class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">风口设置部位:
+										</label>
+										<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+											<input type="text" name="tuyereSettingPart"
+												th:value="${object.data.tuyereSettingPart}"
+												placeholder="风口设置部位" class="form-control " value="value">
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-6 col-md-offset-3">
+								<button type="submit" class="btn btn-success">提交</button>
+								<button type="reset" class="btn btn-primary">重置</button>
+							</div>
+						</div>
+					</div>
+					</from>
+
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 弹出窗  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<!-- 表单验证 -->
+<script src="../js/bootstrapValidator.min.js"></script>
+<!--公用 -->
+<script src="../js/common.js"></script>
+<script src="../js/buildInfos/smokepreventionsystem_edit.js"
+	type="text/javascript"></script>
+<script th:inline="javascript" th:if="${object.data} !=null">
+ischecked("actionMethod",[[${object.data.actionMethod}]])
+</script>
+</html>

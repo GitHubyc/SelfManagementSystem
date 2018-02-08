@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/service/!svn/ver/1107/selfmanagementsystem/src/main/resources/templates/BuildInfos/FireSeparation
+END
+FireSeparation_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/service/!svn/ver/1107/selfmanagementsystem/src/main/resources/templates/BuildInfos/FireSeparation/FireSeparation_list.html
+END
+FireSeparation_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/service/!svn/ver/917/selfmanagementsystem/src/main/resources/templates/BuildInfos/FireSeparation/FireSeparation_details.html
+END
+FireSeparation_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/service/!svn/ver/917/selfmanagementsystem/src/main/resources/templates/BuildInfos/FireSeparation/FireSeparation_add.html
+END
+FireSeparation_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/service/!svn/ver/917/selfmanagementsystem/src/main/resources/templates/BuildInfos/FireSeparation/FireSeparation_edit.html
+END

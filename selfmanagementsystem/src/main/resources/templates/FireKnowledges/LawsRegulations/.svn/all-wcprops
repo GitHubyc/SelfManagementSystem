@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/service/!svn/ver/942/selfmanagementsystem/src/main/resources/templates/FireKnowledges/LawsRegulations
+END
+LawsRegulations_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/service/!svn/ver/942/selfmanagementsystem/src/main/resources/templates/FireKnowledges/LawsRegulations/LawsRegulations_list.html
+END
+LawsRegulations_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/resources/templates/FireKnowledges/LawsRegulations/LawsRegulations_edit.html
+END
+LawsRegulations_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/resources/templates/FireKnowledges/LawsRegulations/LawsRegulations_details.html
+END
+LawsRegulations_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/resources/templates/FireKnowledges/LawsRegulations/LawsRegulations_add.html
+END

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>单位列表</title>
+<!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+<link th:replace="fragments/configcss :: css" />
+<!-- 自定义样式 -->
+<link href="../css/list.css" rel="stylesheet" media="screen">
+
+</head>
+<body>
+	<div class="container">
+	<!-- 头部 -->
+	<div th:replace="fragments/header_archives :: header">头部</div>
+
+	<div class="content_x">
+		<!-- 左菜单 -->
+		<div th:replace="fragments/menu_archives :: menu">左菜单</div>
+
+			<!--右内容 -->
+
+			<div class="right_col">
+				<div class="right_top clearfix">
+					<form class="form-horizontal form_style" id="defaultForm">
+						<!--搜索条 -->
+						<div class="col-lg-5 col-md-8 col-sm-8 col-xs-7">
+							<input type="hidden" name="currentPage"
+								th:value="${object.currentPage}" value="1" /> <input
+								type="hidden" name="pageSize" value="12"
+								th:value="${object.pageSize}" />
+							<div class="input-group left_s">
+								<span class="input-group-btn">
+									<button type="button"
+										class="s_search_right btn btn-default form_left">
+										多条件 <span class="caret"></span>
+									</button>
+								</span> <i class="ioc_line"></i> <input type="text" class="form-input"
+									placeholder="输入你要查询的问题"> <span class="input-group-btn">
+									<button onclick="page(1)" class="s_search btn btn-blue btn-color ">
+										<i class="fa fa-search"></i>检索
+									</button>
+								</span>
+
+							</div>
+						</div>
+						<!--搜索条结束 -->
+						
+						<div class="clear"></div>
+						<div class="s_type clearfix">
+							<div class="form-horizontal">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+									<div class="row">
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+											<div class="item form-group">
+												<label
+													class="text-left col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">单位性质:
+												</label>
+												<div class=" col-lg-9 col-md-9 col-sm-9 col-xs-12">
+													<select class="form-select s_height" name="unitNature">
+														<option selected="selected" disabled="disabled">-- 请选择类型--</option>
+														<option value="1" th:selected="${paramMap.unitNature=='1'}">行政单位</option>
+														<option value="2" th:selected="${paramMap.unitNature=='2'}">事业单位</option>
+														<option value="3" th:selected="${paramMap.unitNature=='3'}">企业单位</option>
+														<option value="4" th:selected="${paramMap.unitNature=='4'}">物业管理处</option>
+
+													</select>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+											<div class="item form-group">
+												<label
+													class="text-left col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">单位类型:
+												</label>
+												<div class=" col-lg-9 col-md-9 col-sm-9 col-xs-12">
+													<select class="form-select s_height" name="unitType">
+														<option selected="selected" disabled="disabled">-- 请选择类型--</option>
+														<option value="1" th:selected="${paramMap.unitType=='1'}">一般单位</option>
+														<option value="2" th:selected="${paramMap.unitType=='2'}">重点单位</option>
+														<option value="3" th:selected="${paramMap.unitType=='3'}">三小场所</option>
+														<option value="4" th:selected="${paramMap.unitType=='4'}">工矿企业</option>
+
+													</select>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+											<div class="item form-group">
+												<label
+													class="text-left col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">隶属单位:
+												</label>
+												<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+													<input type="text" name="subordinateUnit"
+														placeholder="请输入隶属单位" class="form-control" th:value="${paramMap.subordinateUnit}">
+												</div>
+											</div>
+										</div>
+
+									</div>
+
+									<div class="item form-group">
+										<label
+											class="text-left col-lg-1 col-md-1 col-sm-1 col-xs-12 control-label">行政区域:
+										</label>
+										<div class=" col-lg-11 col-md-11 col-sm-11 col-xs-12">
+											<div id="city">
+												<select class="form-city inline" name="province"></select> <select
+													class="form-city inline" name="city"></select> <select
+													class="form-city inline" name="county"></select> <select
+													class="form-city inline" name="street"></select> <select
+													class="form-city inline" name="community"></select> <select
+													class="form-city inline" name="grid"></select>
+													<input name="xzqhCode" type="hidden" >
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</form>
+				</div>
+				<div class="padding_20">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<div class="s_panel text-left">
+								<!-- 内容标题 -->
+								<div class="x_top clearfix">
+									<div class="font-left">
+										<h5>单位信息列表</h5>
+									</div>
+									<div class="pull-right font_black">
+										<i class="fa fa-sign-in "></i><a href="#">导出</a>
+									</div>
+								</div>
+								<!-- 内容标题结束 -->
+								<div class="s_content">
+									<ul class="list_table">
+										<dl>
+											<table class="table table-hover text-center">
+												<thead>
+													<tr class="active">
+														<th>单位图片</th>
+														<th>单位简称</th>
+														<th>单位性质</th>
+														<th>单位类型</th>
+														<th>单位地址</th>
+														<th>三色预警</th>
+														<th>是否开通账号</th>
+														<th>操作</th>
+													</tr>
+												</thead>
+												<tbody
+													th:if="${object.data !=null  and object.data !='null' and  not #lists.isEmpty(object.data)}">
+													<tr th:each="unit : ${object.data}">
+														<td >
+														 	<img class="list_img" style="width: 70px"
+														th:src="${unit.unitImg}==null?'../img/noimage.png':${#strings.substring(unit.unitImg,0,#strings.length(unit.unitImg)-4)}+'_small'+${#strings.substring(unit.unitImg,#strings.length(unit.unitImg)-4,#strings.length(unit.unitImg))}">
+														 <img class="img_show"
+														 th:src="${unit.unitImg}==null?'../img/noimage.png':${unit.unitImg}"
+														width="100%" style="display: none;"> 
+													</td>
+														<td th:text="${unit.unitShort}">中京消安</td>
+														<td th:switch="${unit.unitNature}"><span th:case="1">行政单位</span>
+															<span th:case="2">事业单位</span> <span th:case="3">企业单位</span>
+															<span th:case="4">物业管理处</span></td>
+														<td th:switch="${unit.unitType}"><span th:case="1">一般单位</span>
+															<span th:case="2">重点单位</span> <span th:case="3">三小场所</span>
+															<span th:case="4">工矿企业</span></td>
+														<td th:text="${unit.unitAddress}">五和大道南星河world</td>
+														<td th:switch="${unit.threeColorWarning}"><span
+															th:case="1">红</span> <span th:case="2">黄</span> <span
+															th:case="3">绿</span></td>
+														<td th:switch="${unit.isOpenAccount}"><span
+															th:case="0">待开通</span> <span th:case="1">已开通</span> <span
+															th:case="2">已关闭</span></td>
+														<td>
+															<button
+																class="btn btn-yellow " type="button" th:onclick="'location.href=\'/settledUnit/details?unitCode='+${unit.unitCode}+'&&unitNature='+${unit.unitNature}+'\''">查看</button>
+														
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											<dl class="list_table"
+												th:if="${object.data == null or object.data =='null' or #lists.isEmpty(object.data)}">
+												<div class="null">暂无数据</div>
+											</dl>
+										</dl>
+									</ul>
+									<div
+										th:replace="fragments/page :: page('defaultForm','/unit/list')">分页</div>
+									<!-- <div class="col-sm-6">
+										<ul class="pagination">
+											<li><a href="#">首页</a></li>
+											<li class="disabled"><a href="#">上一页</a></li>
+											<li class="active "><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">4</a></li>
+											<li><a href="#">5</a></li>
+											<li><a href="#">6</a></li>
+											<li class="disabled"><a href="#">下一页</a></li>
+											<li><a href="#">尾页</a></li>
+										</ul> 
+										
+									</div>-->
+								</div>
+								<div class="s_content" th:if="${object.status} != 200">
+									<dl class="list_table">
+										<div class="null">你访问的资源不存在,请重新登录</div>
+									</dl>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+
+	</div>
+</body>
+<script th:replace="fragments/configjs :: js" type="text/javascript"></script>
+<!-- 本页js-->
+<script src="../js/UnitInfo/UnitInfo_list.js"></script>
+<script th:inline="javascript">
+$('#city').citys({
+	code:[[${xzqhCode}]],
+	required : false,
+});
+</script>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+     <!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+     <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+	<!-- 字体图标 -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+	 <!-- NProgress -->
+   <link href="../css/nprogress.css" rel="stylesheet"> 
+    <!-- 公共样式 -->
+	<link href="../css/general.css" rel="stylesheet" media="screen" >
+    <!-- 消息提示 -->
+    <link href="../css/toastr.min.css" rel="stylesheet">
+	<!-- 文本验证 -->
+    <link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+    <!-- 选框样式 -->
+	<link rel="stylesheet" type="text/css" href="../css/build.css">
+	<link href="../css/add.css" rel="stylesheet" media="screen" >
+    
+	
+</head>
+<body>
+	<!-- 头部 -->
+<div th:replace="fragments/header :: header">头部</div>
+
+	<div class="content_x">
+		<!-- 左菜单 -->
+		<div th:replace="fragments/menu :: menu">左菜单</div>
+
+		<!--右内容 -->
+ <div class="right_col">
+   <div class="padding_20">
+   <div class="row">
+  <div class="col-md-12">
+   <div class="x_panel">
+   <div class="x_top clearfix">
+  <div class="font-left" ><i class="fa fa-angle-left font_ioc_blue"></i><a th:href="@{/notice/list}">返回公告通知列表</a> </div>
+  
+   </div>
+
+   
+	   <div class="x_content " >
+	  				<div id="column1">
+    <div>
+     <blockquote>
+    <h3><strong>居民秋冬季节用火用电需谨慎</strong></h3>
+      <p><span>2014-04-08 14:08:31</span></p>
+      </blockquote>
+        <p style="text-indent: 24px;">10月27日凌晨2点10分左右，广东省中山市坦洲镇合胜村一位老奶奶用柴火为孙子熬汤时打瞌睡，飞出的柴火引燃了整个松皮棚，所幸未造成人员伤亡。同样的一幕发生在10天后，10月29日18时许，广东省中山市大涌镇大涌社区一民宅因户主出去买菜时没有关好正在煲汤的煤气炉引起火灾。</p>
+     
+        <p style="text-indent: 24px;">	    进入秋季以来，全国各地火灾时有发生。据广东省中山市消防部门统计，10月1日至30日，全市共发生各类大小火灾67起，其中立案火灾6起，主要场所为厂房、住宅和垃圾堆，起火原因以电线短路、电器故障和乱扔烟头等火种为主。秋、冬季历来是全年火灾多发季节。消防部门温馨提示，秋季防火要注意以下六点：</p>
+        <p style="margin-left: 30px; ">一、   电气线路和电器老化、长时间超负荷运行是引发火灾的主要原因。因此，应经常检查家中电气线路，发现线路老化问题，应及时更换；不要安装不符合规定的电器设备，不要用铝丝、铜丝或者铁丝代替保，不要乱拉乱接电线；在使用电暖炉、空调等大功率电器时，应分开插线，以免引起电线短路起火。此外，家用电器应摆放在防潮、防晒、通风处，周围不要存放易燃、易爆物品，各种插座应远离火源。</p></div>
+     <p style="margin-left: 30px; ">二、液化气灶具要注意平时的保养，经常检查炉灶、阀门、管道和钢瓶等是否存在泄漏的情况，定期请专人进行检修；不要使用不合格、不规范的液化气罐，或私自对液化气倒罐而导致气体泄漏。</p>
+ 
+    <p style="margin-left: 30px; ">三、不良习惯也容易引发火灾。不要躺在床上或沙发上吸烟，不要乱丢烟头和火柴梗，更不要将引燃的烟头随处乱放；煲汤做饭时要有人看守，离家或入睡前，必须将用电器具断电、关闭燃气开关，消除遗留火种；用电设备长期不使用时，应切断开关或拔下插销。</p>
+ 
+    <p style="margin-left: 30px; "> 四、教育小孩不要玩火、不随意摆弄电器设备，把打火机、火柴等放在小孩拿不到的地方。</p>
+ 
+     <p style="margin-left: 30px; ">五、家中的楼梯口、阳台等通道不要堆放杂物，注意及时清理，最好不要安装各种栅栏式封闭阳台和防盗窗，以免影响逃生。</p>
+ 
+    <p style="margin-left: 30px; ">六、家庭、办公场所可配备相应的灭火、救生设备，如灭火器、毛巾、手电筒、救生绳等，做到防患于未然。</p>
+
+</div>
+	  			 </div>
+  
+	</div>			 
+  </div>
+  </div>
+</div>
+  </div>
+	</div>
+	
+	
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+ <!-- 手机端-->
+<script src="../js/jquery.dcjqaccordion.2.7.js"></script>
+
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 滚动条-->
+<script src="../js/jquery.nicescroll.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 自定义  -->
+ <script src="../js/style.js"></script>
+<!-- 弹窗框  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<script src="../js/message.js"></script>
+<!-- 页面加载 -->
+<script src="../js/nprogress.js"></script> 
+<!-- 表单验证 -->
+<script src="../js/bootstrapValidator.min.js"></script>
+<script src="../js/Validator.js"></script>
+
+</html>

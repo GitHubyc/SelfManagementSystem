@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+<link href="../css/list.css" rel="stylesheet" media="screen">
+</head>
+<body>
+	<div class="row">
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+			<form id="form" onsubmit="return false">
+				<div class="input-group ">
+					<input name="buildCode" type="hidden"
+						th:value="${paramMap.buildCode}"> <input
+						class="form-input" placeholder="输入你要查询的问题" type="text" th:value="${paramMap.search}"
+						name="search"> <span class="input-group-btn">
+						<button class="s_search btn btn-blue btn-color" onclick="pageforload_page('form',1);">
+							<i class="fa fa-search"></i>检索
+						</button>
+					</span>
+				</div>
+			</form>
+		</div>
+		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+			<a href="JavaScript:void(0)" class="pull-right" onclick="getIframe('/entityresponsibility/add')"
+				th:each="right:${right}" th:if="${right.operateUrl == '/entityresponsibility/add'}"><v
+					class="fa fa-plus"></v>新增</a>
+		</div>
+
+		<div class="col-md-12 text-center margin_top_15">
+			<div class=" text-left">
+				<div class="s_content">
+					<ul class="list_table">
+						<dl>
+							<table class="table table-hover text-center">
+								<thead>
+									<tr class="active">
+										<th>责任人</th>
+										<th>责任类型</th>
+										<th>责任单位</th>
+										<th>手机号码</th>
+										<th>责任代表</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+								
+									<tr th:if="${object.data !=null  and object.data !='null' and  not #lists.isEmpty(object.data)}"  th:each="entityinfo,entityStat : ${object.data}" 
+										>
+										<td th:text="${entityinfo.responsibilityPerson}"></td>
+										<td
+											th:text="(${entityinfo.responsibilityType}=='1' ? '自然人 
+																':(${entityinfo.responsibilityType}=='2'?'法人
+																':'其他组织'))"></td>
+										<td th:text="${entityinfo.responsibilityUnit}"></td>
+										<td th:text="${entityinfo.contactNumber}">一级</td>
+										<td
+											th:text="${entityinfo.responsibilityRepresent}==0?'非责任代表':'是责任代表'"></td>
+										<td>
+											<span th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+											<button type="button" class="btn btn-yellow" th:onclick="'getIframe(\'/entityresponsibility/details?buildCode='+${paramMap.buildCode}+'&&responsibilityCode='+${entityinfo.responsibilityCode}+'\')'"
+												th:each="right:${right}" th:if="${right.operateUrl == '/entityresponsibility/details'}">查看</button>
+											<button type="button" class="btn btn-blue" th:onclick="'getIframe(\'/entityresponsibility/edit?buildCode='+${paramMap.buildCode}+'&&responsibilityCode='+${entityinfo.responsibilityCode}+'\')'"
+												th:each="right:${right}" th:if="${right.operateUrl == '/entityresponsibility/edit'}">编辑</button>
+											<button type="button" class="btn btn-red" th:onclick="'del(\'/entityresponsibility/del?buildCode='+${paramMap.buildCode}+'&&responsibilityCode='+${entityinfo.responsibilityCode}+'\')'"
+												th:each="right:${right}" th:if="${right.operateUrl == '/entityresponsibility/del'}">删除</button>
+										</td>
+									</tr>
+									<tr  th:if="${object.data}==null"><td colspan="6" align="center">
+									<div class="null" th:if="${object.data}==null">暂无数据</div></td></tr>
+								</tbody>
+							
+							</table>
+
+						</dl>
+					</ul>
+					<div
+						th:replace="fragments/pageforload :: pageforload (id='ok',form='form',url='/entityresponsibility/list')">分页</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+<script src="../js/buildInfos/entityResponsibility_list.js"></script>
+</html>

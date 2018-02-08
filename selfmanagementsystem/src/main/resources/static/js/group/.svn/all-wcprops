@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/service/!svn/ver/1209/selfmanagementsystem/src/main/resources/static/js/group
+END
+group_addrole.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/service/!svn/ver/1207/selfmanagementsystem/src/main/resources/static/js/group/group_addrole.js
+END
+group_edituser.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/service/!svn/ver/934/selfmanagementsystem/src/main/resources/static/js/group/group_edituser.js
+END
+group_details.js
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/service/!svn/ver/953/selfmanagementsystem/src/main/resources/static/js/group/group_details.js
+END
+group_add.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/service/!svn/ver/1209/selfmanagementsystem/src/main/resources/static/js/group/group_add.js
+END
+group_editrole.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/service/!svn/ver/934/selfmanagementsystem/src/main/resources/static/js/group/group_editrole.js
+END
+group_list.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/service/!svn/ver/1080/selfmanagementsystem/src/main/resources/static/js/group/group_list.js
+END
+group_right.js
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/service/!svn/ver/1207/selfmanagementsystem/src/main/resources/static/js/group/group_right.js
+END
+group_del.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/service/!svn/ver/724/selfmanagementsystem/src/main/resources/static/js/group/group_del.js
+END
+group_edit.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/service/!svn/ver/1209/selfmanagementsystem/src/main/resources/static/js/group/group_edit.js
+END

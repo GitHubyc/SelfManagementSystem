@@ -1,0 +1,103 @@
+10
+
+dir
+1257
+https://192.168.1.18/svn/service/selfmanagementsystem/src/main/resources/templates/BuildInfos
+https://192.168.1.18/svn/service
+
+
+
+2017-11-20T05:51:50.967008Z
+1204
+ljian
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+3d22ce50-eefa-af45-b0aa-27fdead9f67b
+
+AutomaticFireAlarmSystem
+dir
+
+Build
+dir
+
+Controlroomlinkagecontr
+dir
+
+EntityResponsibility
+dir
+
+Evacuationmarkslighting
+dir
+
+FireElevator
+dir
+
+FireExtinguisher
+dir
+
+FireFacilities
+dir
+
+FirePowerDistribution
+dir
+
+FireSeparation
+dir
+
+Firebroadcastingsystem
+dir
+
+FloorInfoorKeySite
+dir
+
+FoamExtinguishingSystem
+dir
+
+GasExtinguishingSystem
+dir
+
+HouseInfo
+dir
+
+IndoorFireWaterSystem
+dir
+
+KeySite
+dir
+
+OtherFacilities
+dir
+
+OtherSystem
+dir
+
+OutdoorFireWaterSystem
+dir
+
+PowderExtinguishingSystem
+dir
+
+SmokeExhaustSystem
+dir
+
+SmokePreventionSystem
+dir
+
+SprinklerSystem
+dir
+
+WaterMistSystem
+dir
+

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>用户列表</title>
+<!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!-- 字体图标 -->
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../css/nprogress.css" rel="stylesheet">
+<!-- toastr -->
+<link href="../css/toastr.min.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../css/general.css" rel="stylesheet" media="screen">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../css/build.css">
+<!-- 自定义样式 -->
+<link href="../css/list.css" rel="stylesheet" media="screen">
+</head>
+<body>
+	<div class="container">
+		<!-- 头部 -->
+		<div th:replace="fragments/header :: header">头部</div>
+		<div class="content_x">
+			<!-- 左菜单 -->
+			<div th:replace="fragments/menu :: menu">左菜单</div>
+			<!--右内容 -->
+
+			<div class="right_col">
+				<div class="right_top clearfix">
+				<form class="form-horizontal form_style" id="user_list_form">
+						<!--搜索条 -->
+						<div class="col-lg-5 col-md-8 col-sm-8 col-xs-7">
+							<input type="hidden" name="currentPage" th:value="${object.currentPage}" value="1" /> <input
+								type="hidden" name="pageSize" value="12" th:value="${object.pageSize}"/>
+							<div class="input-group left_s">
+								<span class="input-group-btn">
+									<button type="button"
+										class="s_search_right btn btn-default form_left">
+										多条件 <span class="caret"></span>
+									</button> </span> <i class="ioc_line"></i> <input type="text"
+									class="form-input" placeholder="输入你要查询的问题"> <span
+									class="input-group-btn">
+									<button onclick="page(1)" class="s_search btn btn-blue btn-color ">
+										<i class="fa fa-search"></i>检索
+									</button> </span>
+
+							</div>
+						</div>
+						<!--搜索条结束 -->
+						<div class="right col-lg-7 col-md-4 col-sm-4 col-xs-3" th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+							<a class="btn btn-blue btn-color pull-right" href="javascript:(0)" id="User_add"
+								th:each="right:${right}" th:if="${right.operateUrl == '/user/add'}">
+								<span>新增用户</span><i class="fa_icon fa-plus"></i>
+							</a>
+						</div>
+						<div class="clear"></div>
+						<div class="s_type clearfix">
+							<div class="form-horizontal">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div class="row">
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+											<div class="item form-group">
+												<label
+													class="text-left col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">用户类型:
+												</label>
+												<div class=" col-lg-9 col-md-9 col-sm-9 col-xs-12">
+													<select class="form-select s_height" name="userType">
+														<option selected="selected" disabled="disabled">-- 请选择类型--</option>
+														<option value="1" th:selected="${paramMap.userType=='1'}">单位用户</option>
+														<option value="2" th:selected="${paramMap.userType=='2'}">单位员工用户</option>
+														<option value="3" th:selected="${paramMap.userType=='3'}">建筑用户</option>
+													</select>
+												</div>
+											</div>
+											<div class="item form-group has-feedback">
+												<label
+													class="text-left  col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">性别:
+												</label>
+												<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+													<div class="radio radio-inline radio-primary">
+														<input type="radio" name="sex" value="1" id="unitNature1" th:checked="${paramMap.sex} == 1">
+														<label for="unitNature1"> 男 </label>
+													</div>
+													<div class="radio radio-inline radio-primary">
+														<input type="radio" name="sex" value="2" id="unitNature2" th:checked="${paramMap.sex} == 2">
+														<label for="unitNature2"> 女 </label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+											<div class="item form-group has-feedback">
+												<label
+													class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">用户ID:
+												</label>
+												<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+													<input class="form-control col-md-7 col-xs-12"
+														name="userId" placeholder="请输入用户ID" type="text" th:value="${paramMap.userId}" >
+												</div>
+											</div>
+											<div class="item form-group has-feedback">
+												<label
+													class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">用户名:
+												</label>
+												<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+													<input class="form-control col-md-7 col-xs-12" name="username"
+														placeholder="请输入用户名" type="text" th:value="${paramMap.username}" >
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+											<div class="item form-group has-feedback">
+												<label
+													class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">昵称:
+												</label>
+												<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+													<input class="form-control col-md-7 col-xs-12"
+														name="nickname" placeholder="请输入昵称" type="text" th:value="${paramMap.nickname}" >
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="padding_20">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<div class="s_panel text-left">
+								<!-- 内容标题 -->
+								<div class="x_top clearfix">
+									<div class="font-left">
+										<h5>用户信息列表</h5>
+									</div>
+									<div class="pull-right font_black">
+										<i class="fa fa-sign-in "></i><a href="#">导出</a>
+									</div>
+								</div>
+								<!-- 内容标题结束 -->
+								<div class="s_content">
+									<ul class="list_table">
+										<table class="table table-hover text-center">
+											<thead>
+												<tr class="active">
+													<th style="display:none">id</th>
+													<th>用户头像</th>
+													<th>用户名</th>
+													<th>昵称</th>
+													<th>邮箱</th>
+													<th>性别</th>
+													<th>电话</th>
+													<th>更新日期</th>
+													<th>最后登录</th>
+													<th>访问次数</th>
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody
+												th:if="${object.data !=null  and object.data !='null' and  not #lists.isEmpty(object.data)}">
+												<tr th:each="obj:${object.data}"
+													th:id="${obj.userId}">
+													<td style="display:none" th:text="${obj.userId}"></td>
+													<td>
+														<img class="list_icon" style="height:120px;width:90px;"
+														th:src="${obj.icon}==null?'../img/noimage.png':${#strings.substring(obj.icon,0,#strings.length(obj.icon)-4)}+'_small'+${#strings.substring(obj.icon,#strings.length(obj.icon)-4,#strings.length(obj.icon))}">
+														<img class="img_show"
+														th:src="${obj.icon}==null?'../img/noimage.png':${obj.icon}"
+														width="100%" style="display: none;">
+													</td>
+													<td th:if="${obj.username !='admin'}">
+														<a href="javascript:(0)" class="User_details"
+														th:text="${obj.username}" th:id="${obj.userId}"></a>
+													</td>
+													<td th:if="${obj.username =='admin'}" th:text="${obj.username}"></td>
+													<td th:text="${obj.nickname}"></td>
+													<td th:text="${obj.email}"></td>
+													<td th:switch="${obj.sex}"><span th:case="1">男</span>
+														<span th:case="2">女</span></td>
+													<td th:text="${obj.mobileTelephone}"></td>
+													<td th:text="--" th:if="${obj.updateDate == null or obj.updateDate =='null' or #lists.isEmpty(obj.updateDate)}"></td>
+													<td th:text="${obj.updateDate}" th:if="${obj.updateDate !=null  and obj.updateDate !='null' and  not #lists.isEmpty(obj.updateDate)}"></td>
+													<td th:text="--" th:if="${obj.lastTimeLoginDate == null or obj.lastTimeLoginDate =='null' or #lists.isEmpty(obj.lastTimeLoginDate)}"></td>
+													<td th:text="${obj.lastTimeLoginDate}" th:if="${obj.lastTimeLoginDate !=null  and obj.lastTimeLoginDate !='null' and  not #lists.isEmpty(obj.lastTimeLoginDate)}"></td>
+													<td th:text="${obj.logonCount}"></td>
+													<td>
+													<span th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+														<a class="fa fa-lg fa-pencil User_edit" href="JavaScript:void(0)" th:id="${obj.userId}" title="修改"
+															 th:each="right:${right}" th:if="${right.operateUrl == '/user/edit'} and ${obj.username !='admin'}"></a> 
+														<a class="fa fa-lg fa-times User_del" href="JavaScript:void(0)" th:id="${obj.userId}" title="删除"
+															 th:each="right:${right}" th:if="${right.operateUrl == '/user/del'} and ${obj.username !='admin'}"></a>
+														<a class="fa fa-lg fa-lock User_right" href="javascript:(0)" th:id="${obj.userId}" title="权限信息"
+															 th:each="right:${right}" th:if="${right.operateUrl == '/user/right'}"></a>
+														<a class="fa fa-lg fa-pencil User_group" href="javascript:(0)" th:id="${obj.userId}" title="组信息"
+															 th:each="right:${right}" th:if="${right.operateUrl == '/user/group'}"></a>
+														<a class="fa fa-lg fa-pencil User_role" href="javascript:(0)" th:id="${obj.userId}" title="角色信息"
+															 th:each="right:${right}" th:if="${right.operateUrl == '/user/role'}"></a>
+														</span>
+														</td>
+												</tr>
+											</tbody>
+										</table>
+										<dl class="list_table"
+											th:if="${object.data == null or object.data =='null' or #lists.isEmpty(object.data)}">
+											<div class="null">暂无数据</div>
+										</dl>
+									</ul>
+									<div th:replace="fragments/page :: page('user_list_form','/user/list')">分页</div>
+								</div>
+								<div class="s_content" th:if="${object.status} != 200">
+									<dl class="list_table">
+										<div class="null">你访问的资源不存在,请重新登录</div>
+									</dl>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+
+	</div>
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- 手机端-->
+<script src="../js/jquery.dcjqaccordion.2.7.js"></script>
+
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 滚动条-->
+<script src="../js/jquery.nicescroll.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 自定义  -->
+<script src="../js/menu.js"></script>
+<!-- 弹窗框  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<script src="../js/message.js"></script>
+<!-- 页面加载 -->
+<script src="../js/nprogress.js"></script>
+<!-- 城市联动-->
+<script src="../js/jquery.citys.js"></script>
+<!-- 搜索栏-->
+<script src="../js/common.js"></script>
+<script src="../js/right.js"></script>
+<!-- table -->
+<script src="../js/bootstrap-table.js"></script>
+<script src="../js/user/user_list.js"></script>
+</html>

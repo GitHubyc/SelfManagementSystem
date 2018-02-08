@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/service/!svn/ver/1204/selfmanagementsystem/src/main/resources/templates/BuildInfos/Build
+END
+BuildInfo_Info.html
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/service/!svn/ver/1203/selfmanagementsystem/src/main/resources/templates/BuildInfos/Build/BuildInfo_Info.html
+END
+BuildInfo_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/service/!svn/ver/1203/selfmanagementsystem/src/main/resources/templates/BuildInfos/Build/BuildInfo_list.html
+END
+BuildInfo_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/service/!svn/ver/1068/selfmanagementsystem/src/main/resources/templates/BuildInfos/Build/BuildInfo_details.html
+END
+BuildInfo_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/service/!svn/ver/1204/selfmanagementsystem/src/main/resources/templates/BuildInfos/Build/BuildInfo_add.html
+END
+BuildInfo_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/service/!svn/ver/1203/selfmanagementsystem/src/main/resources/templates/BuildInfos/Build/BuildInfo_edit.html
+END

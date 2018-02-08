@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>员工信息</title>
+<!--[if IE 7]>
+<link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+<![endif]-->
+<!-- Bootstrap -->
+<link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+<!-- 字体图标 -->
+<link href="../../../../css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../../../../css/nprogress.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../../../../css/general.css" rel="stylesheet" media="screen">
+<!-- 消息提示 -->
+<link href="../../../../css/toastr.min.css" rel="stylesheet">
+<!-- 文本验证 -->
+<link href="../../../../css/bootstrapValidator.min.css" rel="stylesheet">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../../../../css/build.css">
+<link href="../../../../css/add.css" rel="stylesheet" media="screen">
+</head>
+<body class="bg_white">
+	<div class="padding_15">
+		<div class="row">
+			<div class="col-md-12">
+						<h4>修改部门</h4><hr/>
+					<div class="x_content">
+						<form class="form-horizontal" id="UnitDepartment_edit">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:each="data:${object.data}">
+								<div class="form_content">
+									<h4 class="font_ioc_blue">
+										<strong><i class="fa fa-gear"></i>修改单位部门信息</strong>
+									</h4>
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											<div class="item form-group">
+												<label
+													class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label"><span
+													class="required">*</span>部门名: </label>
+												<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+													<input class="form-control" name="departmentName" th:value="${data.departmentName}"
+														type="text">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-6 col-md-offset-3">
+										<button id="send" type="submit" class="btn btn-success">提交</button>
+										<button type="reset" class="btn btn-primary">重置</button>
+									</div>
+								</div>
+								<input name="unitCode" type="text" th:value="${unitCode}" style="visibility:hidden">
+								<input name="departmentCode" type="text" th:value="${departmentCode}" style="visibility:hidden">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+<!-- jQuery -->
+<script src="../../../../js/jquery-1.11.1.min.js"></script>
+<!-- 手机端-->
+<script src="../../../../js/jquery.dcjqaccordion.2.7.js"></script>
+<!-- Bootstrap -->
+<script src="../../../../js/bootstrap.min.js"></script>
+<!-- 滚动条-->
+<script src="../../../../js/jquery.nicescroll.js"></script>
+<script src="../../../../js/jquery.scrollTo.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../../../../js/toastr.js"></script>
+<!-- 自定义  -->
+<script src="../../../../js/style.js"></script>
+<!-- 页面加载 -->
+<script src="../../../../js/nprogress.js"></script>
+<!-- 表单验证 -->
+<script src="../../../../js/bootstrapValidator.min.js"></script>
+<script src="../../../../js/UnitInfo/UnitEmployee/UntiDepartment_edit.js"></script>
+</html>

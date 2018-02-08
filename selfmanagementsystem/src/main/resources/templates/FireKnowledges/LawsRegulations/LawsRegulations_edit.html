@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+     <!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+     <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+	<!-- 字体图标 -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+	 <!-- NProgress -->
+   <link href="../css/nprogress.css" rel="stylesheet"> 
+    <!-- 公共样式 -->
+	<link href="../css/general.css" rel="stylesheet" media="screen" >
+    <!-- 消息提示 -->
+    <link href="../css/toastr.min.css" rel="stylesheet">
+	<!-- 文本验证 -->
+    <link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+    <!-- 选框样式 -->
+	<link rel="stylesheet" type="text/css" href="../css/build.css">
+	<link href="../css/add.css" rel="stylesheet" media="screen" >
+    
+	
+</head>
+<body>
+	<!-- 头部 -->
+<div th:replace="fragments/header :: header">头部</div>
+
+	<div class="content_x">
+		<!-- 左菜单 -->
+		<div th:replace="fragments/menu :: menu">左菜单</div>
+
+		<!--右内容 -->
+ <div class="right_col">
+   <div class="padding_20">
+   <div class="row">
+  <div class="col-md-12">
+   <div class="x_panel">
+   <div class="x_top clearfix">
+  <div class="font-left" ><i class="fa fa-angle-left font_ioc_blue"></i><a th:href="@{/lawsregulations/list}">返回法律法规列表</a> </div>
+  
+   </div>
+  <div class="x_top x_top1 clearfix" >
+<h4>编辑文章</h4>
+   </div>
+   
+	   <div class="x_content " >
+	  				<form class="form-horizontal" id="BuildInfo" method="post">
+                  
+					<div class="form_content">
+					<h4 class="font_ioc_blue"><strong><i class="fa fa-gear"></i>填写内容</strong></h4>
+					
+					      <div class="row">
+					        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <div class="item form-group">
+                        <label class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label" >标题:
+                        </label>
+                        <div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+                          <input class="form-control" name="plcBuildCode" placeholder="请输入规土委建筑编号"
+                                 type="text">
+                        </div>
+                      </div>
+                      
+                      
+                      
+                             
+					</div>
+					  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	  <div class="item form-group">
+                        <label class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label" >发布对象:
+                        </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <select class="form-control" name="propertyRightAndUse">
+                              <option    selected="true" disabled="true" >-- 请选择类型 --</option>
+                              <option value="1">独家产权，独立使用</option>
+                              <option value="2">独立产权，多家使用</option>
+                              <option value="3">多家产权、多家使用</option>
+                          </select>
+                        </div>
+                      </div>
+       	 
+                             
+					  </div>
+					   </div>
+					  
+					  
+                            
+                          <div class="item form-group">
+                     
+                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <script id="editor" type="text/plain" style="height:500px;"></script>
+                        </div>
+                      </div>  
+                         </div> 
+					
+				
+                      <div class="form-group">
+                       <div class="col-md-12 text-center">
+                               <button id="send" type="submit" class="btn btn-success">提交</button>
+                          <button type="submit" class="btn btn-primary">重置</button>
+                        </div>
+                        </div>
+                    
+					
+                    </form>
+	  				
+	  			 </div>
+  
+	</div>			 
+  </div>
+  </div>
+</div>
+  </div>
+	</div>
+	
+	
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+ <!-- 手机端-->
+<script src="../js/jquery.dcjqaccordion.2.7.js"></script>
+
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 滚动条-->
+<script src="../js/jquery.nicescroll.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 自定义  -->
+ <script src="../js/style.js"></script>
+<!-- 弹窗框  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<script src="../js/message.js"></script>
+<!-- 页面加载 -->
+<script src="../js/nprogress.js"></script> 
+<!-- 表单验证 -->
+<script src="../js/bootstrapValidator.min.js"></script>
+<script src="../js/Validator.js"></script>
+<!-- 编辑器-->
+ <script type="text/javascript" charset="utf-8" src="../ueditor/ueditor.config.js"></script>
+ <script type="text/javascript" charset="utf-8" src="../ueditor/ueditor.all.min.js"> </script>
+ <script type="text/javascript" charset="utf-8" src="../ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+var ue = UE.getEditor('editor');
+</script>
+</html>

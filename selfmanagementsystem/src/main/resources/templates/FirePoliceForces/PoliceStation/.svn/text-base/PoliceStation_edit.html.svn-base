@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>系统信息</title>
+        <!--[if IE 7]>
+    <link href="../css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+     <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+	<!-- 字体图标 -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+	 <!-- NProgress -->
+   <link href="../css/nprogress.css" rel="stylesheet">
+    <!-- 公共样式 -->
+	<link href="../css/general.css" rel="stylesheet" media="screen" >
+    <!-- toastr -->
+    <link href="../css/toastr.min.css" rel="stylesheet">
+    <link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+	<!-- 选框样式 -->
+	<link rel="stylesheet" type="text/css" href="../css/build.css">
+	<link href="../css/add.css" rel="stylesheet" media="screen" >
+	
+</head>
+<body class="bg_white">
+  <div class="padding_15">
+   <div class="row">
+  <div class="col-md-12">
+  <div class="x_panel">
+    <div class="x_top x_top1 clearfix" >
+<h4>修改派出所基本信息</h4>
+   </div>
+   
+	   <div class="x_content" >
+	   	<form class="form-horizontal form_style" id="" method="post">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+			<div class="form_content">
+				<h4 class="font_ioc_blue">
+					<strong><i class="fa fa-gear"></i>派出所基本信息</strong>
+				</h4>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="item form-group">
+							<label
+								class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">所属区域:
+							</label>
+
+							<div id="city" class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+								<select class="form-city inline" name="province"></select><select
+									class="form-city inline" name="city"></select><select
+									class="form-city inline" name="county"></select><select
+									class="form-city inline" name="street"></select><select
+									class="form-city inline" name="community"></select><select
+									class="form-city inline" name="grid"></select>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+
+						<div class="item form-group has-feedback">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">派出所名称:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12" name="systemName"
+									value="五河飞虎队" type="text">
+							</div>
+						</div>
+						<div class="item form-group has-feedback">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">所长名称:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12" name="systemName"
+									value="王仕飞" type="text">
+							</div>
+						</div>
+
+
+						<div class="item form-group has-feedback">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">分管副所长名称:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12" name="systemName"
+									value="王仕飞" type="text">
+							</div>
+						</div>
+
+
+					</div>
+
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="item form-group has-feedback">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">派出所地址:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12" name="systemName"
+									value="五和大道44号" type="text">
+							</div>
+						</div>
+						<div class="item form-group has-feedback">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">所长电话:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12" name="systemName"
+									value="15544244244" type="text">
+							</div>
+						</div>
+						<div class="item form-group has-feedback">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">分管副所长电话:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12" name="systemName"
+									value="15544244244" type="text">
+							</div>
+						</div>
+
+					</div>
+
+					
+				</div>
+
+
+
+			</div>
+
+			<div class="form-group">
+				<div class="col-md-6 col-md-offset-3">
+					<button type="submit" class="btn btn-success">提交</button>
+					<button type="submit" class="btn btn-primary">重置</button>
+				</div>
+			</div>
+		</div>
+
+	</form>
+
+	    </div>
+
+	  
+	</div>			 
+  </div>
+  </div>
+</div>
+
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+ <!-- 手机端-->
+<script src="../js/jquery.dcjqaccordion.2.7.js"></script>
+
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 滚动条-->
+<script src="../js/jquery.nicescroll.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 自定义  -->
+ <script src="../js/style.js"></script>
+<!-- 页面加载 -->
+<script src="../js/nprogress.js"></script> 
+<!-- 表单验证 -->
+<script src="../js/bootstrapValidator.min.js"></script>
+<script src="../js/Validator.js"></script>
+<!-- 城市联动-->
+<script src="../js/jquery.citys.js"></script>
+<script type="text/javascript">
+$('#city').citys({  required:false,nodata:'disabled'});
+</script>
+</html>

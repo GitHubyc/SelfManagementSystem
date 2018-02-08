@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+   <link th:replace="fragments/configcss :: css" />
+	
+</head>
+<body class="bg_white">
+<div class="padding_15">
+   <div class="row">
+  <div class="col-md-12">
+   <div class="x_panel">
+  
+    <div class="x_top x_top1 clearfix" >
+<h4>编辑房屋信息</h4>
+   </div>
+	   <div class="x_content" >
+	  		  			<form class="form-horizontal form_style" id="HouseInfo" method="post">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="${object.data} != null">
+					<div class="form_content" >
+					<h4 class="font_ioc_blue"><strong><i class="fa fa-gear"></i>填写信息</strong></h4>
+							  <div class="item form-group">
+                                 <label class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label" >房屋号:
+                                 </label>
+                                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                     <input  class="form-control" th:value="${object.data.houseNo}" 
+                                             name="houseNo" placeholder="请输入房屋号"
+                                 type="text">
+                                 </div>
+                             </div>
+                                         
+                               <div class="item form-group">
+                                 <label class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">房屋使用现状:
+                                 </label>
+                                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                     <select class="form-control" name="houseUseStatus">
+                              <option    selected="selected" disabled="disabled">-- 请选择类型 --</option>
+                              <option value="1" th:selected="${object.data.houseUseStatus}==1">单位</option>
+                              <option value="2" th:selected="${object.data.houseUseStatus}==2">居住</option>
+                              <option value="3" th:selected="${object.data.houseUseStatus}==3">其他</option>
+                             
+                          </select>
+                                 </div>
+                             </div>   
+                                      
+                             <div class="item form-group">
+                                 <label class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label" >房屋使用其它现状:
+                                 </label>
+                                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                     <input  class="form-control" th:value="${object.data.houseUseOtherStatus}"    name="houseUseOtherStatus" placeholder="请输入F地上楼层、B地下楼层"
+                                 type="text">
+                                 </div>
+                             </div>
+
+							
+							  <div class="item form-group">
+                                 <label class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label" >备注:
+                                 </label>
+                                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                     <textarea  name="remark" class="form-control" th:text="${object.data.remark}"></textarea>
+                                 </div>
+                             </div>					
+                          </div>
+                             <div class="form-group">
+                                 <div class="col-md-6 col-md-offset-3">
+                                 <button  type="submit" class="btn btn-success">提交</button>
+                                     <button type="reset" class="btn btn-primary">重置</button>
+                                     
+                                 </div>
+                             </div>
+                         </div>
+                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="${object.data} == null">暂无数据</div>
+                    </form>
+	   
+
+	  	</div>	  
+	</div>			 
+  </div>
+  </div>
+</div>
+</body>
+ <!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 弹出窗  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<!-- 表单验证 -->
+<script src="../js/bootstrapValidator.min.js"></script>
+<script src="../js/buildInfos/house_edit.js"></script>
+<script src="../js/common.js"></script>
+
+</html>

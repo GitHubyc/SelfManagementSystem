@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<title>组列表</title>
+<!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!-- 字体图标 -->
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../css/nprogress.css" rel="stylesheet">
+<!-- toastr -->
+<link href="../css/toastr.min.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../css/general.css" rel="stylesheet" media="screen">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../css/build.css">
+<!-- 自定义样式 -->
+<link href="../css/list.css" rel="stylesheet" media="screen">
+
+</head>
+<body>
+	<div class="container">
+		<!-- 头部 -->
+		<div th:replace="fragments/header :: header">头部</div>
+		<div class="content_x">
+			<!-- 左菜单 -->
+			<div th:replace="fragments/menu :: menu">左菜单</div>
+			<!--右内容 -->
+
+			<div class="right_col">
+				<div class="right_top clearfix">
+					<form class="form-horizontal form_style" id="group_list_form">
+						<!--搜索条 -->
+						<div class="col-lg-5 col-md-8 col-sm-8 col-xs-7">
+							<input type="hidden" name="currentPage" value="1" /> <input
+								type="hidden" name="pageSize" value="12" />
+							<div class="input-group left_s">
+								<span class="input-group-btn">
+									<button type="button"
+										class="s_search_right btn btn-default btn-default form_left">
+										多条件 <span class="caret"></span>
+									</button> </span> <i class="ioc_line"></i> <input type="text"
+									class="form-input" placeholder="输入你要查询的问题"> <span
+									class="input-group-btn">
+									<button type="submit" class="s_search btn btn-blue btn-color ">
+										<i class="fa fa-search"></i>检索
+									</button> </span>
+
+							</div>
+						</div>
+						<!--搜索条结束 -->
+						<div class="right col-lg-7 col-md-4 col-sm-4 col-xs-3">
+							<a class="btn btn-blue btn-color pull-right" href="javascript:(0)" id="Group_add"
+								th:each="right:${right}" th:if="${right.operateUrl == '/group/add'}">
+								<span>新增组</span><i class="fa_icon fa-plus"></i></a>
+						</div>
+						<div class="clear"></div>
+						<div class="s_type clearfix">
+							<div class="form-horizontal">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div class="row">
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+											<div class="item form-group has-feedback">
+												<label
+													class="text-left  col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">创建日期:
+												</label>
+												<div class="col-lg-9  col-md-9 col-sm-9 col-xs-12">
+													<div class="input-group date">
+														<input class="form-control" name="createdDate" th:value="${paramMap.createdDate}" type="text" placeholder="请输入创建日期">
+														<span class="input-group-addon"> <span
+															class="glyphicon glyphicon-calendar"></span> </span>
+													</div>
+												</div>
+											</div>
+											<div class="item form-group has-feedback">
+												<label
+													class="text-left  col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">更新日期:
+												</label>
+												<div class="col-lg-9  col-md-9 col-sm-9 col-xs-12">
+													<div class="input-group date">
+														<input class="form-control" name="updateDate" th:value="${paramMap.updateDate}" type="text" placeholder="请输入更新日期">
+														<span class="input-group-addon"> <span
+															class="glyphicon glyphicon-calendar"></span> </span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+											<div class="item form-group has-feedback">
+												<label
+													class="text-left  col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">组ID:
+												</label>
+												<div class="col-lg-9  col-md-9 col-sm-9 col-xs-12">
+													<input class="form-control col-md-7 col-xs-12"
+														name="groupId" th:value="${paramMap.groupId}" placeholder="组ID" type="text">
+												</div>
+											</div>
+											<div class="item form-group has-feedback">
+												<label
+													class="text-left  col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">父组:
+												</label>
+												<div class="col-lg-9  col-md-9 col-sm-9 col-xs-12">
+													<select class="form-control" name="parentId">
+															<option disabled="disabled" selected="selected">-- 请选择父组--</option>
+														<div th:each="role:${allobject.data}">
+															<option th:value="${role.groupId}" th:text="${role.groupName}" th:selected="${paramMap.parentId} == ${role.groupId}"></option>
+														</div>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+											<div class="item form-group">
+												<label
+													class="text-left col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">组名:
+												</label>
+												<div class=" col-lg-9 col-md-9 col-sm-9 col-xs-12">
+													<input type="text" name="groupName" th:value="${paramMap.groupName}" placeholder="请输入名称"
+														class="form-control">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+											<div class="item form-group has-feedback">
+												<label
+													class="text-left  col-lg-1 col-md-1 col-sm-1 col-xs-12 control-label">组描述:
+												</label>
+												<div class="col-lg-11  col-md-11 col-sm-11 col-xs-12">
+													<textarea name="groupDescribe" th:text="${paramMap.groupDescribe}"
+														class="form-control col-md-7 col-xs-12" placeholder="请输入组描述"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="padding_20">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<div class="s_panel text-left">
+								<!-- 内容标题 -->
+								<div class="x_top clearfix">
+									<div class="font-left">
+										<h5>组信息列表</h5>
+									</div>
+									<div class="pull-right font_black">
+										<i class="fa fa-sign-in "></i><a href="#">导出</a>
+									</div>
+								</div>
+								<!-- 内容标题结束 -->
+								<div class="s_content">
+									<ul class="list_table">
+										<table class="table table-hover text-center">
+											<thead>
+												<tr class="active">
+													<th style="display:none">id</th>
+													<th>组名称</th>
+													<th>创建日期</th>
+													<th>更新日期</th>
+													<th>父组</th>
+													<th>组描述</th>
+													<th style="width:30%">操作</th>
+												</tr>
+											</thead>
+											<tbody
+												th:if="${object.data !=null  and object.data !='null' and  not #lists.isEmpty(object.data)}">
+												<tr th:each="group:${object.data}" th:id="${group.groupId}">
+													<td style="display:none" th:text="${group.groupId}"></td>
+													<td><a href="javascript:(0)" class="Group_details"
+														th:text="${group.groupName}" th:id="${group.groupId}"></a>
+													</td>
+													<td th:text="${group.createdDate}"></td>
+													<td th:text="--" th:if="${group.updateDate == null or group.updateDate =='null' or #lists.isEmpty(group.updateDate)}"></td>
+													<td th:text="${group.updateDate}" th:if="${group.updateDate !=null  and group.updateDate !='null' and  not #lists.isEmpty(group.updateDate)}"></td>
+													<td th:text="无父组" th:if="${group.parentId =='0'}"></td>
+													<span th:each="allgroup:${allobject.data}">
+														<td type="text" th:text="${allgroup.groupName}" th:if="${allgroup.groupId} == ${group.parentId}">
+														</td>
+													</span>
+													<td th:text="${group.groupDescribe}"></td>
+													<td class="text-center">
+														<span th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+														<a href="javascript:(0)" class="fa fa-lg fa-pencil Group_edit" th:id="${group.groupId}" title="修改"
+															th:each="right:${right}" th:if="${right.operateUrl == '/group/edit'}"></a> 
+														<a href="javascript:(0)" class="fa fa-lg fa-times Group_del" th:id="${group.groupId}" title="删除"
+															th:each="right:${right}" th:if="${right.operateUrl == '/group/del'}"></a> 
+														<a href="javascript:(0)" class="fa fa-lg fa-lock Group_right" th:id="${group.groupId}" title="权限信息"
+															th:each="right:${right}" th:if="${right.operateUrl == '/group/right'}"></a> 
+														<a href="javascript:(0)" th:onclick="'location.href=\'/group/user?groupId='+${group.groupId}+'\''" class="fa fa-lg fa-users" title="用户信息"
+															th:each="right:${right}" th:if="${right.menuUrl == '/group/user'}"></a> 
+														<a href="javascript:(0)" th:onclick="'location.href=\'/group/role?groupId='+${group.groupId}+'\''" class="fa fa-lg fa-user" title="角色信息"
+															th:each="right:${right}" th:if="${right.menuUrl == '/group/role'}"></a> 
+														</span>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<dl class="list_table"
+											th:if="${object.data == null or object.data =='null' or #lists.isEmpty(object.data)}">
+											<div class="null">暂无数据</div>
+										</dl>
+									</ul>
+									<div
+										th:replace="fragments/page :: page('group_list_form','/group/list')">分页</div>
+								</div>
+								<div class="s_content" th:if="${object.status} != 200">
+									<dl class="list_table">
+										<div class="null">你访问的资源不存在,请重新登录</div>
+									</dl>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- 手机端-->
+<script src="../js/jquery.dcjqaccordion.2.7.js"></script>
+
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 滚动条-->
+<script src="../js/jquery.nicescroll.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 自定义  -->
+<script src="../js/menu.js"></script>
+<!-- 弹窗框  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<script src="../js/message.js"></script>
+<!-- 页面加载 -->
+<script src="../js/nprogress.js"></script>
+<!-- 城市联动-->
+<script src="../js/jquery.citys.js"></script>
+<!-- 搜索栏-->
+<script src="../js/common.js"></script>
+<script src="../js/right.js"></script>
+<script src="../js/group/group_list.js"></script>
+</html>

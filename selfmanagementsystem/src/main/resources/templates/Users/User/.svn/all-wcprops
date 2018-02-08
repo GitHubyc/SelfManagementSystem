@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/service/!svn/ver/1204/selfmanagementsystem/src/main/resources/templates/Users/User
+END
+User_unit.html
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/service/!svn/ver/995/selfmanagementsystem/src/main/resources/templates/Users/User/User_unit.html
+END
+User_right.html
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/service/!svn/ver/978/selfmanagementsystem/src/main/resources/templates/Users/User/User_right.html
+END
+User_employee.html
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/service/!svn/ver/1169/selfmanagementsystem/src/main/resources/templates/Users/User/User_employee.html
+END
+User_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/service/!svn/ver/1120/selfmanagementsystem/src/main/resources/templates/Users/User/User_list.html
+END
+User_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/service/!svn/ver/1048/selfmanagementsystem/src/main/resources/templates/Users/User/User_details.html
+END
+User_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/service/!svn/ver/1204/selfmanagementsystem/src/main/resources/templates/Users/User/User_edit.html
+END
+User_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/service/!svn/ver/1204/selfmanagementsystem/src/main/resources/templates/Users/User/User_add.html
+END
+User_group.html
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/service/!svn/ver/853/selfmanagementsystem/src/main/resources/templates/Users/User/User_group.html
+END
+User_build.html
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/service/!svn/ver/1174/selfmanagementsystem/src/main/resources/templates/Users/User/User_build.html
+END
+User_role.html
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/service/!svn/ver/853/selfmanagementsystem/src/main/resources/templates/Users/User/User_role.html
+END

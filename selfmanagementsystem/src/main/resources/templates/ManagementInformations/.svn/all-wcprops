@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/service/!svn/ver/1205/selfmanagementsystem/src/main/resources/templates/ManagementInformations
+END
+ManagementInformation_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/service/!svn/ver/1203/selfmanagementsystem/src/main/resources/templates/ManagementInformations/ManagementInformation_list.html
+END
+ManagementInformation_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/service/!svn/ver/1205/selfmanagementsystem/src/main/resources/templates/ManagementInformations/ManagementInformation_edit.html
+END
+ManagementInformation_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/service/!svn/ver/1165/selfmanagementsystem/src/main/resources/templates/ManagementInformations/ManagementInformation_details.html
+END
+ManagementInformation_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/service/!svn/ver/1205/selfmanagementsystem/src/main/resources/templates/ManagementInformations/ManagementInformation_add.html
+END

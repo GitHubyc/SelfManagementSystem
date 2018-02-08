@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+<meta charset="UTF-8"></meta>
+</head>
+<body>
+	<header th:fragment="Administrative_add">
+	<h4 class="font_ioc_blue">
+		<strong><i class="fa fa-gear"></i>填写行政单位</strong>
+	</h4>
+	<form class="form-horizontal" id="admin_form" onsubmit="return false;">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<div class="item form-group">
+					<label
+						class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label"><span
+						class="required">*</span>行政代码: </label>
+					<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+						<input class="form-control" name="administrativeCode"
+							placeholder="请输入行政代码" type="text">
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<div class="item form-group">
+					<label
+						class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">管辖面积:
+					</label>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<input type="text" name="area" placeholder="请输入管辖面积"
+							class="form-control">
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+
+
+		<div class="item form-group">
+			<label
+				class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">管辖地图:
+			</label>
+			<div class=" col-lg-10 col-md-10 col-sm-10 col-xs-12">
+				<input class="form-control" name="map" placeholder="请输入管辖地图"
+					type="text">
+			</div>
+		</div>
+
+		<div class="item form-group">
+			<label
+				class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">下辖机构:
+			</label>
+			<div class=" col-lg-10 col-md-10 col-sm-10 col-xs-12">
+				<div id="administerInstitution">
+					<input name="administerInstitution" type="hidden" value="44030400500801">
+					<select class="form-city inline" name="province"></select> <select
+						class="form-city inline" name="city"></select> <select
+						class="form-city inline" name="county"></select> <select
+						class="form-city inline" name="street"></select> <select
+						class="form-city inline" name="community"></select> <select
+						class="form-city inline" name="grid"></select>
+
+				</div>
+			</div>
+		</div>
+	</form>
+</header>
+</body>
+
+</html>

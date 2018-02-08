@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/service/!svn/ver/1207/selfmanagementsystem/src/main/resources/templates/Users/Role
+END
+Role_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/service/!svn/ver/954/selfmanagementsystem/src/main/resources/templates/Users/Role/Role_details.html
+END
+Role_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/service/!svn/ver/1207/selfmanagementsystem/src/main/resources/templates/Users/Role/Role_add.html
+END
+Role_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/service/!svn/ver/1080/selfmanagementsystem/src/main/resources/templates/Users/Role/Role_list.html
+END
+Role_right.html
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/service/!svn/ver/978/selfmanagementsystem/src/main/resources/templates/Users/Role/Role_right.html
+END
+Role_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/service/!svn/ver/954/selfmanagementsystem/src/main/resources/templates/Users/Role/Role_edit.html
+END

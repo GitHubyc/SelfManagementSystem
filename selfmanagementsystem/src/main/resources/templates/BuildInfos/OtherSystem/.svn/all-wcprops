@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/service/!svn/ver/1107/selfmanagementsystem/src/main/resources/templates/BuildInfos/OtherSystem
+END
+OtherSystem_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/service/!svn/ver/917/selfmanagementsystem/src/main/resources/templates/BuildInfos/OtherSystem/OtherSystem_details.html
+END
+OtherSystem_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/service/!svn/ver/917/selfmanagementsystem/src/main/resources/templates/BuildInfos/OtherSystem/OtherSystem_add.html
+END
+OtherSystem_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/service/!svn/ver/1107/selfmanagementsystem/src/main/resources/templates/BuildInfos/OtherSystem/OtherSystem_list.html
+END
+OtherSystem_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/service/!svn/ver/917/selfmanagementsystem/src/main/resources/templates/BuildInfos/OtherSystem/OtherSystem_edit.html
+END

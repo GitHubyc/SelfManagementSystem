@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+<!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+<!-- Bootstrap -->
+<link th:replace="fragments/configcss :: css" />
+<!-- 文本验证 -->
+<link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+<!-- 图片上传 -->
+<link href="../css/uploader.all.css" rel="stylesheet" media="screen">
+<link href="../css/add.css" rel="stylesheet" media="screen">
+</head>
+<body>
+	<div class="x_scrollbar">
+
+		<div class="tz_left">
+			<div class="title_top">图纸信息</div>
+			<ul class="font_12">
+			<input type="hidden" name="floorCode" th:value="${floorCode}">
+				<li>
+					<div class="pic">
+						<img class="Img" id="pic1"
+							th:src="${plan.data}==null?'../img/noimage.png':${#strings.substring(plan.data[0].drawingUrl,0,#strings.length(plan.data[0].drawingUrl)-4)}+'_normal'+${#strings.substring(plan.data[0].drawingUrl,#strings.length(plan.data[0].drawingUrl)-4,#strings.length(plan.data[0].drawingUrl))}">
+						<div id="upload-info1"></div>
+						<p class="text-right"
+							th:text="${plan.data}==null?'平面图':${plan.data[0].drawingName}">平面图</p>
+						<p class="text-left">
+							<a href="JavaScript:void(0)"  id="upload-target1" > <span>(上传/修改)</span>
+								
+							</a>
+						</p>
+
+					</div>
+				</li>
+
+				<li>
+					<div class="pic">
+						<img class="Img" id="pic2"
+							th:src="${ElevationMap.data}==null?'../img/noimage.png':${#strings.substring(ElevationMap.data[0].drawingUrl,0,#strings.length(ElevationMap.data[0].drawingUrl)-4)}+'_normal'+${#strings.substring(ElevationMap.data[0].drawingUrl,#strings.length(ElevationMap.data[0].drawingUrl)-4,#strings.length(ElevationMap.data[0].drawingUrl))}">
+						<div id="upload-info2"></div>
+						<p class="text-right"
+							th:text="${ElevationMap.data}==null?'建筑立面图':${ElevationMap.data[0].drawingName}">建筑立面图</p>
+						<p class="text-left">
+							<a href="JavaScript:void(0)" id="upload-target2"> <span>(上传/修改)</span>								
+							</a>
+						</p>
+					</div>
+				</li>
+
+				<li>
+					<div class="pic">
+						<img class="Img" id="pic3"
+							th:src="${rest.data}==null?'../img/noimage.png':${#strings.substring(rest.data[0].drawingUrl,0,#strings.length(rest.data[0].drawingUrl)-4)}+'_normal'+${#strings.substring(rest.data[0].drawingUrl,#strings.length(rest.data[0].drawingUrl)-4,#strings.length(rest.data[0].drawingUrl))}">
+						<div id="upload-info3"></div>
+						<p class="text-right"
+							th:text="${rest.data}==null?'内部3D模型':${rest.data[0].drawingName}">内部3D模型</p>
+						<p class="text-left">
+							<a href="JavaScript:void(0)" id="upload-target3"> <span>(上传/修改)</span>
+								
+							</a>
+						</p>
+					</div>
+				</li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+
+		<div id="house"
+			th:attr="data-url=@{/house/list(buildCode=${buildCode},floorCode=${floorCode})}"></div>
+		<div class="clear"></div>
+
+		<div id="keysite"
+			th:attr="data-url=@{/keysite/list(buildCode=${buildCode},floorCode=${floorCode})}"></div>
+
+	</div>
+
+</body>
+
+
+<script src="../js/buildInfos/floorInfoorkeysite_info.js"
+	type="text/javascript"></script>
+<!-- 图片上传-->
+<script type="text/javascript" src="../js/Q.js"></script>
+<script type="text/javascript" src="../js/Q.Uploader.js"></script>
+<script type="text/javascript" src="../js/uploader.js"></script>
+<!-- 图片放大-->
+<script src="../js/cloudzoom.js" type="text/javascript"></script>
+<script type="text/javascript">
+Uploaderimg('upload-target1','pic1','upload-info1','3')
+Uploaderimg('upload-target2','pic2','upload-info2','2')
+Uploaderimg('upload-target3','pic3','upload-info3','5')
+</script>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>防火分隔</title>
+        <!--[if IE 7]>
+    <link href="../css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+     <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+	<!-- 字体图标 -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+	 <!-- NProgress -->
+   <link href="../css/nprogress.css" rel="stylesheet">
+    <!-- 公共样式 -->
+	<link href="../css/general.css" rel="stylesheet" media="screen" >
+    <!-- toastr -->
+    <link href="../css/toastr.min.css" rel="stylesheet">
+    <link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+	<!-- 选框样式 -->
+	<link rel="stylesheet" type="text/css" href="../css/build.css">
+	<link href="../css/add.css" rel="stylesheet" media="screen" >
+	
+</head>
+<body class="bg_white">
+  <div class="padding_15">
+   <div class="row">
+  <div class="col-md-12">
+    <div class="x_top  clearfix" >
+<h4>查看防火分隔</h4>
+   </div>
+	   <div class="x_content" >
+	  	<div class="form-horizontal form_style" id="FireSeparation" method="post">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+			<div class="form_content">
+				<h4 class="font_ioc_blue">
+					<strong><i class="fa fa-gear"></i>填写防火分隔基础信息</strong>
+				</h4>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+						<div class="item form-group">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">防火分隔名称:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12" th:value="${object.data.fireSeparationName}"
+									name="fireSeparationName" placeholder="请输入防火分隔名称" type="text">
+							</div>
+						</div>
+
+						<div class="item form-group">
+							<label
+								class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">类别:
+							</label>
+							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+								<select class="form-control" name="category">
+									<option selected="true" disabled="true">-- 请选择类型 --</option>
+									<option value="1" th:selected="${object.data.category}==1">防火墙</option>
+									<option value="2" th:selected="${object.data.category}==2">防火门</option>
+									<option value="3" th:selected="${object.data.category}==3">防火窗</option>
+									<option value="4" th:selected="${object.data.category}==4">防火卷帘</option>
+									<option value="5" th:selected="${object.data.category}==5">防火阀</option>
+									<option value="6" th:selected="${object.data.category}==6">排烟防火阀</option>
+									<option value="7" th:selected="${object.data.category}==7">防火分隔水幕</option>
+									<option value="8" th:selected="${object.data.category}==8">防火玻璃</option>
+									<option value="9" th:selected="${object.data.category}==9">其他防火分隔物</option>
+								</select>
+							</div>
+						</div>
+
+
+
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+						<div class="item form-group">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">位置:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12" name="location" th:value="${object.data.location}"
+									placeholder="海华大厦c栋1楼左通道1号电梯右侧" type="text">
+							</div>
+						</div>
+
+						<div class="item form-group">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">级别:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<select class="form-control" name="grade">
+									<option selected="true" disabled="true">-- 请选择级别 --</option>
+									<option value="1" th:selected="${object.data.grade}==1">甲级</option>
+									<option value="2" th:selected="${object.data.grade}==2">乙级</option>
+									<option value="3" th:selected="${object.data.grade}==3">丙级</option>
+								</select>
+							</div>
+						</div>
+
+
+
+					</div>
+				</div>
+
+
+
+			</div>
+
+
+			<div class="form_content">
+				<h4 class="font_ioc_blue">
+					<strong><i class="fa fa-gear"></i>其它</strong>
+				</h4>
+				<div class="item form-group has-feedback">
+					<label
+						class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">是否设置消防标识:
+					</label>
+					<div class="col-lg-10  col-md-10 col-sm-10 col-xs-12">
+						<select class="form-control" name="doYouHaveFireSign">
+							<option selected="true" disabled="true">-- 请选择状态 --</option>
+							<option value="1"  th:selected="${object.data.doYouHaveFireSign}==1">是</option>
+							<option value="2"  th:selected="${object.data.doYouHaveFireSign}==2"> 否</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item form-group">
+					<label
+						class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">备注:
+					</label>
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"> 
+						<textarea class="form-control" name="remark" th:text="${object.data.remark}" placeholder="请输入备注信息"></textarea>
+					</div>
+				</div>
+
+
+				<div class="item form-group">
+					<label
+						class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">操作使用方法:
+					</label>
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+						<textarea class="form-control" name="operationMethod" th:text="${object.data.operationMethod}"
+							placeholder="请输入操作使用方法"></textarea>
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	    </div>
+
+	  
+	</div>			 
+  </div>
+  </div>
+
+
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 弹出窗  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<!-- 滚动条-->
+<script src="../js/jquery.nicescroll.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<!-- 表单验证 -->
+<script src="../js/bootstrapValidator.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/buildInfos/fireseparation_details.js"></script>
+</html>

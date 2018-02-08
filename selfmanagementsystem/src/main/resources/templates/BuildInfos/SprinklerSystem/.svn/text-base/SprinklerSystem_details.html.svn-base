@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+<!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+<!-- Bootstrap -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!-- 字体图标 -->
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../css/nprogress.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../css/general.css" rel="stylesheet" media="screen">
+<!-- toastr -->
+<link href="../css/toastr.min.css" rel="stylesheet">
+<link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../css/build.css">
+<link href="../css/add.css" rel="stylesheet" media="screen">
+
+</head>
+<body class="bg_white">
+	<div class="padding_15">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="x_top  clearfix">
+					<h4>查看自动喷水灭火系统</h4>
+				</div>
+				<div class="x_content">
+					<form class="form-horizontal form_style" id="SprinklerSystem"
+						method="post">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="form_content">
+								<h4 class="font_ioc_blue">
+									<strong><i class="fa fa-gear"></i>基本信息</strong>
+								</h4>
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">设置部位:
+											</label>
+											<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+												<input type="text" name="installingPositions"
+													placeholder="设置部位"
+													th:value="${object.data.installingPositions}"
+													class="form-control ">
+											</div>
+										</div>
+
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">责任部门:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control col-md-7 col-xs-12"
+													th:value="${object.data.responsibleDepartment}"
+													name="responsibleDepartment" placeholder="责任部门" type="text">
+											</div>
+										</div>
+
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">喷淋泵设置部位:
+											</label>
+											<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+												<input type="text" name="sprayPumpSettingPosition"
+													placeholder="喷淋泵设置部位"
+													th:value="${object.data.sprayPumpSettingPosition}"
+													class="form-control ">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">系统状态:
+											</label>
+											<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+												<select class="form-control" name="systemState">
+													<option selected="true" disabled="true">-- 请选择状态 --</option>
+													<option value="1"
+														th:selected="${object.data.systemState}==1">无故障运行</option>
+													<option value="2"
+														th:selected="${object.data.systemState}==2">有故障运行</option>
+													<option value="3"
+														th:selected="${object.data.systemState}==3">有故障停用</option>
+													<option value="4"
+														th:selected="${object.data.systemState}==4">停用</option>
+													<option value="5"
+														th:selected="${object.data.systemState}==5">其他</option>
+												</select>
+											</div>
+										</div>
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">责任人:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control col-md-7 col-xs-12"
+													th:value="${object.data.personCharge}" name="personCharge"
+													placeholder="责任人" type="text">
+											</div>
+										</div>
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">报警阀数量:
+											</label>
+											<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+												<input type="text" name="alarmValveQuantity"
+													placeholder="数量：个"
+													th:value="${object.data.alarmValveQuantity}"
+													class="form-control "><span class="font_unit">个</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="item form-group has-feedback">
+									<label
+										class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">系统形式:
+									</label>
+									<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+										<div class="radio radio-inline radio-primary">
+											<input type="radio" name="systemForm" value="1"
+												th:checked="${object.data.systemForm}==1" id="b1"><label
+												for="b1">湿式系统</label>
+										</div>
+										<div class="radio radio-inline radio-primary">
+											<input type="radio" name="systemForm" value="2"
+												th:checked="${object.data.systemForm}==2" id="b2"><label
+												for="b2">干式系统</label>
+										</div>
+										<div class="radio radio-inline radio-primary">
+											<input type="radio" name="systemForm" value="3"
+												th:checked="${object.data.systemForm}==3" id="b3"><label
+												for="b3">预作用系统</label>
+										</div>
+										<div class="radio radio-inline radio-primary">
+											<input type="radio" name="systemForm" value="4"
+												th:checked="${object.data.systemForm}==4" id="b4"><label
+												for="b4">重复启闭预作用系统</label>
+										</div>
+										<div class="radio radio-inline radio-primary">
+											<input type="radio" name="systemForm" value="5"
+												th:checked="${object.data.systemForm}==5" id="b5"><label
+												for="b5">雨淋系统</label>
+										</div>
+										<div class="radio radio-inline radio-primary">
+											<input type="radio" name="systemForm" value="6"
+												th:checked="${object.data.systemForm}==6" id="b6"><label
+												for="b6">水幕系统</label>
+										</div>
+										<div class="radio radio-inline radio-primary">
+											<input type="radio" name="systemForm" value="7"
+												th:checked="${object.data.systemForm}==7" id="b7"><label
+												for="b7">自动喷水-泡沫联用系统</label>
+										</div>
+										<div class="radio radio-inline radio-primary">
+											<input type="radio" name="systemForm" value="8"
+												th:checked="${object.data.systemForm}==8" id="b7"><label
+												for="b7">其他</label>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="form_content">
+								<h4 class="font_ioc_blue">
+									<strong><i class="fa fa-gear"></i>单位</strong>
+								</h4>
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">维修保养单位:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control col-md-7 col-xs-12"
+													th:value="${object.data.maintainingUnit}"
+													name="maintainingUnit" placeholder="维修保养单位" type="text">
+											</div>
+										</div>
+
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">设计单位:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control col-md-7 col-xs-12"
+													th:value="${object.data.designUnit}" name="designUnit"
+													placeholder="设计单位" type="text">
+											</div>
+										</div>
+
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">施工单位:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control "
+													th:value="${object.data.constructionUnit}"
+													name="constructionUnit" placeholder="施工单位" type="text">
+											</div>
+										</div>
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">监理单位:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control"
+													th:value="${object.data.supervisingUnit}"
+													name="supervisingUnit" placeholder="监理单位" type="text">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="form_content">
+								<h4 class="font_ioc_blue">
+									<strong><i class="fa fa-gear"></i>其它</strong>
+								</h4>
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">是否设置消防标识:
+											</label>
+											<div class="col-lg-10  col-md-10 col-sm-10 col-xs-12">
+												<select class="form-control" name="doYouHaveFireSign">
+													<option selected="true" disabled="true">-- 请选择状态 --</option>
+													<option value="1"
+														th:selected="${object.data.doYouHaveFireSign}==1">是</option>
+													<option value="2"
+														th:selected="${object.data.doYouHaveFireSign}==2">否</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">操作使用方法:
+											</label>
+											<div class="col-lg-10  col-md-10 col-sm-10 col-xs-12">
+												<textarea name="operationMethod"
+													class="form-control col-md-7 col-xs-12"
+													placeholder="操作使用方法"
+													th:text="${object.data.operationMethod}"></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="form_content">
+								<h4 class="font_ioc_blue">
+									<strong><i class="fa fa-gear"></i>数据</strong>
+								</h4>
+								<div class="row">
+
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label">喷淋泵数:
+											</label>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<input type="text" name="sprayPumpQuantity"
+													placeholder="喷淋泵数"
+													th:value="${object.data.sprayPumpQuantity}"
+													class="form-control "><span class="font_unit">个</span>
+											</div>
+
+										</div>
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label">稳压泵数量:
+											</label>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<input type="text" name="stabilizingPumpQuantity"
+													placeholder="数量：个"
+													th:value="${object.data.stabilizingPumpQuantity}"
+													class="form-control "><span class="font_unit">个</span>
+											</div>
+										</div>
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label">水流指示器数:
+											</label>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<input type="text" name="waterFlowIndicatorNumber"
+													placeholder="数量：个"
+													th:value="${object.data.waterFlowIndicatorNumber}"
+													class="form-control "><span class="font_unit">个</span>
+											</div>
+										</div>
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label">水泵接合器数:
+											</label>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<input type="text" name="pumpAdapterNumber"
+													placeholder="数量：个"
+													th:value="${object.data.pumpAdapterNumber}"
+													class="form-control "><span class="font_unit">个</span>
+											</div>
+										</div>
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label">减压阀数:
+											</label>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<input type="text" name="pressureReducingValveNumber"
+													placeholder="数量：个"
+													th:value="${object.data.pressureReducingValveNumber}"
+													class="form-control "><span class="font_unit">个</span>
+											</div>
+										</div>
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label">末端压力:
+											</label>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<input type="text" name="terminalPressure" placeholder="Mpa"
+													th:value="${object.data.terminalPressure}"
+													class="form-control "><span class="font_unit">Mpa</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label">喷淋泵流量:
+											</label>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<input type="text" name="sprayPumpFlow" placeholder="l/s"
+													th:value="${object.data.sprayPumpFlow}"
+													class="form-control "><span class="font_unit">l/s</span>
+											</div>
+
+										</div>
+
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label">稳压泵流量:
+											</label>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<input type="text" name="stabilizingPumpFlow"
+													placeholder="l/s"
+													th:value="${object.data.stabilizingPumpFlow}"
+													class="form-control "><span class="font_unit">l/s</span>
+											</div>
+										</div>
+
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label">喷头数量:
+											</label>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<input type="text" name="sprayerQuantity" placeholder="数量：个"
+													th:value="${object.data.sprayerQuantity}"
+													class="form-control "><span class="font_unit">个</span>
+											</div>
+										</div>
+
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label">干管管径:
+											</label>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<input type="text" name="diameterDryPipe" placeholder="mm"
+													th:value="${object.data.diameterDryPipe}"
+													class="form-control "><span class="font_unit">mm</span>
+											</div>
+										</div>
+
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label">竖向分区数:
+											</label>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<input type="text" name="verticalPartitionNumber"
+													placeholder="数量：个"
+													th:value="${object.data.verticalPartitionNumber}"
+													class="form-control "><span class="font_unit">个</span>
+											</div>
+										</div>
+
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label">屋顶水箱容量:
+											</label>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<input type="text" name="roofTankCapacity" placeholder="m³"
+													th:value="${object.data.roofTankCapacity}"
+													class="form-control "> <span class="font_unit">m³</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label">喷淋泵扬程:
+											</label>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<input type="text" name="sprayPumpHeadLift" placeholder="m"
+													th:value="${object.data.sprayPumpHeadLift}"
+													class="form-control "><span class="font_unit">m</span>
+											</div>
+										</div>
+
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label">稳压泵扬程:
+											</label>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<input type="text" name="stabilizingPumpHeadLift"
+													placeholder="m"
+													th:value="${object.data.stabilizingPumpHeadLift}"
+													class="form-control "> <span class="font_unit">m</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</form>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 弹出窗  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<!-- 表单验证 -->
+<script src="../js/bootstrapValidator.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/buildInfos/sprinklersystem_details.js"></script>
+
+</html>

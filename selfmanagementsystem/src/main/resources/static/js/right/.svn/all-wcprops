@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/service/!svn/ver/1209/selfmanagementsystem/src/main/resources/static/js/right
+END
+right_list.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/service/!svn/ver/1103/selfmanagementsystem/src/main/resources/static/js/right/right_list.js
+END
+right_details.js
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/service/!svn/ver/724/selfmanagementsystem/src/main/resources/static/js/right/right_details.js
+END
+right_add.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/service/!svn/ver/1207/selfmanagementsystem/src/main/resources/static/js/right/right_add.js
+END
+right_edit.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/service/!svn/ver/1209/selfmanagementsystem/src/main/resources/static/js/right/right_edit.js
+END
+right_del.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/service/!svn/ver/724/selfmanagementsystem/src/main/resources/static/js/right/right_del.js
+END

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+        <!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+	<!-- 字体图标 -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+	 <!-- NProgress -->
+   <link href="../css/nprogress.css" rel="stylesheet">
+    <!-- 日期样式 -->
+    <link href="../css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <!-- 公共样式 -->
+	<link href="../css/general.css" rel="stylesheet" media="screen" >
+    <!-- 消息提示 -->
+    <link href="../css/toastr.min.css" rel="stylesheet">
+	<!-- 文本验证 -->
+    <link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+    <!-- 选框样式 -->
+	<link rel="stylesheet" type="text/css" href="../css/build.css">
+    <!-- 图片上传 -->
+  <link href="../css/uploader.all.css" rel="stylesheet" media="screen">
+	<link href="../css/add.css" rel="stylesheet" media="screen" >
+	
+</head>
+<body class="bg_white">
+  <div class="padding_15">
+   <div class="row">
+  <div class="col-md-12">
+<h4>新增用户</h4>
+<hr/>
+	   <div class="x_content" >
+	   <form class="form-horizontal form_style" id="User">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="form_content">
+				<h4 class="font_ioc_blue"><strong><i class="fa fa-gear"></i>用户类型</strong></h4>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="item form-group has-feedback">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">用户类型:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<select class="form-control" name="userType" id="user_add_select">
+									<option selected="true" disabled="true">-- 请选择类型 --</option>
+									<option value="1">单位账号</option>
+									<option value="2">单位员工账号</option>
+									<option value="3">建筑账号</option>
+									<option value="4">超级管理员</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="item form-group has-feedback" id="user_add_unit2"
+							style="display:none">
+							<label
+								class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">单位:
+							</label>
+							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control" id="unitCodeShow" name="unitCodeShow" onfocus="getIframe('/user/unit')" placeholder="请输入单位编号" type="text">
+								<input id="unitCode" name="unitCode" type="hidden">
+							</div>
+						</div>
+						<div class="item form-group has-feedback" id="user_add_build"
+							style="display:none">
+							<label
+								class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">建筑:
+							</label>
+							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control" id="plcBuildCodeShow" name="plcBuildCodeShow" onfocus="getIframe('/user/build')" placeholder="请输入建筑编号" type="text">
+								<input id="plcBuildCode" name="plcBuildCode" type="hidden">
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="item form-group has-feedback" id="user_add_unit1"
+							style="display:none">
+							<label
+								class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">员工:
+							</label>
+							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+<!-- 								<select class="form-control" name="employeeCode" id ="employee"> -->
+<!-- 									<option selected="true" disabled="true">-- 请先选择单位 --</option> -->
+<!-- 								</select> -->
+<!-- 								<span id="continer1" th:value="${employees.data}"></span> -->
+									<input class="form-control" id="employeeCode" name="employeeCodeShow" placeholder="请输入人员编号" type="text">
+									<input name="employeeCode" type="hidden">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form_content">
+				<h4 class="font_ioc_blue"><strong><i class="fa fa-gear"></i>用户信息</strong></h4>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="item form-group has-feedback">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">用户名:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12" name="username"
+									placeholder="用户名" type="text">
+							</div>
+						</div>
+						<div class="item form-group has-feedback">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">昵称:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12" name="nickname"
+									placeholder="昵称" type="text">
+							</div>
+						</div>
+						<div class="item form-group has-feedback">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">移动电话:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12" name="mobileTelephone"
+									placeholder="移动电话" type="text">
+							</div>
+						</div>
+						<div class="item form-group has-feedback">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">出生日期:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<div class="input-group date">
+									<input class="form-control" name="birthDate" type="text">
+									<span class="input-group-addon"> <span
+										class="glyphicon glyphicon-calendar"></span> </span>
+								</div>
+							</div>
+						</div>
+						<div class="item form-group has-feedback">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">密码:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12" name="password"
+									placeholder="密码" type="password">
+							</div>
+						</div>
+						<div class="item form-group has-feedback">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">性别:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<div class="radio radio-inline radio-primary">
+									<input type="radio" id="sex1" name="sex" value="1">
+									<label for="sex1">男</label>
+								</div>
+								<div class="radio radio-inline radio-primary">
+									<input type="radio" id="sex2" name="sex" value="2">
+									<label for="sex2">女</label>
+								</div>
+							</div>
+						</div>
+						<div class="item form-group has-feedback">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">电子邮箱:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12" name="email"
+									placeholder="电子邮箱" type="text">
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="item form-group has-feedback">
+							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="pic_updateimg" style="width:200px;height:250px">
+									<div class="picDiv">
+									    <img class="Img" id="pic" src="../img/noimage.png" style="width:170px;height:190px">
+									    <div id="upload-info"></div>
+									</div>
+									<a id="upload-target" class="btn btn-blue btn-color" >  添加用户头像<i class="glyphicon glyphicon-plus" style="margin-left: 5px;"></i>
+										</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-6 col-md-offset-3">
+					<button type="submit" class="btn btn-success">提交</button>
+					<button type="reset" class="btn btn-primary">重置</button>
+				</div>
+			</div>
+
+		</div>
+	</form>
+	    </div>
+	</div>			 
+  </div>
+</div>
+
+</body>
+<script th:replace="fragments/configjs :: js" type="text/javascript"></script>
+<script src="../js/jquery.serializejson.js"></script>
+<!-- table -->
+<script src="../js/bootstrap-table.js"></script>
+<!-- 图片上传-->
+    <script type="text/javascript" src="../js/Q.js"></script>
+    <script type="text/javascript" src="../js/Q.Uploader.js"></script>
+    <script type="text/javascript" src="../js/uploader.js"></script>
+<script src="../js/user/user_add.js" type="text/javascript"></script>
+<script type="text/javascript">
+Uploader('upload-target','fileimgid')
+</script>
+</html>

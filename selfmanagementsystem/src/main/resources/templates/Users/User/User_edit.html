@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>用户信息</title>
+<!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+<!-- Bootstrap -->
+<link href="../../css/bootstrap.min.css" rel="stylesheet">
+<!-- 字体图标 -->
+<link href="../../css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../../css/nprogress.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../../css/general.css" rel="stylesheet" media="screen">
+<!-- 日期样式 -->
+<link href="../../css/bootstrap-datepicker3.min.css" rel="stylesheet">
+<!-- toastr -->
+<link href="../../css/toastr.min.css" rel="stylesheet">
+<link href="../../css/bootstrapValidator.min.css" rel="stylesheet">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../../css/build.css">
+<link href="../../css/add.css" rel="stylesheet" media="screen">
+<!-- 图片上传 -->
+<link href="../../css/uploader.all.css" rel="stylesheet" media="screen">
+<link href="../../css/add.css" rel="stylesheet" media="screen">
+</head>
+<body class="bg_white">
+	<div class="padding_15">
+		<div class="row">
+			<div class="col-md-12">
+				<h4>修改用户</h4>
+				<hr />
+				<div class="x_content">
+					<form class="form-horizontal form_style" id="User_edit">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+							th:each="user:${object.data}">
+							<div class="form_content">
+								<h4 class="font_ioc_blue">
+									<strong><i class="fa fa-gear"></i>用户类型</strong>
+								</h4>
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">用户类型:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<div th:switch="${user.userType}">
+													<div th:case="1">
+														<input class="form-control col-md-7 col-xs-12"
+															name="userId" placeholder="用户ID" type="text" value="单位用户"
+															disabled="disabled">
+													</div>
+													<div th:case="2">
+														<input class="form-control col-md-7 col-xs-12"
+															name="userId" placeholder="用户ID" type="text"
+															value="单位员工用户" disabled="disabled">
+													</div>
+													<div th:case="3">
+														<input class="form-control col-md-7 col-xs-12"
+															name="userId" placeholder="用户ID" type="text" value="建筑用户"
+															disabled="disabled">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"
+										style="display: none">
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">用户ID:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control col-md-7 col-xs-12" type="text"
+													th:value="${user.userId}" disabled="disabled">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div th:switch="${user.userType}">
+										<div th:case="1">
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<div class="item form-group has-feedback">
+													<label
+														class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">单位:
+													</label>
+													<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+														<input class="form-control" id="unitCodeShow"
+															th:value="${user.unitCode}" name="unitCodeShow"
+															onfocus="getIframe('/user/unit')" placeholder="请输入单位编号"
+															type="text" disabled="disabled"> <input
+															id="unitCode" name="unitCode" th:value="${user.unitCode}"
+															type="hidden">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div th:case="2">
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<div class="item form-group has-feedback">
+													<label
+														class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">单位:
+													</label>
+													<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+														<input class="form-control" id="unitCode"
+															th:value="${user.unitCode}" name="unitCode"
+															onfocus="getIframe('/user/unit')" placeholder="请输入单位编号"
+															type="text" disabled="disabled"> <input
+															id="unitCode" name="unitCode" th:value="${user.unitCode}"
+															type="hidden">
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<div class="item form-group has-feedback">
+													<label
+														class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">员工:
+													</label>
+													<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+														<input class="form-control" id="employeeCode"
+															name="employeeCodeShow" placeholder="请输入人员编号" type="text"
+															disabled="disabled"> <input name="employeeCode"
+															type="hidden">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div th:case="3">
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+												<div class="item form-group has-feedback">
+													<label
+														class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">建筑:
+													</label>
+													<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+														<input class="form-control" id="plcBuildCode"
+															th:value="${user.plcBuildCode}" name="plcBuildCode"
+															onfocus="getIframe('/user/build')" placeholder="请输入建筑编号"
+															type="text" disabled="disabled"> <input
+															name="plcBuildCode" type="hidden">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form_content">
+								<h4 class="font_ioc_blue">
+									<strong><i class="fa fa-gear"></i>用户信息</strong>
+								</h4>
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">用户名:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control col-md-7 col-xs-12"
+													name="username" placeholder="用户名" type="text"
+													th:value="${user.username}">
+											</div>
+										</div>
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">昵称:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control col-md-7 col-xs-12"
+													name="nickname" placeholder="昵称" type="text"
+													th:value="${user.nickname}">
+											</div>
+										</div>
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">移动电话:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control col-md-7 col-xs-12"
+													name="mobileTelephone" placeholder="移动电话" type="text"
+													th:value="${user.mobileTelephone}">
+											</div>
+										</div>
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">密码:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control col-md-7 col-xs-12"
+													name="password" placeholder="密码" type="password"
+													th:value="${user.password}">
+											</div>
+										</div>
+										<div class="item form-group has-feedback">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">电子邮箱:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control col-md-7 col-xs-12" name="email"
+													placeholder="电子邮箱" type="text" th:value="${user.email}">
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="item form-group has-feedback">
+											<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+											<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+												<div class="pic_updateimg"
+													style="width: 200px; height: 250px">
+													<div class="picDiv">
+														<img class="Img" id="pic" th:src="${user.icon}"
+															style="width: 170px; height: 190px">
+														<div id="upload-info"></div>
+													</div>
+													<a id="upload-target" class="btn btn-blue btn-color">
+														添加用户头像<i class="glyphicon glyphicon-plus"
+														style="margin-left: 5px;"></i>
+													</a> <input type="hidden" name="buildImage"
+														th:src="${user.icon}" />
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-6 col-md-offset-3">
+									<button type="submit" class="btn btn-success">提交</button>
+									<button type="reset" class="btn btn-primary">重置</button>
+								</div>
+							</div>
+							<input name="userId" type="text" th:value="${user.userId}"
+								style="visibility: hidden">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+<script th:replace="fragments/configjs :: js" type="text/javascript"></script>
+<script src="../../js/jquery.serializejson.js"></script>
+<!-- table -->
+<script src="../../js/bootstrap-table.js"></script>
+<!-- 图片上传-->
+<script type="text/javascript" src="../js/Q.js"></script>
+<script type="text/javascript" src="../js/Q.Uploader.js"></script>
+<script type="text/javascript" src="../js/uploader.js"></script>
+<script src="../../js/user/user_edit.js"></script>
+<script type="text/javascript">
+	Uploader('upload-target', 'fileimgid')
+</script>
+</html>

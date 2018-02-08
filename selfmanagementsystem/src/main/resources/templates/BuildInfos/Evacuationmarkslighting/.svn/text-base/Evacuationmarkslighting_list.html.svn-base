@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+<!-- Bootstrap -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../css/nprogress.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../css/general.css" rel="stylesheet" media="screen">
+<!-- toastr -->
+<link href="../css/toastr.min.css" rel="stylesheet">
+<link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../css/build.css">
+<link href="../css/add.css" rel="stylesheet" media="screen">
+
+</head>
+<body>
+	<form id="form">
+		<input type="hidden" name="facilitieCode" th:value="${facilitieCode}">
+	</form>
+	<div class="title_top">
+		疏散指示标志和应急照明
+		<span th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+		<a href="JavaScript:void(0)"  th:each="right:${right}" th:if="${right.operateUrl == '/evacuationmarkslighting/add'}"
+			th:onclick="'getIframe(\'/evacuationmarkslighting/add?facilitieCode='+${facilitieCode}+'\')'"><v
+				class="fa fa-plus"></v>新增</a>
+				</span>
+	</div>
+	<table class="table table-hover text-center">
+		<thead>
+			<tr class="active">
+				<th>设置部位</th>
+				<th>设施类型</th>
+				<th>数量</th>
+				<th>生产单位</th>
+				<th>型号</th>
+				<th>日常检查人</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${object.data} !=null"
+				th:each="obj,objStat: ${object.data}">
+				<td th:text="${obj.installingPositions}"></td>
+				<td
+					th:text="
+						(${obj.facilityType}==1?'疏散指示标志':(
+						${obj.facilityType}==2?'应急照明'
+						))"></td>
+
+				<td th:text="${obj.quantity}"></td>
+				<td th:text="${obj.productionUnit}"></td>
+				<td th:text="${obj.model}"></td>
+				<td th:text="${obj.checkMan}"></td>
+				<td>
+				<span th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+					<button type="button" class="btn btn-yellow" th:each="right:${right}" th:if="${right.operateUrl == '/evacuationmarkslighting/details'}"
+						th:onclick="'getIframe(\'/evacuationmarkslighting/details?facilitieCode='+${facilitieCode}+'&&facilitieSystemCode='+${obj.facilitieSystemCode}+'\')'">查看</button>
+					<button type="button" class="btn btn-blue" th:each="right:${right}" th:if="${right.operateUrl == '/evacuationmarkslighting/edit'}"
+						th:onclick="'getIframe(\'/evacuationmarkslighting/edit?facilitieCode='+${facilitieCode}+'&&facilitieSystemCode='+${obj.facilitieSystemCode}+'\')'">编辑</button>
+					<button type="button" class="btn btn-red" th:each="right:${right}" th:if="${right.operateUrl == '/evacuationmarkslighting/del'}"
+						th:onclick="'del(\'/evacuationmarkslighting/del?facilitieCode='+${facilitieCode}+'&&facilitieSystemCode='+${obj.facilitieSystemCode}+'\')'">删除</button>
+			</span>
+				</td>
+			</tr>
+			<tr th:if="${object.data} ==null">
+				<td colspan="7" align="center">
+					<div class="null">暂无数据</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="margin_top_15">
+		<div
+			th:replace="fragments/pageforload :: pageforload (id='evacuationmarkslighting',form='form',url='/evacuationmarkslighting/list')">分页</div>
+	</div>
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 弹出窗  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<!-- 滚动条-->
+<script src="../js/jquery.nicescroll.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<!-- 表单验证 -->
+<script src="../js/bootstrapValidator.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/buildInfos/evacuationmarkslighting_list.js"></script>
+</html>

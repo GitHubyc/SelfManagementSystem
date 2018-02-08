@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+<link th:replace="fragments/configcss :: css" />
+</head>
+<body>
+	<form id="houseform">
+		<input type="hidden" name="buildCode" th:value="${buildCode}">
+		<input type="hidden" name="floorCode" th:value="${floorCode}">
+	</form>
+	<div class="fj_right">
+		<div class="title_top">
+			房屋信息 
+			<span th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+			<a href="JavaScript:void(0)"
+				th:onclick="'getIframe(\'/house/add?buildCode='+${buildCode}+'&&floorCode='+${floorCode}+'\')'"
+				th:each="right:${right}" th:if="${right.operateUrl == '/house/add'}"><v
+					class="fa fa-plus"></v>新增</a>
+			</span>
+		</div>
+		<ul>
+
+			<li
+				th:if="${object.data !=null  and object.data !='null' and  not #lists.isEmpty(object.data)}"
+				th:each="houses,houseStat : ${object.data}">
+				<div class="floor_line">
+					<h5>
+						<font th:text="${houses.houseNo}"></font> 
+							<span th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+							<a
+							href="JavaScript:void(0)" th:each="right:${right}" th:if="${right.operateUrl == '/house/del'}"
+							th:onclick="'del(\'/house/del?buildCode='+${buildCode}+'&floorCode='+${floorCode}+'&houseCode='+${houses.houseCode}+'\')'"><v
+								class="fa fa-trash font-size18"></v> </a><a
+							href="JavaScript:void(0)" th:each="right:${right}" th:if="${right.operateUrl == '/house/edit'}"
+							th:onclick="'getIframe(\'/house/edit?buildCode='+${buildCode}+'&floorCode='+${floorCode}+'&houseNo='+${houses.houseNo}+'&houseCode='+${houses.houseCode}+'\')'"><v
+								class="fa fa fa-edit font-size18"></v> </a>
+							</span>
+					</h5>
+					<p>
+						房屋使用现状：<span class="font_blue"
+							th:text="
+								(${houses.houseUseStatus}==1?'单位'
+								:(${houses.houseUseStatus}==2?'居住'
+								:(${houses.houseUseStatus}==3?'其他')))">一般单位</span>
+					</p>
+					<p>
+						房屋使用其它现状：<span
+							th:text="${houses.houseUseOtherStatus}==F?${houses.houseUseOtherStatus}+'地上楼层':'B地下楼层'">F地上楼层</span>
+					</p>
+					<p class="text_box">
+						备注：<span data-toggle="tooltip" data-placement="bottom"
+							th:title="${houses.remark}" th:text="${houses.remark}"></span>
+					</p>
+
+				</div>
+			</li>
+
+			<li th:if="${object.data} ==null" style="width: 100%">
+				<div class="floor_line">
+					<h5>房间号</h5>
+					<i>暂未入信息</i>
+				</div>
+			</li>
+			<div class="clear"></div>
+		</ul>
+	</div>
+
+	<div
+		th:replace="fragments/pageforload :: pageforload (id='house',form='houseform',url='/house/list')">分页</div>
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 弹出窗  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<!-- 图片上传-->
+<script src="../js/ajaxfileupload.js" type="text/javascript"></script>
+<script src="../js/FileUpload.js" type="text/javascript"></script>
+<!-- 表单验证 -->
+<script src="../js/bootstrapValidator.min.js"></script>
+<!-- 滚动条-->
+<script src="../js/jquery.nicescroll.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/buildInfos/house_list.js"></script>
+</html>

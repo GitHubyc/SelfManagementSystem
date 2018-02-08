@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+<!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+<link th:replace="fragments/configcss :: css" />
+<link href="../css/add.css" rel="stylesheet" media="screen">
+</head>
+<div class="x_scrollbar">
+	<div class="col_left_menu">
+		<h5>
+			共<font th:if="${object.data} != null" th:text="${object.data.size()}">19</font>
+			<font th:if="${object.data} == null" >0</font>
+			类
+			<span th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+			<a
+				href="JavaScript:void(0)" th:each="right:${right}" th:if="${right.operateUrl == '/firefacilities/setfire'}"
+				th:onclick="'getIframe(\'/firefacilities/setfire?buildCode='+${buildCode}+'\')'"><v
+					class="fa fa-edit" style="margin-right:2px"></v>编辑</a>
+			</span>
+
+		</h5>
+
+ 		<ul class="list_tb box_tab_jz">
+			<li th:if="${object.data} != null"
+				th:each="obj,objStat: ${object.data}"
+				th:class="${objStat.index}==0?'bg_blue'"
+				th:attr="data-url=@{/list(facilitieCode=${obj.facilitieCode})}">
+				<font th:text="${obj.facilitieName}">气体灭火系统</font> <span
+				th:text="${row[objStat.index]}"
+				th:class="${objStat.index}==0?'bg_y1':'bg_y'">6</span>
+			</li>
+		</ul> 
+	</div>
+	<div class="col_right_tb">
+		<div th:if="${object.data} != null" th:each="obj,objStat: ${object.data}" class="content_row"
+			th:classappend="${objStat.index}==0?'on'">加载中..</div>
+
+	</div> 
+	<div class="clear"></div>
+</div>
+</body>
+<script src="../js/buildInfos/firefacilities_list.js"
+	type="text/javascript"></script>
+
+</html>

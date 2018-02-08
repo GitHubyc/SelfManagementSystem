@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+<link th:replace="fragments/configcss :: css" />
+<link href="../css/add.css" rel="stylesheet" media="screen">
+
+
+</head>
+<body>
+	<!-- 头部 -->
+	<div th:replace="fragments/header_archives :: header">头部</div>
+
+	<div class="content_x">
+		<!-- 左菜单 -->
+		<div th:replace="fragments/menu_archives :: menu">左菜单</div>
+
+		<!--右内容 -->
+		<div class="right_col">
+			<div class="padding_20">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="x_panel">
+							<div class="x_top clearfix">
+								<div class="font-left">
+									<i class="fa fa-angle-left font_ioc_blue"></i><a
+										href="/build/list">返回上一层</a>
+								</div>
+								<div class="pull-right font_black">
+									<i class="fa fa-sign-in "></i><a href="#">导出</a>
+								</div>
+							</div>
+							<div class="x_top x_top1 clearfix">
+								<a th:if="${object.data} !=null"
+									th:href="@{/build/info(buildCode=${buildCode})}"
+									class="btn btn-blue  btn-color">建筑基本信息</a>
+									 <a th:if="${object.data} !=null"
+									th:href="@{/floorinfoorkeysite/list(buildCode=${buildCode})}"
+									class="btn btn-blue ">楼层信息</a> <a th:if="${object.data} !=null"
+									th:href="@{/firefacilities/list(buildCode=${buildCode})}"
+									class="btn btn-blue ">消防设施</a>
+							</div>
+							<div class="c_content " id="ok"></div>
+							<div class="c_content overflow-x"></div>
+							<div class="c_content overflow-x"></div>
+							<div class="c_content overflow-x"></div>
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</body>
+
+<script th:replace="fragments/configjs :: js" type="text/javascript"></script>
+<script src="../js/buildInfos/build_details.js" type="text/javascript"></script>
+</html>

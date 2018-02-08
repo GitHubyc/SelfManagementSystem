@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/service/!svn/ver/1080/selfmanagementsystem/src/main/resources/templates/Users/Group
+END
+Group_addrole.html
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/service/!svn/ver/850/selfmanagementsystem/src/main/resources/templates/Users/Group/Group_addrole.html
+END
+Group_edituser.html
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/service/!svn/ver/1001/selfmanagementsystem/src/main/resources/templates/Users/Group/Group_edituser.html
+END
+Group_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/service/!svn/ver/954/selfmanagementsystem/src/main/resources/templates/Users/Group/Group_details.html
+END
+Group_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/service/!svn/ver/954/selfmanagementsystem/src/main/resources/templates/Users/Group/Group_add.html
+END
+Group_editrole.html
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/service/!svn/ver/1080/selfmanagementsystem/src/main/resources/templates/Users/Group/Group_editrole.html
+END
+Group_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/service/!svn/ver/1080/selfmanagementsystem/src/main/resources/templates/Users/Group/Group_list.html
+END
+Group_adduser.html
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/resources/templates/Users/Group/Group_adduser.html
+END
+Group_right.html
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/service/!svn/ver/978/selfmanagementsystem/src/main/resources/templates/Users/Group/Group_right.html
+END
+Group_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/service/!svn/ver/954/selfmanagementsystem/src/main/resources/templates/Users/Group/Group_edit.html
+END

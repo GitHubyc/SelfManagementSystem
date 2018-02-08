@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+</head>
+<body>
+	<div th:fragment="pageforload(id,form,url)">
+		<script>
+			/*
+			 **currentPage 页码
+			 **data 检索的数据
+			 */
+			function pageforload_page(formid, currentPage) {
+				if (currentPage == null || currentPage == '') {
+					currentPage = 1;
+				}
+				var id = '#' + $("#" + formid + "param1").val();
+				var form = '#' + $("#" + formid + "param2").val();
+				var url = $("#" + formid + "param3").val();
+				var data = $(form).serialize();
+				//重新加载页面
+				$(id).load(url + "?currentPage=" + currentPage + "&" + data);
+			}
+		
+		</script>
+		<div class="text-right">
+			<!-- 传递过来的参数暂时先放在隐藏域 -->
+			<input type="hidden" th:value="${id}" th:id="${form}+'param1'">
+			<input type="hidden" th:value="${form}" th:id="${form}+'param2'">
+			<input type="hidden" th:value="${url}" th:id="${form}+'param3'">
+			<ul style="margin:0px;margin-right: 15px;" class="pagination"
+				th:if="${not #lists.isEmpty(object.data)}">
+				<li th:if="${object.currentPage!=1 and object.totalPage!=0}"><a
+					th:attr="href='javascript:pageforload_page(\''+${form}+'\',1);'">首页</a>
+				</li>
+				<li th:if="${object.currentPage!=1 and object.totalPage!=0}"><a
+					th:attr="href='javascript:pageforload_page(\''+${form}+'\','+ ${object.currentPage-1} +');'">上一页</a>
+				</li>
+				<li th:if="${object.currentPage-4 gt 0}"><a
+					th:attr="href='javascript:pageforload_page(\''+${form}+'\','+ ${object.currentPage -4} +');'"
+					th:text="${object.currentPage-4}"></a>
+				</li>
+				<li th:if="${object.currentPage-3 gt 0}"><a
+					th:attr="href='javascript:pageforload_page(\''+${form}+'\','+ ${object.currentPage -3} +');'"
+					th:text="${object.currentPage-3}"></a>
+				</li>
+				<li th:if="${object.currentPage-2 gt 0}"><a
+					th:attr="href='javascript:pageforload_page(\''+${form}+'\','+ ${object.currentPage -2} +');'"
+					th:text="${object.currentPage-2}"></a>
+				</li>
+				<li th:if="${object.currentPage-1 gt 0}"><a
+					th:attr="href='javascript:pageforload_page(\''+${form}+'\','+ ${object.currentPage -1} +');'"
+					th:text="${object.currentPage-1}"></a>
+				</li>
+				<li class="active"><span class="current_page line_height"
+					th:text="${object.currentPage}"></span>
+				</li>
+				<li th:if="${object.currentPage+1 le object.totalPage}"><a
+					th:attr="href='javascript:pageforload_page(\''+${form}+'\','+ ${object.currentPage +1} +');'"
+					th:text="${object.currentPage+1}"></a></li>
+				<li th:if="${object.currentPage+2 le object.totalPage}"><a
+					th:attr="href='javascript:pageforload_page(\''+${form}+'\','+ ${object.currentPage +2} +');'"
+					th:text="${object.currentPage+2}"></a>
+				</li>
+				<li th:if="${object.currentPage+3 le object.totalPage}"><a
+					th:attr="href='javascript:pageforload_page(\''+${form}+'\','+ ${object.currentPage +3} +');'"
+					th:text="${object.currentPage+3}"></a>
+				</li>
+				<li th:if="${object.currentPage+4 le object.totalPage}"><a
+					th:attr="href='javascript:pageforload_page(\''+${form}+'\','+ ${object.currentPage +4} +');'"
+					th:text="${object.currentPage+4}"></a>
+				</li>
+
+
+				<li
+					th:if="${object.currentPage lt object.totalPage and object.totalPage!=0}"><a
+					th:attr="href='javascript:pageforload_page(\''+${form}+'\','+ ${object.currentPage+1} +');'">下一页</a>
+				</li>
+				<li
+					th:if="${object.currentPage!=object.totalPage and object.totalPage!=0}"><a
+					th:attr="href='javascript:pageforload_page(\''+${form}+'\','+ ${object.totalPage} +');'">尾页</a>
+				</li>
+				<li><span
+					th:utext="'共'+${object.totalPage}+'页 / '+${object.totalRows}+'条'"></span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

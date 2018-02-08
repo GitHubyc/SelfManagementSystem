@@ -1,0 +1,263 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/service/!svn/ver/1059/selfmanagementsystem/src/main/java/com/xakj/service
+END
+KeySiteService.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/service/!svn/ver/895/selfmanagementsystem/src/main/java/com/xakj/service/KeySiteService.java
+END
+SmokeExhaustSystemService.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/SmokeExhaustSystemService.java
+END
+UnitBuildService.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/service/!svn/ver/1028/selfmanagementsystem/src/main/java/com/xakj/service/UnitBuildService.java
+END
+UserService.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/service/!svn/ver/1041/selfmanagementsystem/src/main/java/com/xakj/service/UserService.java
+END
+FireExtinguisherService.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/FireExtinguisherService.java
+END
+PopulationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/service/!svn/ver/764/selfmanagementsystem/src/main/java/com/xakj/service/PopulationService.java
+END
+GasExtinguishingSystemService.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/GasExtinguishingSystemService.java
+END
+SmokePreventionSystemService.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/SmokePreventionSystemService.java
+END
+WorkService.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/service/!svn/ver/764/selfmanagementsystem/src/main/java/com/xakj/service/WorkService.java
+END
+EntityResponsibilityService.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/service/!svn/ver/764/selfmanagementsystem/src/main/java/com/xakj/service/EntityResponsibilityService.java
+END
+UnitEmployeeService.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/service/!svn/ver/813/selfmanagementsystem/src/main/java/com/xakj/service/UnitEmployeeService.java
+END
+UnitInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/service/!svn/ver/1056/selfmanagementsystem/src/main/java/com/xakj/service/UnitInfoService.java
+END
+FirePowerDistributionService.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/FirePowerDistributionService.java
+END
+CertificateService.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/service/!svn/ver/764/selfmanagementsystem/src/main/java/com/xakj/service/CertificateService.java
+END
+FloorInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/service/!svn/ver/844/selfmanagementsystem/src/main/java/com/xakj/service/FloorInfoService.java
+END
+BuildResponsibilityService.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/BuildResponsibilityService.java
+END
+FireFacilitieService.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/service/!svn/ver/844/selfmanagementsystem/src/main/java/com/xakj/service/FireFacilitieService.java
+END
+FireSeparationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/FireSeparationService.java
+END
+RightService.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/RightService.java
+END
+UploadFileService.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/UploadFileService.java
+END
+OtherSystemService.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/OtherSystemService.java
+END
+AutomaticFireAlarmSystemService.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/service/!svn/ver/764/selfmanagementsystem/src/main/java/com/xakj/service/AutomaticFireAlarmSystemService.java
+END
+FirebroadcastingsystemService.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/FirebroadcastingsystemService.java
+END
+FireControlInstrumentationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/service/!svn/ver/718/selfmanagementsystem/src/main/java/com/xakj/service/FireControlInstrumentationService.java
+END
+EducationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/service/!svn/ver/764/selfmanagementsystem/src/main/java/com/xakj/service/EducationService.java
+END
+LoginService.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/service/!svn/ver/764/selfmanagementsystem/src/main/java/com/xakj/service/LoginService.java
+END
+ApplyService.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/service/!svn/ver/922/selfmanagementsystem/src/main/java/com/xakj/service/ApplyService.java
+END
+HouseInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/service/!svn/ver/764/selfmanagementsystem/src/main/java/com/xakj/service/HouseInfoService.java
+END
+PowderExtinguishingSystemService.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/PowderExtinguishingSystemService.java
+END
+OtherFacilitiesService.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/OtherFacilitiesService.java
+END
+FoamExtinguishingSystemService.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/FoamExtinguishingSystemService.java
+END
+OutdoorFireWaterSystemService.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/OutdoorFireWaterSystemService.java
+END
+RoleService.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/service/!svn/ver/886/selfmanagementsystem/src/main/java/com/xakj/service/RoleService.java
+END
+UnitDepartmentService.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/service/!svn/ver/765/selfmanagementsystem/src/main/java/com/xakj/service/UnitDepartmentService.java
+END
+SprinklerSystemService.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/SprinklerSystemService.java
+END
+TwoDimensionalDrawingService.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/service/!svn/ver/844/selfmanagementsystem/src/main/java/com/xakj/service/TwoDimensionalDrawingService.java
+END
+ControlroomlinkagecontroService.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/ControlroomlinkagecontroService.java
+END
+BuildInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/service/!svn/ver/1029/selfmanagementsystem/src/main/java/com/xakj/service/BuildInfoService.java
+END
+IndoorFireWaterSystemService.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/IndoorFireWaterSystemService.java
+END
+EvacuationmarkslightingService.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/EvacuationmarkslightingService.java
+END
+GroupService.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/service/!svn/ver/886/selfmanagementsystem/src/main/java/com/xakj/service/GroupService.java
+END
+WaterMistSystemService.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/WaterMistSystemService.java
+END
+FireElevatorService.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/java/com/xakj/service/FireElevatorService.java
+END

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>单位信息</title>
+<!--[if IE 7]>
+    <link href="../css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+<!-- Bootstrap -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!-- 字体图标 -->
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<!-- bootstrap-dialog -->
+
+<!-- NProgress -->
+<link href="../css/nprogress.css" rel="stylesheet">
+<!-- 日期样式 -->
+<link href="../css/bootstrap-datepicker3.min.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../css/general.css" rel="stylesheet" media="screen">
+<!-- 消息提示 -->
+<link href="../css/toastr.min.css" rel="stylesheet">
+<!-- table -->
+<link href="../css/bootstrap-table.css" rel="stylesheet">
+<!-- 文本验证 -->
+<link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../css/build.css">
+<!-- 图片上传 -->
+<link href="../css/bootstrap-fileinput.css" rel="stylesheet" />
+<link href="../css/add.css" rel="stylesheet" media="screen">
+
+</head>
+<body class="bg_white">
+	<div class="padding_15">
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="x_top x_top1 clearfix">
+					<h4>查询建筑编号</h4>
+				</div>
+
+				<div class="x_content ">
+					<form class="form-horizontal form_style"
+						style="padding-bottom: 15px;" onsubmit="return false">
+						<div class="input-group left_s">
+							<i class="ioc_line"></i> <input class="form-input"
+								placeholder="输入你要查询的单位地址或ID和名称" name="search" type="text">
+							<span class="input-group-btn">
+								<button class="s_search btn btn-blue btn-color " type="submit">
+									<i class="fa fa-search"></i>检索
+								</button>
+							</span>
+						</div>
+
+					</form>
+					<table class="table table-hover text-center" id="tb_departments"></table>
+				</div>
+
+			</div>
+			
+		</div>
+	</div>
+
+
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- table -->
+<script src="../js/bootstrap-table.js"></script>
+<script src="../js/bootstrap-table-zh-CN.js"></script>
+<script src="../js/user/user_build.js"></script>
+</html>

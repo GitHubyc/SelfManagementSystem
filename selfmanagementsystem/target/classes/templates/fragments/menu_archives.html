@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+</head>
+<body>	
+        <div id="sidebar"  class="nav-collapse " th:fragment="menu">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li class="sub-menu">
+                    <a href="javascript:;" th:class="${menu}=='entityResponsibility'? 'dcjq-parent active'">
+                        <i class="fa fa-clipboard"></i>
+                        <span>责任告知书</span>
+                    </a>
+                    <ul class="sub"  th:style="${menu}=='entityResponsibility'?'display: block'">
+                      <li><a th:href="@{/entityResponsibility/details(buildCode=${buildCode})}" >主体责任签订</a></li>
+                      <li><a th:href="@{/managerResponsibility/details(buildCode=${buildCode})}">管理责任签订</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a th:href="@{/buildManagement/list(buildCode=${buildCode})}">
+                        <i class="fa fa-clipboard"></i>
+                        <span>建筑信息</span>
+                    </a>
+                </li>
+                 <li class="sub-menu">
+                    <a href="javascript:;" th:class="${menu}=='entityResponsibilityinfo'? 'dcjq-parent active'">
+                        <i class="fa fa-clipboard"></i>
+                        <span>责任信息</span>
+                    </a>
+                    <ul class="sub"  th:style="${menu}=='entityResponsibilityinfo'?'display: block'">
+                      <li><a th:href="@{/entityResponsibilityinfo/details(buildCode=${buildCode})}" >主体责任信息</a></li>
+                      <li><a th:href="@{/managerResponsibilityinfo/details(buildCode=${buildCode})}">监管责任信息</a></li>
+                    </ul>
+                </li>                
+                <li class="sub-menu">
+                    <a th:href="@{/settledUnit/list(buildCode=${buildCode})}">
+                        <i class="fa fa-clipboard"></i>
+                        <span>入驻单位</span>
+                    </a>
+                </li>
+                 <li class="sub-menu">
+                    <a   href="javascript:;"th:class="${menu}=='SupervisionInfo'? 'dcjq-parent active'">
+                        <i class="fa fa-clipboard"></i>
+                        <span>监督信息</span>
+                    </a>
+                     <ul class="sub"  th:style="${menu}=='SupervisionInfo'?'display: block'">
+                      <li><a th:href="@{/fireResponsibility/list}">消防行政许可</a></li>
+                      <li><a th:href="@{/fireProtection/list}">监督检查信息</a></li>                 
+                    </ul>
+                </li>
+                
+                <li class="sub-menu">
+                    <a href="javascript:;" th:class="${menu}=='work'? 'dcjq-parent active'">
+                        <i class="fa fa-clipboard"></i>
+                        <span>自我管理</span>
+                    </a>
+                    <ul class="sub"  th:style="${menu}=='work'?'display: block'">
+                      <li><a th:href="@{/buildingSelfManagement/day(buildCode=${buildCode})}" >每日巡查</a></li>
+                      <li><a th:href="@{/buildingSelfManagement/month(buildCode=${buildCode})}">每月检查</a></li>
+                      <li><a th:href="@{/buildingSelfManagement/control(buildCode=${buildCode})}">控制室检查</a></li>
+                      <li><a th:href="@{/buildingSelfManagement/electronicpatrol(buildCode=${buildCode})}">电子巡更</a></li>
+                      <li><a th:href="@{/buildingSelfManagement/jointMonitoring(buildCode=${buildCode})}">物联监控</a></li>
+                    </ul>
+                </li>
+               
+                <li class="sub-menu" >
+                    <a href="javascript:;" th:class="${menu}=='keyPersonnel'? 'dcjq-parent active'">
+                        <i class="fa fa-users"></i>
+                        <span>重点人员</span>
+                    </a>
+                      <ul class="sub" th:style="${menu}=='keyPersonnel'?'display: block'">
+                      <li><a th:href="@{/keyPersonnel/list}">刑满释放人员</a></li>
+                      <li><a th:href="@{/keyPersonnel/list}">残疾人员信息</a></li>
+                      <li><a th:href="@{/keyPersonnel/list}">老人幼儿信息</a></li>
+                    </ul>
+                </li>
+ 				
+                <li class="sub-menu" >
+                    <a  th:href="@{/otherInfo/list}">
+                        <i class="fa fa-book"></i>
+                        <span>其他信息</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+</body>
+</html>

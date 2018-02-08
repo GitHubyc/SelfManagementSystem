@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>列表</title>
+<!--[if IE 7]>
+    <link href="../css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+
+<!-- Bootstrap -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!-- 字体图标 -->
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../css/nprogress.css" rel="stylesheet">
+<!-- toastr -->
+<link href="../css/toastr.min.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../css/general.css" rel="stylesheet" media="screen">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../css/build.css">
+<link href="../css/list.css" rel="stylesheet" media="screen">
+
+</head>
+<body>
+	<div class="container">
+		<!-- 头部 -->
+		<div th:replace="fragments/header :: header">头部</div>
+		<div class="content_x">
+			<!-- 左菜单 -->
+			<div th:replace="fragments/menu :: menu">左菜单</div>
+			<!--右内容 -->
+
+			<div class="right_col">
+				<div class="right_top clearfix">
+					<form id="form1" action="/firecontrolinstrumentation/list"
+						onsubmit="return false;">
+						<!--搜索条 -->
+						<div class="col-lg-5 col-md-8 col-sm-8 col-xs-7">
+							<div class="input-group left_s">
+								<span class="input-group-btn">
+									<button type="button"
+										class="s_search_right btn btn-default form_left">
+										多条件 <span class="caret"></span>
+									</button> </span> <i class="ioc_line"></i> <input type="text"
+									class="form-input" placeholder="输入你要查询的问题"> <span
+									class="input-group-btn">
+									<button type="button" class="btn btn-blue btn-color"
+										onclick="page(1);">
+										<i class="fa fa-search"></i>检索
+									</button> </span>
+
+							</div>
+						</div>
+						<div class="right col-lg-7 col-md-4 col-sm-4 col-xs-3">
+							<a class="btn btn-blue btn-color pull-right"
+								href="/firecontrolinstrumentation/add"><span>新增传感器</span><i
+								class="fa_icon fa-plus"></i> </a>
+						</div>
+						<!--搜索条结束 -->
+						<div class="right col-lg-7 col-md-4 col-sm-4 col-xs-3"></div>
+						<div class="clear"></div>
+						<div class="s_type clearfix">
+							<div class="form-horizontal">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div class="row">
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+											<div class="item form-group">
+												<label
+													class="text-left col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">所属建筑:
+												</label>
+												<div class=" col-lg-9 col-md-9 col-sm-9 col-xs-12">
+													<select class="form-control inline" name="buildId">
+														<option value="">-- 请选择 --</option>
+														<span th:each="obj : ${buildList.data}">
+															<option th:value="${obj.buildCode}"
+																th:text="${obj.buildName}"
+																th:selected="${obj.buildCode}==${paramMap.buildId}"></option>
+													</span>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+											<div class="item form-group">
+												<label
+													class="text-left col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">楼层:
+												</label>
+												<div class=" col-lg-9 col-md-9 col-sm-9 col-xs-12">
+													<input class="form-control" name="floor"
+														placeholder="请输入楼层" type="text"
+														th:value="${paramMap.floor}">
+												</div>
+											</div>
+										</div>
+
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+											<div class="item form-group">
+												<label
+													class="text-left col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">地址:
+												</label>
+												<div class=" col-lg-9 col-md-9 col-sm-9 col-xs-12">
+													<input class="form-control" name="address"
+														placeholder="请输入地址" type="text"
+														th:value="${paramMap.address}">
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</form>
+				</div>
+				<div class="padding_20">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="s_panel">
+								<!-- 内容标题 -->
+								<div class="x_top clearfix ">
+
+									<div class="row">
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+											<div class="font-left" id="seacher_tip">全部</div>
+											<div class=" pull-right list_box_tab">
+												<a class="btn btn-blue btn-color">所有 <span class="badge"
+													th:text="${#lists.size(normalList)+#lists.size(warningList)}">4</span>
+												</a> <a class="btn btn-blue danger">异常 <span class="badge"
+													th:text="${#lists.size(warningList)}">2</span> </a> <a
+													class="btn btn-blue primary">正常 <span class="badge"
+													th:text="${#lists.size(normalList)}">4</span> </a> <select
+													class="form-city inline" name="systemState" id="sel">
+													<option value="">-- 请选择 --</option>
+													<span th:each="sensorType : ${sensorTypeList.data}">
+														<option th:value="${sensorType.id}"
+															th:text="${sensorType.name}"
+															th:selected="${sensorType.id}==${paramMap.type}"></option>
+												</span>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 内容标题结束 -->
+
+								<div class="padding_15">
+									<div class="row">
+										<div class="col-md-12 text-center">
+											<div class="list_box_row">
+												<span
+													th:if="${warningList !=null  and warningList !='null' and  not #lists.isEmpty(warningList)}">
+													<span th:each="obj,objStat : ${warningList}">
+														<div class="box_margin">
+															<div class="box_content box_red">
+																<div class="trow_head clear">
+																	<i class="bg_yy pull-left" th:text="${objStat.index+1}"></i>
+																	<h5 th:text="${obj.typename}"></h5>
+																	<i class="icon-yc"></i>
+																	<p>
+																		<span>ID：</span><span th:text="${obj.sensorSpotId}"></span>
+																	</p>
+																</div>
+																<p>
+																	剩余电量：<span class="font_red"
+																		th:text="${obj.reportElectricity}+'A'"></span>
+																</p>
+																<p class="pull-left p1">
+																	信号强度：<span th:text="${obj.reportSignal}+'dbm'"></span>
+																</p>
+																<p class="pull-right p2">
+																	电池电压：<span th:text="${obj.reportElectricity}+'V'"></span>
+																</p>
+																<p>
+																	地址：<span th:text="${obj.address}"></span>
+																</p>
+																<div class="pull-left d1">
+																	<button type="button" class="btn btn-blue btn-color"
+																		th:onclick="'getIframe(\'/sensorHistoryById?id='+${obj.sensorSpotId}+'\')'">历史记录</button>
+																</div>
+																<div class="pull-right d1">
+																	<i class="icon fa-plus-shijian"></i><span
+																		th:text="${obj.reportTime}"></span>
+																</div>
+																<div class="clear"></div>
+															</div>
+														</div> </span> </span> <span
+													th:if="${normalList !=null  and normalList !='null' and  not #lists.isEmpty(normalList)}">
+													<span th:each="obj,objStat : ${normalList}">
+														<div class="box_margin">
+															<div class="box_content">
+																<div class="trow_head clear">
+																	<i class="bg_yy pull-left"
+																		th:text="${#lists.size(warningList)+objStat.index+1}">1</i>
+																	<h5 th:text="${obj.typename}"></h5>
+																	<i class="icon-yc"></i>
+																	<p>
+																		<span>ID：</span><span th:text="${obj.sensorSpotId}"></span>
+																	</p>
+																</div>
+																<p>
+																	剩余电量：<span class="font_red"
+																		th:text="${obj.reportElectricity}+'A'"></span>
+																</p>
+																<p class="pull-left p1">
+																	信号强度：<span th:text="${obj.reportSignal}+'dbm'"></span>
+																</p>
+																<p class="pull-right p2">
+																	电池电压：<span th:text="${obj.reportElectricity}+'V'"></span>
+																</p>
+																<p>
+																	地址：<span th:text="${obj.address}"></span>
+																</p>
+																<div class="pull-left d1">
+																	<button type="button" class="btn btn-blue btn-color"
+																		th:onclick="'getIframe(\'/sensorHistoryById?id='+${obj.sensorSpotId}+'\')'">历史记录</button>
+																</div>
+																<div class="pull-right d1">
+																	<i class="icon fa-plus-shijian"></i><span
+																		th:text="${obj.reportTime}"></span>
+																</div>
+																<div class="clear"></div>
+															</div>
+														</div> </span> </span>
+											</div>
+											<div class="list_box_row displaynone">
+												<span
+													th:if="${warningList !=null  and warningList !='null' and  not #lists.isEmpty(warningList)}">
+													<span th:each="obj,objStat : ${warningList}">
+														<div class="box_margin">
+															<div class="box_content box_red">
+																<div class="trow_head clear">
+																	<i class="bg_yy pull-left" th:text="${objStat.index+1}"></i>
+																	<h5 th:text="${obj.typename}"></h5>
+																	<i class="icon-yc"></i>
+																	<p>
+																		<span>ID：</span><span th:text="${obj.sensorSpotId}"></span>
+																	</p>
+																</div>
+																<p>
+																	剩余电量：<span class="font_red"
+																		th:text="${obj.reportElectricity}+'A'"></span>
+																</p>
+																<p class="pull-left p1">
+																	信号强度：<span th:text="${obj.reportSignal}+'dbm'"></span>
+																</p>
+																<p class="pull-right p2">
+																	电池电压：<span th:text="${obj.reportElectricity}+'V'"></span>
+																</p>
+																<p>
+																	地址：<span th:text="${obj.address}"></span>
+																</p>
+																<div class="pull-left d1">
+																	<button type="button" class="btn btn-blue btn-color"
+																		th:onclick="'getIframe(\'/sensorHistoryById?id='+${obj.sensorSpotId}+'\')'">历史记录</button>
+																</div>
+																<div class="pull-right d1">
+																	<i class="icon fa-plus-shijian"></i><span
+																		th:text="${obj.reportTime}"></span>
+																</div>
+																<div class="clear"></div>
+															</div>
+														</div> </span> </span>
+											</div>
+											<div class="list_box_row displaynone">
+												<span
+													th:if="${normalList !=null  and normalList !='null' and  not #lists.isEmpty(normalList)}">
+													<span th:each="obj,objStat : ${normalList}">
+														<div class="box_margin">
+															<div class="box_content">
+																<div class="trow_head clear">
+																	<i class="bg_yy pull-left"
+																		th:text="${#lists.size(warningList)+objStat.index+1}">1</i>
+																	<h5 th:text="${obj.typename}"></h5>
+																	<i class="icon-yc"></i>
+																	<p>
+																		<span>ID：</span><span th:text="${obj.sensorSpotId}"></span>
+																	</p>
+																</div>
+																<p>
+																	剩余电量：<span class="font_red"
+																		th:text="${obj.reportElectricity}+'A'"></span>
+																</p>
+																<p class="pull-left p1">
+																	信号强度：<span th:text="${obj.reportSignal}+'dbm'"></span>
+																</p>
+																<p class="pull-right p2">
+																	电池电压：<span th:text="${obj.reportElectricity}+'V'"></span>
+																</p>
+																<p>
+																	地址：<span th:text="${obj.address}"></span>
+																</p>
+																<div class="pull-left d1">
+																	<button type="button" class="btn btn-blue btn-color"
+																		th:onclick="'getIframe(\'/sensorHistoryById?id='+${obj.sensorSpotId}+'\')'">历史记录</button>
+																</div>
+																<div class="pull-right d1">
+																	<i class="icon fa-plus-shijian"></i><span
+																		th:text="${obj.reportTime}"></span>
+																</div>
+																<div class="clear"></div>
+															</div>
+														</div> </span> </span>
+											</div>
+										</div>
+										<div class="clear"></div>
+
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- 手机端-->
+<script src="../js/jquery.dcjqaccordion.2.7.js"></script>
+
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 滚动条-->
+<script src="../js/jquery.nicescroll.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<!-- toastr -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- NProgress -->
+<script src="../js/nprogress.js"></script>
+<!-- 弹窗框  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<script src="../js/common.js"></script>
+<script type="text/javascript" src="../js/message.js"></script>
+<script
+	src="../js/FireControlInstrumentation/FireControlInstrumentation_list.js"></script>
+</html>

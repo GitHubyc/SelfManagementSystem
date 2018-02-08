@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/resources/templates/UnitEmployees
+END
+UnitEmployee_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/resources/templates/UnitEmployees/UnitEmployee_edit.html
+END
+UnitEmployee_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/resources/templates/UnitEmployees/UnitEmployee_details.html
+END
+UnitEmployee_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/resources/templates/UnitEmployees/UnitEmployee_add.html
+END

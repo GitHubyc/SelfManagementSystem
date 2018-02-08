@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+    <!--[if IE 7]>
+   <link href="../css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+     <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+	<!-- 字体图标 -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+	 <!-- NProgress -->
+   <link href="../css/nprogress.css" rel="stylesheet">
+    <!-- toastr -->
+    <link href="../css/toastr.min.css" rel="stylesheet">
+    <link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+	<!-- 选框样式 -->
+	<link rel="stylesheet" type="text/css" href="../css/build.css">
+	<link href="../css/add.css" rel="stylesheet" media="screen" >
+	 <!-- 公共样式 -->
+	<link href="../css/general.css" rel="stylesheet" media="screen" >
+	
+</head>
+<body class="bg_white">
+  <div class="padding_15">
+   <div class="row">
+  <div class="col-md-12">
+  <div class="x_panel">
+    <div class="x_top x_top1 clearfix" >
+<h4>新增用户到组</h4>
+   </div>
+   
+	   <div class="x_content" >
+	 	<form class="form-horizontal form_style" id="" method="post">
+		<div class="container">
+			<!-- 头部 -->
+			<!-- 左菜单 -->
+			<!--右内容 -->
+
+			<div class="right_top clearfix">
+				<form id="defaultForm" method="post" th:action="@{/User_list}">
+					<!--搜索条 -->
+					<div class="col-lg-5 col-md-8 col-sm-8 col-xs-7">
+						<input type="hidden" name="currentPage" value="1" /> <input
+							type="hidden" name="pageSize" value="12" />
+						<div class="input-group left_s">
+							<span class="input-group-btn">
+								<button type="button"
+									class="s_search_right btn btn-default btn-dialog form_left">
+									多条件 <span class="caret"></span>
+								</button> </span> <i class="ioc_line"></i> <input type="text" class="form-input"
+								placeholder="输入你要查询的问题"> <span class="input-group-btn">
+								<button type="submit" class="s_search btn btn-blue btn-color ">
+									<i class="fa fa-search"></i>检索
+								</button> </span>
+
+						</div>
+					</div>
+					<!--搜索条结束 -->
+					<div class="right col-lg-7 col-md-4 col-sm-4 col-xs-3"></div>
+					<div class="clear"></div>
+					<div class="s_type clearfix" style="display:none">
+						<div class="form-horizontal">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">用户类型:
+											</label>
+											<div class=" col-lg-9 col-md-9 col-sm-9 col-xs-12">
+												<select class="form-select s_height" name="buildClassify">
+													<option selected="true" disabled="true">-- 请选择类型
+														--</option>
+													<option value="1">一般用户</option>
+													<option value="2">重点用户</option>
+													<option value="3">三小场所</option>
+													<option value="4">工矿企业</option>
+
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">隶属用户:
+											</label>
+											<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+												<input type="text" name="subordinateUnit"
+													placeholder="请输入隶属用户" class="form-control">
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="padding_20">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<div class="s_panel text-left">
+						<!-- 内容标题 -->
+						<div class="x_top clearfix"></div>
+						<!-- 内容标题结束 -->
+						<div class="s_content">
+							<table class="table table-hover text-center">
+								<thead>
+									<tr class="active">
+										<th>id</th>
+										<th>真实姓名</th>
+										<th>用户名</th>
+										<th>职位</th>
+										<th>邮箱</th>
+										<th>性别</th>
+										<th>电话</th>
+										<th>QQ</th>
+										<th>入职日期</th>
+										<th>最后登录</th>
+										<th>访问次数</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>001</td>
+										<td>admin</td>
+										<td>admin</td>
+										<td></td>
+										<td></td>
+										<td>女</td>
+										<td></td>
+										<td></td>
+										<td>2016-08-08</td>
+										<td>2017-09-27</td>
+										<td>26</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="col-sm-6">
+								<div class="page_text">第 21 到 30 页，共 57 页</div>
+							</div>
+							<div class="col-sm-6">
+								<ul class="pagination">
+									<li><a href="#">首页</a></li>
+									<li class="disabled"><a href="#">上一页</a></li>
+									<li class="active "><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li class="disabled"><a href="#">下一页</a></li>
+									<li><a href="#">尾页</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-6 col-md-offset-3">
+				<button type="submit" class="btn btn-success">提交</button>
+				<button type="submit" class="btn btn-primary">重置</button>
+			</div>
+		</div>
+	</form>
+
+	    </div>
+
+	  
+	</div>			 
+  </div>
+  </div>
+</div>
+
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- 手机端-->
+<script src="../js/jquery.dcjqaccordion.2.7.js"></script>
+
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 滚动条-->
+<script src="../js/jquery.nicescroll.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 自定义  -->
+ <script src="../js/style.js"></script>
+<!-- 页面加载 -->
+<script src="../js/nprogress.js"></script> 
+<!-- 表单验证 -->
+<script src="../js/bootstrapValidator.min.js"></script>
+<script src="../js/Validator.js"></script>
+</html>

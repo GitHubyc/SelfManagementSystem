@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+<!-- Bootstrap -->
+<link th:replace="fragments/configcss :: css" />
+<!-- 文本验证 -->
+<link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+<!-- 图片上传 -->
+<link href="../css/uploader.all.css" rel="stylesheet" media="screen">
+<link href="../css/add.css" rel="stylesheet" media="screen">
+
+</head>
+<body >
+	<!-- 头部 -->
+	<div th:replace="fragments/header :: header">头部</div>
+
+	<div class="content_x">
+		<!-- 左菜单 -->
+		<div th:replace="fragments/menu :: menu">左菜单</div>
+
+		<!--右内容 -->
+		<div class="right_col">
+			<div class="padding_20">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="x_panel">
+							<div class="x_top clearfix">
+								<div class="font-left">
+									<i class="fa fa-angle-left font_ioc_blue"></i><a
+										th:href="@{/build/list}">返回建筑列表</a>
+								</div>
+								<div class="pull-right font_black">
+									<i class="fa fa-sign-in "></i><a href="#">导出</a>
+								</div>
+							</div>
+							<div class="x_top x_top1 clearfix">
+								<h4>新增建筑基本信息</h4>
+							</div>
+
+							<div class="x_content ">
+								<form class="form-horizontal" id="BuildInfo" method="post">
+
+									<div class="row">
+										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+											<div class="pic_updateimg">
+												<div class="pic">
+													<img class="Img" id="pic" src="../img/noimage.png" />
+													<div id="upload-info"></div>
+												</div>
+												<a id="upload-target" class="btn btn-blue btn-color" > 添加建筑图片<i
+														class="glyphicon glyphicon-plus" style="margin-left: 5px;"></i></a>
+														 	<input type="hidden" name="buildImage" />
+											</div>
+										</div>
+
+
+										<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+											<div class="form_content">
+												<h4 class="font_ioc_blue">
+													<strong><i class="fa fa-gear"></i>填写建筑</strong>
+												</h4>
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+														<div class="item form-group">
+															<label
+																class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label"><span
+																class="required">*</span>建筑编号: </label>
+															<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+																<input class="form-control" name="plcBuildCode"
+																	placeholder="请输入建筑编号" type="text">
+															</div>
+														</div>
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">建筑名称:
+															</label>
+															<div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input class="form-control" name="buildName"
+																	placeholder="请输入建筑名称" type="text">
+															</div>
+														</div>
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">建筑情况:
+															</label>
+															<div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<select class="form-control" name="buildStatus">
+																	<option selected="true" disabled="true">-- 请选择类型 --</option>
+																	<option value="1">在建</option>
+																	<option value="2">已建</option>
+																	<option value="3">停建</option>
+																</select>
+															</div>
+														</div>
+
+
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">建筑分类:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+
+																<select class="form-control" name="buildClassify">
+																	<option selected="true" disabled="true">-- 请选择类型 --</option>
+																	<option value="1">单、多层建筑</option>
+																	<option value="1101">--单、多层公共建筑</option>
+																	<option value="1102">--单、多层住宅建筑</option>
+																	<option value="1103">--单、多层工业建筑</option>
+																	<option value="1104">--单、多层其他</option>
+																	<option value="2">高层建筑</option>
+																	<option value="3">--百米以上建筑</option>
+																	<option value="11111">----百米以上公共建筑</option>
+																	<option value="11112">----百米以上住宅建筑</option>
+																	<option value="11113">----百米以上工业建筑</option>
+																	<option value="11114">----百米以上其他</option>
+																	<option value="4">--百米以下建筑</option>
+																	<option value="11121">----百米以下公共建筑</option>
+																	<option value="11122">----百米以下住宅建筑</option>
+																	<option value="11123">----百米以下工业建筑</option>
+																	<option value="11124">----百米以下其他</option>
+																	<option value="6">--50~100米建筑</option>
+																	<option value="11161">----50~100米公共建筑</option>
+																	<option value="11162">----50~100米住宅建筑</option>
+																	<option value="11163">----50~100米工业建筑</option>
+																	<option value="11164">----50~100米其他</option>
+																	<option value="7">--50米以下建筑</option>
+																	<option value="11171">----50米以下公共建筑</option>
+																	<option value="11172">----50米以下住宅建筑</option>
+																	<option value="11173">----50米以下工业建筑</option>
+																	<option value="11174">----50米以下其他</option>
+																	<option value="5">--地下建筑</option>
+																	<option value="1121">----公共娱乐场所</option>
+																	<option value="1122">----商场市场</option>
+																	<option value="1123">----宾馆饭店</option>
+																	<option value="1124">----城市地铁</option>
+																	<option value="1125">----城市隧道</option>
+																	<option value="119">--其他建筑</option>
+
+																</select>
+															</div>
+														</div>
+
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">竣工日期:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 ">
+																<div class="input-group date" id="completedDate">
+																	<input type="text" class="form-control"
+																		name="completedDate" /> <span
+																		class="input-group-addon"> <span
+																		class="glyphicon glyphicon-calendar"></span>
+																	</span>
+																</div>
+															</div>
+														</div>
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">最大容纳人数:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input type="text" name="maximumCapacity"
+																	class="form-control" placeholder="请输入人数"><span
+																	class="font_unit">个</span>
+															</div>
+														</div>
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">建筑产权及使用情况:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<select class="form-control" name="propertyRightAndUse">
+																	<option selected="true" disabled="true">-- 请选择类型 --</option>
+																	<option value="1">独家产权，独立使用</option>
+																	<option value="2">独立产权，多家使用</option>
+																	<option value="3">多家产权、多家使用</option>
+																</select>
+															</div>
+														</div>
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">建筑结构:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<select class="form-control" name="buildStructure">
+																	<option selected="true" disabled="true">-- 请选择类型 --</option>
+																	<option value="1">木结构</option>
+																	<option value="2">砖木结构</option>
+																	<option value="3">砖混结构</option>
+																	<option value="4">钢筋混凝土（砼）结构</option>
+																	<option value="5">钢结构</option>
+																	<option value="6">其他结构</option>
+																</select>
+															</div>
+														</div>
+
+
+													</div>
+												</div>
+
+
+
+												<div class="item form-group">
+													<label
+														class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">建筑用途:
+													</label>
+													<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+														<div class="checkbox checkbox-inline">
+															<input type="checkbox" name="buildUse" value="1" id="b1"><label
+																for="b1">公共娱乐场所</label>
+														</div>
+														<div class="checkbox checkbox-inline">
+															<input type="checkbox" name="buildUse" value="2" id="b2"><label
+																for="b2">宾馆、饭店</label>
+														</div>
+														<div class="checkbox checkbox-inline">
+															<input type="checkbox" name="buildUse" value="3" id="b3"><label
+																for="b3">商场、市场</label>
+														</div>
+														<div class="checkbox checkbox-inline">
+															<input type="checkbox" name="buildUse" value="4" id="b4"><label
+																for="b4">体育场馆、会堂</label>
+														</div>
+														<div class="checkbox checkbox-inline">
+															<input type="checkbox" name="buildUse" value="5" id="b5"><label
+																for="b5">民用机场航站楼、客运车站候车室、 码头候船厅</label>
+														</div>
+														<div class="checkbox checkbox-inline">
+															<input type="checkbox" name="buildUse" value="6" id="b6"><label
+																for="b6">医院、疗养院</label>
+														</div>
+														<div class="checkbox checkbox-inline">
+															<input type="checkbox" name="buildUse" value="7" id="b7"><label
+																for="b7">养老院、福利院</label>
+														</div>
+
+													</div>
+												</div>
+
+												<div class="item form-group">
+													<label
+														class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">行政区域:
+													</label>
+													<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+														<div id="city">
+															<select class="form-city inline" name="province"></select>
+															<select class="form-city inline" name="city"></select> <select
+																class="form-city inline" name="county"></select> <select
+																class="form-city inline" name="street"></select> <select
+																class="form-city inline" name="community"></select> <select
+																class="form-city inline" name="grid"></select> <input
+																type="hidden" name="xzqhCode" />
+														</div>
+													</div>
+												</div>
+												<div class="item form-group">
+													<label
+														class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">建筑地址:
+													</label>
+													<div class=" col-lg-10 col-md-10 col-sm-10 col-xs-12">
+														<textarea class="form-control" name="buildAddress"
+															placeholder="请输入详细地址，请输入栋/门牌号"></textarea>
+														<input type="hidden" name="address" />
+													</div>
+												</div>
+												<div class="item form-group">
+													<label
+														class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">毗邻建筑情况:
+													</label>
+													<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+														<textarea name="adjacentBuildings" placeholder="请输入毗邻建筑情况"
+															class="form-control"></textarea>
+													</div>
+												</div>
+											</div>
+
+											<div class="form_content">
+												<h4 class="font_ioc_blue">
+													<strong><i class="fa fa-gear"></i>填写面积、层数</strong>
+												</h4>
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+														<div class="item form-group">
+															<label
+																class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">占地面积:
+															</label>
+															<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+																<input class="form-control" name="floorSpace"
+																	placeholder="985245.m²" type="text"><span
+																	class="font_unit">m²</span>
+															</div>
+														</div>
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">建筑面积:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input type="text" name="buildingArea"
+																	placeholder="1318819.55.m²" class="form-control"><span
+																	class="font_unit">m²</span>
+															</div>
+														</div>
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">地上面积:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input type="text" name="groundArea"
+																	placeholder="541263.35.m²" class="form-control">
+																<span class="font_unit">m²</span>
+															</div>
+														</div>
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">地上层数:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input type="text" name="groundLayerNumber"
+																	placeholder="32" class="form-control"> <span
+																	class="font_unit">层数</span>
+															</div>
+														</div>
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">避难层位置:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input type="text" name="refugeFloorShow"
+																	placeholder="请输入所在楼层" class="form-control"> <input
+																	type="hidden" name="refugeFloorLocation"
+																	class="form-control">
+															</div>
+														</div>
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">避难层数量:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input type="text" name="refugeFloorNumberShow"  
+																	disabled="disabled" placeholder="请输入数量"
+																	class="form-control"><span class="font_unit">个</span>
+																		<input type="hidden" 
+										name="refugeFloorNumber" class="form-control">
+															</div>
+														</div>
+														
+														
+
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">标准层面积:
+															</label>
+															<div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input name="standardFloorSize" class="form-control"
+																	placeholder="225.55.m²" type="text"> <span
+																	class="font_unit">m²</span>
+															</div>
+														</div>
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">建筑高度:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input type="text" name="buildingHeight"
+																	placeholder="100m" class="form-control"> <span
+																	class="font_unit">M</span>
+															</div>
+														</div>
+
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">地下面积:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input type="text" name="undergroundArea"
+																	placeholder="3763.25.m²" class="form-control">
+																<span class="font_unit">m²</span>
+															</div>
+														</div>
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">地下层数:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input type="text" name="undergroundLayerNumber"
+																	placeholder="3" class="form-control"> <span
+																	class="font_unit">层数</span>
+																	
+															</div>
+														</div>
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">避难层面积:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input type="text" name="refugeFloorArea"
+																	placeholder="37.25.m²" class="form-control"> <span
+																	class="font_unit">m²</span>
+															</div>
+														</div>
+
+
+													</div>
+												</div>
+
+
+
+
+											</div>
+											<div class="form_content">
+												<h4 class="font_ioc_blue">
+													<strong><i class="fa fa-gear"></i>填写消防设施</strong>
+												</h4>
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">消防电梯数量:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input type="text" name="fireElevatorNumber"
+																	placeholder="0" class="form-control"> <span
+																	class="font_unit">台</span>
+															</div>
+														</div>
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">消防控制室位置:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input type="text" name="controlRoomLocation"
+																	class="form-control" placeholder="请输入位置">
+
+															</div>
+														</div>
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">消防控制室情况:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<select class="form-control" name="isControlRoom">
+																	<option selected="true" disabled="true">-- 请选择类型 --</option>
+																	<option value="1">有</option>
+																	<option value="2">无</option>
+																</select>
+															</div>
+														</div>
+
+													</div>
+
+													<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">消防电梯位置:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input type="text" name="fireElevatorLocation"
+																	placeholder="请输入消防电梯位置" class="form-control">
+															</div>
+														</div>
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">耐火等级:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<select class="form-control" name="fireResistanceRating">
+																	<option selected="true" disabled="true">-- 请选择类型 --</option>
+																	<option value="1">一级</option>
+																	<option value="2">二级</option>
+																	<option value="3">三级</option>
+																	<option value="4">四级</option>
+																</select>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!--   <div class="form_content">
+					<h4 class="font_ioc_blue"><strong><i class="fa fa-gear"></i>填写地图坐标</strong></h4>
+                      <div class="row">
+                       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                       <div class="item form-group">
+                                 <label class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">百度经度:
+                                 </label>
+                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                     <input type="text" name="bdLon" placeholder="请输入百度经度"  class="form-control">
+                                 </div>
+                             </div>  
+                             
+                               <div class="item form-group">
+                                 <label class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">百度纬度:
+                                 </label>	
+                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                     <input type="text" name="bdLat" placeholder="请输入百度纬度"  class="form-control">
+                                 </div>
+                             </div>
+                                                      
+                              </div>
+                              
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="item form-group">
+                                 <label class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">规土委经度:
+                                 </label>
+                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                     <input type="text" name="gtwLon" placeholder="请输入规土委经度"  class="form-control">
+                                 </div>
+                             </div>
+                             
+                                <div class="item form-group">
+                                 <label class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">规土委纬度:
+                                 </label>
+                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                     <input type="text" name="gtwLat" placeholder="请输入规土委纬度"  class="form-control">
+                                 </div>
+                             </div>
+                              </div>
+                               </div>
+
+                          </div>  -->
+											
+											<div class="form-group">
+												<div class="col-md-6">
+													<button id="send" type="submit" class="btn btn-success">提交</button>
+
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+<script th:replace="fragments/configjs :: js" type="text/javascript"></script>
+<script src="../js/buildInfos/Build_add.js"></script>
+<!-- 图片上传-->
+    <script type="text/javascript" src="../js/Q.js"></script>
+    <script type="text/javascript" src="../js/Q.Uploader.js"></script>
+    <script type="text/javascript" src="../js/uploader.js"></script>
+<!-- 城市联动-->
+<script src="../js/jquery.citys.js"></script>
+<script type="text/javascript">
+Uploader('upload-target','buildImage')
+	$('#city').citys(
+			{
+				required : false,
+				onChange : function(info) {
+					var text = info.province + info.city + info.county
+							+ info.street + info.community + info.grid;
+					$("[name='address']").val(text);
+				}
+			});
+</script>
+</html>

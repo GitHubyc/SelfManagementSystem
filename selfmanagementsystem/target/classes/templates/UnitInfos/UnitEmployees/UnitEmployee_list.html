@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+<!-- 树形图 -->
+<link rel="stylesheet" type="text/css" href="../css/bootstrapStyle.css">
+</head>
+<body>
+		<div class="x_scrollbar">
+			<div class="col_left_menu">
+				<ul id="tree" class="ztree">
+					<!-- 信息接收，js中处理 -->
+					<span id="continer1" th:value="${departmentobject.data}"></span>
+					<span id="continer2" th:value="${unitCode}"></span>
+					<span id="continer3" th:value="${departmentCode}"></span>
+				</ul>
+			</div>
+			<div class="col_right_tb">
+				<div class="content_row" style="display: block;">
+					<div class="title_top">
+						人员列表
+						<span th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+						<a href="JavaScript:void(0)" id="UnitEmployee_add"
+							th:each="right:${right}" th:if="${right.operateUrl == '/unitEmployee/add'}"><v
+								class="fa fa-plus"></v>新增</a>
+						</span>
+					</div>
+				</div>
+				<form id="unitemployee_list">
+					<!--搜索条 -->
+					<div class="col-lg-5 col-md-8 col-sm-8 col-xs-7">
+						<input type="hidden" name="currentPage" th:value="${paramMap.currentPage}"/> 
+						<input type="hidden" name="pageSize" th:value="${paramMap.pageSize}"/>
+						<input type="hidden" name="unitCode" th:value="${unitCode}"> 
+						<input type="hidden" name="departmentCode" th:value="${departmentCode}"/>
+					</div>
+				</form>
+				<table class="table table-hover text-center" id="table">
+					<thead>
+						<tr class="active">
+							<th>姓名</th>
+							<th>职位</th>
+							<th>使用状态</th>
+							<th>是否开通账号</th>
+							<th>联系电话</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody
+						th:if="${object.data !=null  and object.data !='null' and  not #lists.isEmpty(object.data)}">
+						<tr th:each="obj, objStat:${object.data}"
+							th:id="${obj.employeeCode}">
+							<td style="display:none" th:text="${obj.employeeCode}"></td>
+							<td th:text="${obj.name}"></td>
+							<td th:text="${obj.position}"></td>
+							<td th:switch="${obj.status}"><span th:case="1">在职</span> <span
+								th:case="2">离职</span></td>
+							<td><span th:if="${obj.isOpenAccount} == 0">待开通</span> <span
+								th:if="${obj.isOpenAccount} == 1">已开通</span> <span
+								th:if="${obj.isOpenAccount} == 2">已关闭</span></td>
+							<td th:text="${obj.contactNumber}"></td>
+							<td>
+								<span th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+								<button type="button" th:each="right:${right}" th:if="${right.operateUrl == '/unitEmployee/details'}"
+									class="btn btn-yellow UnitEmployee_detail" th:id="${obj}">查看</button>
+								<button type="button" class="btn btn-blue UnitEmployee_edit" th:id="${obj}"
+									th:each="right:${right}" th:if="${right.operateUrl == '/unitEmployee/edit'}">编辑</button>
+								<button type="button" class="btn btn-red UnitEmployee_del"
+									th:id="${obj}" th:name="${departmentCode}"
+									th:each="right:${right}" th:if="${right.operateUrl == '/unitEmployee/del'}">删除</button>
+								</span>		
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<dl class="list_table"
+					th:if="${object.data == null or object.data =='null' or #lists.isEmpty(object.data)}">
+					<div class="null">暂无数据</div>
+				</dl>
+				<div
+					th:replace="fragments/pageforload :: pageforload('ok','unitemployee_list','/unitemployee/list')">分页</div>
+			</div>
+			<div class="s_content" th:if="${object.status} != 200">
+				<dl class="list_table">
+					<div class="null">你访问的资源不存在,请重新登录</div>
+				</dl>
+			</div>
+		</div>
+		<div class="clear"></div>
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 树形图  -->
+<script type="text/javascript" th:src="@{../js/jquery.ztree.core.js}"></script>
+<script type="text/javascript" th:src="@{../js/jquery.ztree.excheck.js}"></script>
+<script type="text/javascript" th:src="@{../js/jquery.ztree.exedit.js}"></script>
+<script src="../js/UnitInfo/UnitEmployee/UntiEmployee_list.js"></script>
+</html>

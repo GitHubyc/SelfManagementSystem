@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/service/!svn/ver/1107/selfmanagementsystem/src/main/resources/templates/BuildInfos/FireElevator
+END
+FireElevator_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/service/!svn/ver/1107/selfmanagementsystem/src/main/resources/templates/BuildInfos/FireElevator/FireElevator_list.html
+END
+FireElevator_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/service/!svn/ver/917/selfmanagementsystem/src/main/resources/templates/BuildInfos/FireElevator/FireElevator_details.html
+END
+FireElevator_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/service/!svn/ver/917/selfmanagementsystem/src/main/resources/templates/BuildInfos/FireElevator/FireElevator_add.html
+END
+FireElevator_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/service/!svn/ver/917/selfmanagementsystem/src/main/resources/templates/BuildInfos/FireElevator/FireElevator_edit.html
+END

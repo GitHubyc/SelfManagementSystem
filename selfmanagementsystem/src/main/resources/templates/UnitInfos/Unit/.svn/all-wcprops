@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/service/!svn/ver/1208/selfmanagementsystem/src/main/resources/templates/UnitInfos/Unit
+END
+UnitInfo_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/service/!svn/ver/1152/selfmanagementsystem/src/main/resources/templates/UnitInfos/Unit/UnitInfo_edit.html
+END
+UnitInfo_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/service/!svn/ver/1136/selfmanagementsystem/src/main/resources/templates/UnitInfos/Unit/UnitInfo_details.html
+END
+UnitInfo_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/service/!svn/ver/1206/selfmanagementsystem/src/main/resources/templates/UnitInfos/Unit/UnitInfo_add.html
+END
+UnitInfo_build.html
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/service/!svn/ver/1050/selfmanagementsystem/src/main/resources/templates/UnitInfos/Unit/UnitInfo_build.html
+END
+UnitInfo_info.html
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/service/!svn/ver/1165/selfmanagementsystem/src/main/resources/templates/UnitInfos/Unit/UnitInfo_info.html
+END
+UnitInfo_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/service/!svn/ver/1208/selfmanagementsystem/src/main/resources/templates/UnitInfos/Unit/UnitInfo_list.html
+END

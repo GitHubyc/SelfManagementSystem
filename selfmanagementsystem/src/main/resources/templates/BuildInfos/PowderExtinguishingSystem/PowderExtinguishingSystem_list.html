@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+<!-- Bootstrap -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../css/nprogress.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../css/general.css" rel="stylesheet" media="screen">
+<!-- toastr -->
+<link href="../css/toastr.min.css" rel="stylesheet">
+<link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../css/build.css">
+<link href="../css/add.css" rel="stylesheet" media="screen">
+
+</head>
+<body>
+	<form id="form">
+		<input type="hidden" name="facilitieCode" th:value="${facilitieCode}">
+	</form>
+	<div class="title_top">
+		干粉灭火系统
+		<span th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+		<a href="JavaScript:void(0)" th:each="right:${right}" th:if="${right.operateUrl == '/powderextinguishingsystem/add'}" 
+			th:onclick="'getIframe(\'/powderextinguishingsystem/add?facilitieCode='+${facilitieCode}+'\')'"><v
+				class="fa fa-plus"></v>新增</a>
+				</span>
+	</div>
+	<table class="table table-hover text-center">
+		<thead>
+			<tr class="active">
+					 <th>系统名称</th>
+                       <th>设置部位</th>
+                       <th>维修保养单位</th>
+                       <th>系统状态</th>
+                       <th>负责部门及负责人</th>
+                       <th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${object.data} !=null"
+				th:each="obj,objStat: ${object.data}">
+		   <td th:text="${obj.systemName}">内容</td>
+                       <td th:text="${obj.installingPositions}">星河world</td>
+                      <td th:text="${obj.maintainingUnit}"></td>
+                      	<td
+					th:text="
+						(${obj.systemState}==1?'无故障运行':(
+						${obj.systemState}==2?'有故障运行':(
+						${obj.systemState}==3?'有故障停用':(
+						${obj.systemState}==4?'停用':(
+						${obj.systemState}==5?'其他'
+						)))))"></td>
+                    	<td th:text="${obj.personCharge}"></td>
+                    
+
+				<td>
+				<span th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+					<button type="button" class="btn btn-yellow" th:each="right:${right}" th:if="${right.operateUrl == '/powderextinguishingsystem/details'}" 
+						th:onclick="'getIframe(\'/powderextinguishingsystem/details?facilitieCode='+${facilitieCode}+'&&facilitieSystemCode='+${obj.facilitieSystemCode}+'\')'">查看</button>
+					<button type="button" class="btn btn-blue" th:each="right:${right}" th:if="${right.operateUrl == '/powderextinguishingsystem/edit'}" 
+						th:onclick="'getIframe(\'/powderextinguishingsystem/edit?facilitieCode='+${facilitieCode}+'&&facilitieSystemCode='+${obj.facilitieSystemCode}+'\')'">编辑</button>
+					<button type="button" class="btn btn-red" th:each="right:${right}" th:if="${right.operateUrl == '/powderextinguishingsystem/del'}" 
+						th:onclick="'del(\'/powderextinguishingsystem/del?facilitieCode='+${facilitieCode}+'&&facilitieSystemCode='+${obj.facilitieSystemCode}+'\')'">删除</button>
+				</span>
+				</td>
+			</tr>
+			<tr th:if="${object.data} ==null">
+				<td colspan="6" align="center">
+					<div class="null">暂无数据</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="margin_top_15">
+		<div
+			th:replace="fragments/pageforload :: pageforload (id='powderextinguishingsystem',form='form',url='/powderextinguishingsystem/list')">分页</div>
+	</div>
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 弹出窗  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<!-- 滚动条-->
+<script src="../js/jquery.nicescroll.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<!-- 表单验证 -->
+<script src="../js/bootstrapValidator.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/buildInfos/powderextinguishingsystem_list.js"></script>
+</html>

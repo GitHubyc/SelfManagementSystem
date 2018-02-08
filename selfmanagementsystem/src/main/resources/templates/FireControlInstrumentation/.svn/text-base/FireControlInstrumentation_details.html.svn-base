@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>详情</title>
+<!--[if IE 7]>
+    <link href="../css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+
+<!-- Bootstrap -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!-- 字体图标 -->
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../css/nprogress.css" rel="stylesheet">
+<!-- toastr -->
+<link href="../css/toastr.min.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../css/general.css" rel="stylesheet" media="screen">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../css/build.css">
+<link href="../css/list.css" rel="stylesheet" media="screen">
+
+</head>
+<body class="bg_white">
+	<!-- <div class="right_top clearfix">
+		<form id="defaultForm" method="post" th:action="@{/BuildInfo_list}">
+			搜索条
+			<div class="col-lg-5 col-md-8 col-sm-8 col-xs-7">
+				<input type="hidden" name="currentPage" value="1" /> <input
+					type="hidden" name="pageSize" value="12" />
+				<div class="input-group left_s">
+					<span class="input-group-btn">
+						<button type="button"
+							class="s_search_right btn btn-default form_left">
+							多条件 <span class="caret"></span>
+						</button> </span> <i class="ioc_line"></i> <input type="text" class="form-input"
+						placeholder="输入你要查询的问题"> <span class="input-group-btn">
+						<button type="submit" class="s_search btn btn-blue btn-color ">
+							<i class="fa fa-search"></i>检索
+						</button> </span>
+
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="s_type clearfix"></div>
+		</form>
+	</div> -->
+	<div class="padding_20">
+		<div class="item form-group">
+			<!-- <label
+				class="text-left col-lg-1 col-md-3 col-sm-2 col-xs-12 control-label">时间:
+			</label>
+			<div class="input-daterange" id="datepicker">
+				<input type="text" class="input-small" name="start" /> <span
+					class="add-on">to</span> <input type="text" class="input-small"
+					name="end" />
+			</div> -->
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="gzsj_xc">
+					<div id="fireControlInstrumen"></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- highcharts -->
+<script type="text/javascript" src="../js/highstock.js"></script>
+<script type="text/javascript" src="../js/highcharts-zh_CN.js"></script>
+<script type="text/javascript" src="../js/exporting.js"></script>
+
+<!-- 手机端-->
+<script src="../js/jquery.dcjqaccordion.2.7.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 滚动条-->
+<script src="../js/jquery.nicescroll.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<!-- NProgress -->
+<script type="text/javascript" src="../js/nprogress.js"></script>
+<script
+	src="../js/FireControlInstrumentation/FireControlInstrumentation_details.js"></script>
+</html>

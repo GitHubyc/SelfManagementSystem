@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/service/!svn/ver/1207/selfmanagementsystem/src/main/resources/static/js/user
+END
+user_del.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/service/!svn/ver/724/selfmanagementsystem/src/main/resources/static/js/user/user_del.js
+END
+user_list.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/service/!svn/ver/1080/selfmanagementsystem/src/main/resources/static/js/user/user_list.js
+END
+user_employee.js
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/service/!svn/ver/1170/selfmanagementsystem/src/main/resources/static/js/user/user_employee.js
+END
+user_details.js
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/service/!svn/ver/724/selfmanagementsystem/src/main/resources/static/js/user/user_details.js
+END
+user_edit.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/service/!svn/ver/1207/selfmanagementsystem/src/main/resources/static/js/user/user_edit.js
+END
+user_add.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/service/!svn/ver/1207/selfmanagementsystem/src/main/resources/static/js/user/user_add.js
+END
+user_group.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/service/!svn/ver/1207/selfmanagementsystem/src/main/resources/static/js/user/user_group.js
+END
+user_build.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/service/!svn/ver/1175/selfmanagementsystem/src/main/resources/static/js/user/user_build.js
+END
+user_role.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/service/!svn/ver/1207/selfmanagementsystem/src/main/resources/static/js/user/user_role.js
+END
+user_right.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/service/!svn/ver/1207/selfmanagementsystem/src/main/resources/static/js/user/user_right.js
+END
+user_unit.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/service/!svn/ver/1170/selfmanagementsystem/src/main/resources/static/js/user/user_unit.js
+END

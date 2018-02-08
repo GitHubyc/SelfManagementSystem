@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/service/!svn/ver/1099/selfmanagementsystem/src/main/resources/templates/BuildInfos/KeySite
+END
+KeySite_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/service/!svn/ver/1068/selfmanagementsystem/src/main/resources/templates/BuildInfos/KeySite/KeySite_details.html
+END
+KeySite_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/service/!svn/ver/895/selfmanagementsystem/src/main/resources/templates/BuildInfos/KeySite/KeySite_add.html
+END
+KeySite_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/service/!svn/ver/1099/selfmanagementsystem/src/main/resources/templates/BuildInfos/KeySite/KeySite_list.html
+END
+KeySite_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/service/!svn/ver/895/selfmanagementsystem/src/main/resources/templates/BuildInfos/KeySite/KeySite_edit.html
+END

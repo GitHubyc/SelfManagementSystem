@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:fragment="css">
+<!--[if IE 7]>
+<link href="../css/font-awesome-ie7.min.css" rel="stylesheet">
+<![endif]-->
+<!-- Bootstrap -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!-- 字体图标 -->
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../css/nprogress.css" rel="stylesheet">
+<!-- toastr -->
+<link href="../css/toastr.min.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../css/general.css" rel="stylesheet" media="screen">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../css/build.css">
+ <!-- 日期样式 -->
+ <link href="../css/bootstrap-datepicker3.min.css" rel="stylesheet">
+</head>

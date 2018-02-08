@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/service/!svn/ver/1166/selfmanagementsystem/src/main/resources/templates/UnitInfos/Administrative
+END
+Administrative_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/service/!svn/ver/1119/selfmanagementsystem/src/main/resources/templates/UnitInfos/Administrative/Administrative_details.html
+END
+Administrative_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/service/!svn/ver/1166/selfmanagementsystem/src/main/resources/templates/UnitInfos/Administrative/Administrative_add.html
+END
+Administrative_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/service/!svn/ver/1152/selfmanagementsystem/src/main/resources/templates/UnitInfos/Administrative/Administrative_edit.html
+END

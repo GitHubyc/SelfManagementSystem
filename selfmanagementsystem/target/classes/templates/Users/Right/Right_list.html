@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>权限信息</title>
+<!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!-- 字体图标 -->
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../css/nprogress.css" rel="stylesheet">
+<!-- toastr -->
+<link href="../css/toastr.min.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../css/general.css" rel="stylesheet" media="screen">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../css/build.css">
+<!-- 自定义样式 -->
+<link href="../css/list.css" rel="stylesheet" media="screen">
+  <style type="text/css">  
+      body{  
+     font-size:14px;  
+      margin:0;}  
+     div{  
+     width:auto;  
+     height:auto;  
+     line-height:150%;}  
+     ul{  
+     list-style:none;  
+     margin-left:-15px;} 
+     #side-menu{
+     list-style:none;  
+     margin-left:0px;
+     } 
+     .right_list_ul li:hover{  
+     background-color:#DDDDDD;  
+     cursor:pointer;}  
+    .inline{
+     height:25px;
+     White-space:nowrap;
+     Text-overflow: ellipsis;
+    }
+    table{
+    	border-right:none; 
+    	border-left:none;
+    	border-top:none;
+    	border-bottom: none;
+    }
+ </style> 
+</head>
+<body>
+	<div class="container">
+		<!-- 头部 -->
+		<div th:replace="fragments/header :: header">头部</div>
+		<div class="content_x">
+			<!-- 左菜单 -->
+			<div th:replace="fragments/menu :: menu">左菜单</div>
+			<!--右内容 -->
+
+			<div class="right_col">
+				<div class="right_top clearfix">
+				</div>
+				<div class="padding_20">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<div class="s_panel text-left">
+								<!-- 内容标题 -->
+								<div class="x_top clearfix">
+									<div class="font-left">
+										<h5>权限信息</h5>
+									</div>
+									<div class="pull-right" th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+										<a class="fa fa-lg fa-plus" href="javascript:(0)" id="Right_add" value="0"
+											th:each="right:${right}" th:if="${right.operateUrl == '/right/add'}">
+											<span style="font-size:15px">新增</span></a>
+										<a class="fa fa-lg fa-eye Right_details" href="javascript:(0)"
+											th:each="right:${right}" th:if="${right.operateUrl == '/right/details'}">
+											<span style="font-size:15px">查看</span></a>
+										<a class="fa fa-lg fa-pencil Right_edit" href="javascript:(0)"
+											th:each="right:${right}" th:if="${right.operateUrl == '/right/edit'}">
+											<span style="font-size:15px">修改</span></a>
+										<a class="fa fa-lg fa-times Right_del" href="javascript:(0)"
+											th:each="right:${right}" th:if="${right.operateUrl == '/right/del'}">
+											<span style="font-size:15px">删除</span></a>
+									</div>
+								</div>
+								<!-- 内容标题结束 -->
+								<div class="s_content">
+									<ul class="list_table">
+										<dl>
+											<table class="table" border="1">
+												<thead>
+													<tr class="active">
+														<th style="width:20%">平台</th>
+														<th style="width:80%">
+															<span style="margin-left:-40%">菜单</span>
+															<span style="margin-left:30%">操作</span>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td style="vertical-align: top;">
+															<ul class="nav side-menu" id="side-menu" th:if="${appObject.data !=null  and appObject.data !='null' and  not #lists.isEmpty(appObject.data)}">
+																<div th:each="app:${appObject.data}">
+																	<li class="change" th:id="${app.rightId}">
+																		<a href="javascript:(0)">
+																			<i class="fa fa-tags"></i>
+																			<span th:text="${app.menuName}"></span>
+																			<span class="right_fa fa fa-angle-right pull-right"></span> 
+																		</a>
+																	</li>
+																</div>
+															</ul>
+														</td>
+														<td style="vertical-align: top;">
+															<div class="tree" id="continer"></div>
+															<span th:if="${object.data != null and object.data !='null' and not #lists.isEmpty(object.data)}">
+																<span id="continer1" th:value="${object.data}"></span>
+															</span>
+															<span th:if="${object.data == null or object.data =='null' or #lists.isEmpty(object.data)}">
+																<span style="font-size:20px;color:red;">暂无信息</span>
+															</span>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											</dl>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- 手机端-->
+<script src="../js/jquery.dcjqaccordion.2.7.js"></script>
+
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 滚动条-->
+<script src="../js/jquery.nicescroll.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 自定义  -->
+<script src="../js/menu.js"></script>
+<!-- 弹窗框  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<script src="../js/message.js"></script>
+<!-- 页面加载 -->
+<script src="../js/nprogress.js"></script>
+<!-- 城市联动-->
+<script src="../js/jquery.citys.js"></script>
+<script src="../js/right.js"></script>
+<script src="../js/right/right_list.js"></script>
+</html>

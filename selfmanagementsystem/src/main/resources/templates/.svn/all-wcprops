@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/service/!svn/ver/1208/selfmanagementsystem/src/main/resources/templates
+END
+login.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/service/!svn/ver/1130/selfmanagementsystem/src/main/resources/templates/login.html
+END
+403.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/service/!svn/ver/1069/selfmanagementsystem/src/main/resources/templates/403.html
+END
+500.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/service/!svn/ver/1069/selfmanagementsystem/src/main/resources/templates/500.html
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/service/!svn/ver/1002/selfmanagementsystem/src/main/resources/templates/index.html
+END
+custom.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/service/!svn/ver/1203/selfmanagementsystem/src/main/resources/templates/custom.html
+END

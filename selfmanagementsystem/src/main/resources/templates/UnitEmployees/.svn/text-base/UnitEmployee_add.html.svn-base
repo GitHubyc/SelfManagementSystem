@@ -1,0 +1,242 @@
+<article  th:fragment="UnitEmployee">
+   <form class="form-horizontal" id="UnitEmployee" method="post">
+              
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="form_content">
+					<h4 class="font_ioc_blue"><strong><i class="fa fa-gear"></i>填写单位人员信息</strong></h4>
+					      <div class="row">
+					        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+					           <div class="item form-group">
+                        <label class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label" ><span class="required">*</span>姓名:
+                        </label>
+                        <div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+                          <input class="form-control" name="name" placeholder="请输入姓名"
+                                 type="text">
+                        </div>
+                      </div>
+					    
+					     <div class="item form-group">
+                                 <label class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">职务:
+                                 </label>
+                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                     <input type="text" name="duty" placeholder="请输入职务"  class="form-control">
+                                 </div>
+                             </div>    
+                             
+                                  <div class="item form-group">
+                                 <label class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">证书名称:
+                                 </label>
+                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                     <input type="text" name="certificateName" placeholder="请输入职务"  class="form-control">
+                                 </div>
+                             </div>    
+                             
+                            
+                              <div class="item form-group">
+                        <label class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label" >证件类型:
+                        </label>
+                        <div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                           <select name="documentType" class="form-control">
+                              <option  selected="true" disabled="true" >-- 请选择类型 --</option>
+                              <option value="1">身份证</option>
+                              <option value="2">护照</option>
+                              <option value="3">澳台通行证</option>                                
+                          </select>
+                          
+                        </div>
+                      </div>                 
+  
+                             
+					</div>
+					  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">				    
+                             <div class="item form-group">
+                        <label class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label" ><span class="required">*</span>职位:
+                        </label>
+                        <div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+                          <input class="form-control" name="position" placeholder="请输入职位"
+                                 type="text">
+                        </div>
+                  </div>
+                         <div class="item form-group">
+                        <label class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label" >联系电话:
+                        </label>
+                        <div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                          <input  class="form-control"  name="contactNumber" placeholder="请输入联系电话"  type="text">
+                        </div>
+                      </div>    
+                      
+                      
+                           
+                             
+                              <div class="item form-group">
+                                 <label class="text-left   col-lg-4 col-md-4 col-sm-4  col-xs-12 control-label" >是否开通账号:
+                                 </label>
+                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                 <div class="radio radio-inline radio-danger">
+                                    <input type="radio" name="isOpenAccount" value="0" id="isOpenAccount"> 
+                                    <label  for="isOpenAccount">
+                                  	待开通
+                             	  </label>
+                               	 </div>
+                               	 
+                               	 <div class="radio radio-inline radio-warning">
+                                    <input type="radio" name="isOpenAccount" value="1"  id="isOpenAccount1"> 
+                                    <label  for="isOpenAccount1">
+                                  	已开通
+                             	  </label>
+                               	 </div>
+                               	 
+                               	 <div class="radio radio-inline radio-success">
+                                    <input type="radio" name="threeColorWarning" value="2"  id="isOpenAccount2"> 
+                                    <label  for="isOpenAccount2">
+                                  	 已关闭
+                             	  </label>
+                               	 </div>
+                            </div>
+                             </div>
+                             
+                                   <div class="item form-group">
+                       
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 documentNo">
+                         <input  class="form-control "  name="documentNo" placeholder="先选择证件类型" disabled="disabled"  type="text">
+                        </div>
+                      </div> 
+    
+					  </div>
+					   </div>
+					                   
+					<div class="item form-group">
+                                 <label class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label" >使用状态:
+                                 </label>
+                                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                 <div class="radio radio-inline radio-primary">
+                                    <input type="radio" name="status" value="1" id="unitNature1"> 
+                                    <label  for="unitNature1">
+                                  	 在职
+                             	  </label>
+                               	 </div>
+                               	 
+                               	 <div class="radio radio-inline radio-primary">
+                                    <input type="radio" name="status" value="2"  id="unitNature2"> 
+                                    <label  for="unitNature2">
+                                  	  离职
+                             	  </label>
+                               	 </div>
+                               
+                             
+                            </div>
+                              
+                                 </div>
+                        
+                        <div class="item form-group">
+                                 <label class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label" >类型:
+                                 </label>
+                                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                 <div class="radio radio-inline radio-primary">
+                                    <input type="radio" name="type" value="1" id="type1"> 
+                                    <label  for="type1">
+                                  	其他
+                             	  </label>
+                               	 </div>
+                               	 
+                               	 <div class="radio radio-inline radio-primary">
+                                    <input type="radio" name="type" value="2"  id="type2"> 
+                                    <label  for="type2">
+                                  	消防安全监测人员
+                             	  </label>
+                               	 </div>
+                               	 
+                               	 <div class="radio radio-inline radio-primary">
+                                    <input type="radio" name="type" value="3"  id="type3"> 
+                                    <label  for="type3">
+                                  	建设工程设计人员
+                             	  </label>
+                               	 </div>
+                               	 
+                               	  <div class="radio radio-inline radio-primary">
+                                    <input type="radio" name="type" value="4"  id="type4"> 
+                                    <label for="type4">
+                                  	 建设工程消防设施施工人员
+                             	  </label>
+                               	 </div>
+                               	
+                                <div class="radio radio-inline radio-primary">
+                                    <input type="radio" name="type" value="5"  id="type5"> 
+                                    <label for="type5">
+                                  	 建设工程消防监理人员
+                             	  </label>
+                               	 </div>
+                               	 
+                               	  <div class="radio radio-inline radio-primary">
+                                    <input type="radio" name="type" value="6"  id="type6"> 
+                                    <label for="type6">
+                                  	建设工程消防检测人员
+                             	  </label>
+                               	 </div>
+                           
+                               	  <div class="radio radio-inline radio-primary">
+                                    <input type="radio" name="type" value="7"  id="type7"> 
+                                    <label for="type7">
+                               		   建设工程消防维保人员
+                             	  </label>
+                               	 </div>
+                               	 
+                               	 <div class="radio radio-inline radio-primary">
+                                    <input type="radio" name="type" value="8"  id="type8"> 
+                                    <label for="type8">
+                               		  易燃易爆危险化学品从业人员
+                             	  </label>
+                               	 </div>
+                               	 
+                               	 <div class="radio radio-inline radio-primary">
+                                    <input type="radio" name="type" value="9"  id="type9"> 
+                                    <label for="type9">
+                               		 电工电气焊工等特殊工种作业人员
+                             	  </label>
+                               	 </div>
+                               	
+                               	 <div class="radio radio-inline radio-primary">
+                                    <input type="radio" name="type" value="10"  id="type10"> 
+                                    <label for="type10">
+                               		 消防控制室操作人员
+                             	  </label>
+                               	 </div>
+                               	 
+                               	 <div class="radio radio-inline radio-primary">
+                                    <input type="radio" name="type" value="11"  id="type11"> 
+                                    <label for="type11">
+                               		安防监控中心操作人员
+                             	  </label>
+                               	 </div>
+                               	 
+                               	 <div class="radio radio-inline radio-primary">
+                                    <input type="radio" name="type" value="12"  id="type12"> 
+                                    <label for="type12">
+                               		 保安员
+                             	  </label>
+                               	 </div>
+                               	 
+                            </div>
+                              
+                                 </div>
+                                 
+                                 
+        
+                      </div>
+					
+			
+                  
+                      <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                               <button id="send" type="submit" class="btn btn-success">提交</button>
+                          <button type="submit" class="btn btn-primary">重置</button>
+                        </div>
+                        </div>
+                        
+                      </div>
+                     
+   	
+   
+    </form>
+ </article> 

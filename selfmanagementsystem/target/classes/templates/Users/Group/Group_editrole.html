@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<title>角色列表</title>
+<!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+<link href="../../css/bootstrap.min.css" rel="stylesheet">
+<!-- 字体图标 -->
+<link href="../../css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../../css/nprogress.css" rel="stylesheet">
+<!-- toastr -->
+<link href="../../css/toastr.min.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../../css/general.css" rel="stylesheet" media="screen">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../../css/build.css">
+<!-- 自定义样式 -->
+<link href="../../css/list.css" rel="stylesheet" media="screen">
+
+</head>
+<body>
+	<div class="container">
+		<!-- 头部 -->
+		<div th:replace="fragments/header :: header">头部</div>
+		<div class="content_x">
+			<!-- 左菜单 -->
+			<div th:replace="fragments/menu :: menu">左菜单</div>
+			<!--右内容 -->
+
+			<div class="right_col">
+				<div class="right_top clearfix">
+					<form class="form-horizontal form_style" id="group_role_form">
+						<!--搜索条 -->
+						<div class="col-lg-5 col-md-8 col-sm-8 col-xs-7">
+							<input type="hidden" name="currentPage" value="1" /> <input
+								type="hidden" name="pageSize" value="12" />
+							<div class="input-group left_s">
+								<span class="input-group-btn">
+									<button type="button"
+										class="s_search_right btn btn-default form_left">
+										多条件 <span class="caret"></span>
+									</button> </span> <i class="ioc_line"></i> <input type="text"
+									class="form-input" placeholder="输入你要查询的问题"> <span
+									class="input-group-btn">
+									<button type="submit" class="s_search btn btn-blue btn-color ">
+										<i class="fa fa-search"></i>检索
+									</button> </span>
+
+							</div>
+						</div>
+						<!--搜索条结束 -->
+						<div class="right col-lg-7 col-md-4 col-sm-4 col-xs-3"></div>
+						<div class="clear"></div>
+						<div class="s_type clearfix">
+							<div class="form-horizontal">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div class="row">
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+											<div class="item form-group has-feedback">
+												<label
+													class="text-left  col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">创建日期:
+												</label>
+												<div class="col-lg-9  col-md-9 col-sm-9 col-xs-12">
+													<div class="input-group date">
+														<input class="form-control" name="createdDate" th:value="${paramMap.createdDate}" type="text" placeholder="请输入创建日期">
+														<span class="input-group-addon"> <span
+															class="glyphicon glyphicon-calendar"></span> </span>
+													</div>
+												</div>
+											</div>
+											<div class="item form-group has-feedback">
+												<label
+													class="text-left  col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">更新日期:
+												</label>
+												<div class="col-lg-9  col-md-9 col-sm-9 col-xs-12">
+													<div class="input-group date">
+														<input class="form-control" name="updateDate" th:value="${paramMap.updateDate}"type="text" placeholder="请输入更新日期">
+														<span class="input-group-addon"> <span
+															class="glyphicon glyphicon-calendar"></span> </span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+											<div class="item form-group has-feedback">
+												<label
+													class="text-left  col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">角色ID:
+												</label>
+												<div class="col-lg-9  col-md-9 col-sm-9 col-xs-12">
+													<input class="form-control col-md-7 col-xs-12"
+														name="roleId" th:value="${paramMap.roleId}" placeholder="角色ID" type="text">
+												</div>
+											</div>
+											<div class="item form-group has-feedback">
+												<label
+													class="text-left  col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">父角色:
+												</label>
+												<div class="col-lg-9  col-md-9 col-sm-9 col-xs-12">
+													<select class="form-control" name="parentId">
+															<option text="请选择父角色"></option>
+														<div th:each="role:${allobject.data}">
+															<option th:value="${role.roleId}" th:text="${role.roleName}" th:selected="${paramMap.parentId} == ${role.roleId}"></option>
+														</div>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+											<div class="item form-group">
+												<label
+													class="text-left col-lg-3 col-md-3 col-sm-3 col-xs-12 control-label">角色名:
+												</label>
+												<div class=" col-lg-9 col-md-9 col-sm-9 col-xs-12">
+													<input type="text" name="roleName" th:value="${paramMap.roleName}" placeholder="请输入名称"
+														class="form-control">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+											<div class="item form-group has-feedback">
+												<label
+													class="text-left  col-lg-1 col-md-1 col-sm-1 col-xs-12 control-label">角色描述:
+												</label>
+												<div class="col-lg-11  col-md-11 col-sm-11 col-xs-12">
+													<textarea name="roleDescribe" th:text="${paramMap.roleDescribe}"
+														class="form-control col-md-7 col-xs-12" placeholder="请输入角色描述"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="padding_20">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<div class="s_panel text-left">
+								<!-- 内容标题 -->
+								<div class="x_top clearfix">
+									<div class="font-left"><i class="fa fa-angle-left font_ioc_blue"></i><a href="/group/list">返回组列表</a> </div>
+									<div class="pull-right" th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+										<a class="fa fa-lg fa-plus Group_addrole" href="javascript:(0)" th:id="${groupId}"
+											th:each="right:${right}" th:if="${right.operateUrl == '/group/addrole'}">
+											<span style="font-size:15px">新增</span>
+										</a> 
+									</div>
+								</div>
+								<div class="x_top clearfix">
+									<div class="font-left">
+										<h5>角色信息列表</h5>
+									</div>
+								</div>
+								<!-- 内容标题结束 -->
+								<div class="s_content">
+									<ul class="list_table">
+											<table class="table table-hover text-center">
+												<thead>
+													<tr class="active">
+														<th style="display:none">id</th>
+														<th>角色名称</th>
+														<th>创建日期</th>
+														<th>更新日期</th>
+														<th>父角色</th>
+														<th>角色描述</th>
+													</tr>
+												</thead>
+												<tbody
+												th:if="${object.data !=null  and object.data !='null' and  not #lists.isEmpty(object.data)}">
+												<tr th:each="role:${object.data}">
+													<td style="display:none" th:text="${role}"></td>
+													<td><a href="javascript:(0)" class="Role_details"
+														th:text="${role.roleName}" th:id="${role.roleId}"></a>
+													</td>
+													<td th:text="--" th:if="${role.updateDate == null or role.updateDate =='null' or #lists.isEmpty(role.updateDate)}"></td>
+													<td th:text="${role.updateDate}" th:if="${role.updateDate !=null  and role.updateDate !='null' and  not #lists.isEmpty(role.updateDate)}"></td>
+													<td th:text="${role.updateDate}"></td>
+													<td th:text="无父角色" th:if="${role.parentId =='0'}"></td>
+													<span th:each="allrole:${allobject.data}">
+														<td type="text" th:text="${allrole.roleName}" th:if="${allrole.roleId} == ${role.parentId}">
+														</td>
+													</span>
+													<td th:text="${role.roleDescribe}"></td>
+												</tr>
+											</tbody>
+											</table>
+											<dl class="list_table" th:if="${object.data ==null or object.data =='null' or #lists.isEmpty(object.data)}">
+												<div class="null">暂无数据</div>
+											</dl>
+									</ul>
+									<div th:replace="fragments/page :: page('group_role_form','/group/${groupId}/role')">分页</div>
+								</div>
+								<div class="s_content" th:if="${object.status} != 200">
+									<dl class="list_table">
+										<div class="null">你访问的资源不存在,请重新登录</div>
+									</dl>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<!-- jQuery -->
+<script src="../../js/jquery-1.11.1.min.js"></script>
+<!-- 手机端-->
+<script src="../../js/jquery.dcjqaccordion.2.7.js"></script>
+
+<!-- Bootstrap -->
+<script src="../../js/bootstrap.min.js"></script>
+<!-- 滚动条-->
+<script src="../../js/jquery.nicescroll.js"></script>
+<script src="../../js/jquery.scrollTo.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../../js/toastr.js"></script>
+<!-- 自定义  -->
+<script src="../../js/menu.js"></script>
+<!-- 弹窗框  -->
+<script type="text/javascript" th:src="@{../../js/layer.js}"></script>
+<script src="../../js/message.js"></script>
+<!-- 页面加载 -->
+<script src="../../js/nprogress.js"></script>
+<!-- 城市联动-->
+<script src="../../js/jquery.citys.js"></script>
+<!-- 搜索栏-->
+<script src="../../js/common.js"></script>
+<script src="../../js/bootstrapValidator.min.js"></script>
+<script src="../../js/right.js"></script>
+<script src="../../js/group/group_editrole.js"></script>
+</html>

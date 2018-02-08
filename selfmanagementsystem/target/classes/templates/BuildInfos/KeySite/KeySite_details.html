@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+        <!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+     <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+	<!-- 字体图标 -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+	 <!-- NProgress -->
+   <link href="../css/nprogress.css" rel="stylesheet">
+    <!-- 公共样式 -->
+	<link href="../css/general.css" rel="stylesheet" media="screen" >
+    <!-- toastr -->
+    <link href="../css/toastr.min.css" rel="stylesheet">
+    <link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+	<!-- 选框样式 -->
+	<link rel="stylesheet" type="text/css" href="../css/build.css">
+	<link href="../css/add.css" rel="stylesheet" media="screen" >
+	
+</head>
+<body class="bg_white">
+  <div class="padding_15">
+   <div class="row">
+  <div class="col-md-12">
+  <div class="x_panel">
+    <div class="x_top x_top1 clearfix" >
+<h4>重点部位详情</h4>
+   </div>
+   
+	   <div class="x_content" >
+	   			<div class="form-horizontal form_style" id="KeySite" method="post">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="form_content">
+								<h4 class="font_ioc_blue">
+									<strong><i class="fa fa-gear"></i>重点部位</strong>
+								</h4>
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="item form-group">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">重点部位名称:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control" name="keySiteName"
+													th:value="${object.data.keySiteName}"
+													placeholder="请输入重点部位名称" type="text">
+											</div>
+										</div>
+
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">建筑面积:
+											</label>
+											<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+												<input type="text" name="buildArea" 
+													th:value="${object.data.buildArea}"
+													placeholder="1318819.55.m2" class="form-control"><span
+													class="font_unit">m²</span>
+											</div>
+										</div>
+
+										<div class="item form-group">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">所在高度:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control" name="currentHeight"
+													th:value="${object.data.currentHeight}" placeholder="100m"
+													type="text"><span class="font_unit">M</span>
+											</div>
+										</div>
+
+
+									</div>
+
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="item form-group">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">责任人:
+											</label>
+											<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control" name="personCharge"
+													th:value="${object.data.personCharge}" placeholder="请输入责任人"
+													type="text">
+											</div>
+										</div>
+
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">建筑结构:
+											</label>
+											<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+												<select class="form-control" name="buildStructure">
+													<option selected="selected" disabled="disabled">-- 请选择类型 --</option>
+													<option value="1"
+														th:selected="${object.data.buildStructure}==1">木结构</option>
+													<option value="2"
+														th:selected="${object.data.buildStructure}==2">砖木结构</option>
+													<option value="3"
+														th:selected="${object.data.buildStructure}==3">砖混结构</option>
+													<option value="4"
+														th:selected="${object.data.buildStructure}==4">钢筋混凝土（砼）结构</option>
+													<option value="5"
+														th:selected="${object.data.buildStructure}==5">钢结构</option>
+													<option value="6"
+														th:selected="${object.data.buildStructure}==6">其他结构</option>
+												</select>
+											</div>
+										</div>
+
+
+
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">耐火等级:
+											</label>
+											<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+												<select class="form-control" name="fireResistanceRating">
+													<option selected="selected" disabled="disabled">-- 请选择类型 --</option>
+													<option value="1"
+														th:selected="${object.data.fireResistanceRating}==1">一级</option>
+													<option value="2"
+														th:selected="${object.data.fireResistanceRating}==2">二级</option>
+													<option value="3"
+														th:selected="${object.data.fireResistanceRating}==3">三级</option>
+													<option value="4"
+														th:selected="${object.data.fireResistanceRating}==4">四级</option>
+												</select>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<div class="item form-group">
+									<label
+										class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">使用功能:
+									</label>
+									<div class="col-lg-10  col-md-10 col-sm-10 col-xs-12">
+										<textarea name="useFunction" class="form-control"
+											th:text="${object.data.useFunction}"></textarea>
+									</div>
+								</div>
+							</div>
+
+
+
+							<div class="form_content">
+								<h4 class="font_ioc_blue">
+									<strong><i class="fa fa-gear"></i>消防信息</strong>
+								</h4>
+								<div class="row">
+
+
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">防火标志设立情况:
+											</label>
+											<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+												<select class="form-control" name="fireMarkSetupSituation">
+													<option selected="selected" disabled="disabled">-- 请选择类型 --</option>
+													<option value="1"
+														th:selected="${object.data.fireMarkSetupSituation}==1">已设立</option>
+													<option value="2"
+														th:selected="${object.data.fireMarkSetupSituation}==2">明显</option>
+													<option value="3"
+														th:selected="${object.data.fireMarkSetupSituation}==3">不明显</option>
+													<option value="4"
+														th:selected="${object.data.fireMarkSetupSituation}==4">未设立</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="item form-group">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">提示类消防标识:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<select class="form-control" name="promptFireSigns">
+													<option selected="true" disabled="true">-- 请选择类型 --</option>
+													<option value="1"
+														th:selected="${object.data.promptFireSigns}==1">是</option>
+													<option value="2"
+														th:selected="${object.data.promptFireSigns}==2">否</option>
+												</select>
+											</div>
+										</div>
+
+
+										<div class="item form-group">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">禁止类消防标识:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<select class="form-control" name="banFireSigns">
+													<option selected="selected" disabled="disabled">-- 请选择类型 --</option>
+													<option value="1"
+														th:selected="${object.data.banFireSigns}==1">是</option>
+													<option value="2"
+														th:selected="${object.data.banFireSigns}==2">否</option>
+												</select>
+											</div>
+										</div>
+
+									</div>
+
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="item form-group">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">安全出口:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control" name="securityExit"
+													th:value="${object.data.securityExit}"
+													placeholder="请输入安全出口个数" type="text"><span
+													class="font_unit">个</span>
+											</div>
+										</div>
+
+										<div class="item form-group">
+											<label
+												class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">消防电梯:
+											</label>
+											<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+												<input class="form-control" name="fireElevator"
+													th:value="${object.data.fireElevator}"
+													placeholder="请输入消防电梯部数" type="text"><span
+													class="font_unit">台</span>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<div class="item form-group">
+									<label
+										class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">消防设施:
+									</label>
+									<div class="col-lg-10  col-md-10 col-sm-10 col-xs-12">
+
+										<textarea name="fireFacilitie" class="form-control"
+											th:text="${object.data.fireFacilitie}"></textarea>
+									</div>
+								</div>
+
+								<div class="item form-group">
+									<label
+										class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">消防安全管理措施:
+									</label>
+									<div class="col-lg-10  col-md-10 col-sm-10 col-xs-12">
+
+										<textarea name="manageMeasure" class="form-control"
+											th:text="${object.data.manageMeasure}"></textarea>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="form_content">
+								<h4 class="font_ioc_blue">
+									<strong><i class="fa fa-gear"></i>危害信息</strong>
+								</h4>
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">火灾危险性:
+											</label>
+											<div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+												<select class="form-control" name="fireRisk">
+													<option selected="selected" disabled="disabled">-- 请选择类型 --</option>
+													<option value="1" th:selected="${object.data.fireRisk}==1">甲</option>
+													<option value="2" th:selected="${object.data.fireRisk}==2">乙</option>
+													<option value="3" th:selected="${object.data.fireRisk}==3">丙</option>
+													<option value="4" th:selected="${object.data.fireRisk}==4">丁</option>
+													<option value="5" th:selected="${object.data.fireRisk}==5">戊</option>
+													<option value="6" th:selected="${object.data.fireRisk}==6">无</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="item form-group">
+											<label
+												class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">火种情况:
+											</label>
+											<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+												<select class="form-control" name="fireSituation">
+													<option selected="selected" disabled="disabled">-- 请选择类型 --</option>
+													<option value="1" th:selected="${object.data.fireSituation}==1">有明火</option>
+													<option value="2" th:selected="${object.data.fireSituation}==2">无明火</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="item form-group">
+									<label
+										class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">
+										确立原因: </label>
+									<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+										<div class="checkbox checkbox-inline">
+											<input type="checkbox" class="styled" name="establishCause"
+												id="inlineCheckbox1" value="1"> <label
+												for="inlineCheckbox1"> 对消防安全有重大影响 </label>
+										</div>
+
+										<div class="checkbox checkbox-inline">
+											<input type="checkbox" class="styled" name="establishCause"
+												id="inlineCheckbox2" value="2"> <label
+												for="inlineCheckbox2">发生火灾后人员伤亡大</label>
+										</div>
+
+										<div class="checkbox checkbox-inline">
+											<input type="checkbox" class="styled" name="establishCause"
+												id="inlineCheckbox3" value="3"> <label
+												for="inlineCheckbox3"> 一旦发生火灾后损失大 </label>
+										</div>
+
+										<div class="checkbox checkbox-inline">
+											<input type="checkbox" class="styled" name="establishCause"
+												id="inlineCheckbox4" value="4"> <label
+												for="inlineCheckbox4"> 易发生火灾 </label>
+										</div>
+
+										<div class="checkbox checkbox-inline">
+											<input type="checkbox" class="styled" name="establishCause"
+												id="inlineCheckbox5" value="5"> <label
+												for="inlineCheckbox5"> 其他 </label>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="item form-group">
+									<label
+										class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">
+										危险源情况: </label>
+									<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+										<div class="checkbox checkbox-inline">
+											<input type="checkbox" class="styled" name="hazardSituation"
+												id="1" value="1"> <label for="1"> 爆炸品 </label>
+										</div>
+
+										<div class="checkbox checkbox-inline">
+											<input type="checkbox" class="styled" name="hazardSituation"
+												id="2" value="2"> <label for="2">氧化剂和有机过氧化物</label>
+										</div>
+
+										<div class="checkbox checkbox-inline">
+											<input type="checkbox" class="styled" name="hazardSituation"
+												id="3" value="3"> <label for="3"> 腐蚀品 </label>
+										</div>
+
+										<div class="checkbox checkbox-inline">
+											<input type="checkbox" class="styled" name="hazardSituation"
+												id="4" value="4"> <label for="4"> 压缩气体和液化气体
+											</label>
+										</div>
+
+										<div class="checkbox checkbox-inline">
+											<input type="checkbox" class="styled" name="hazardSituation"
+												id="5" value="5"> <label for="5">有毒物品 </label>
+										</div>
+
+										<div class="checkbox checkbox-inline">
+											<input type="checkbox" class="styled" name="hazardSituation"
+												id="6" value="6"> <label for="6">杂项危险物质和物品 </label>
+										</div>
+
+										<div class="checkbox checkbox-inline">
+											<input type="checkbox" class="styled" name="hazardSituation"
+												id="7" value="7"> <label for="7">易燃液体</label>
+										</div>
+
+
+										<div class="checkbox checkbox-inline">
+											<input type="checkbox" class="styled" name="hazardSituation"
+												id="8" value="8"> <label for="8">放射性物品 </label>
+										</div>
+
+
+										<div class="checkbox checkbox-inline" style="margin-left: 0">
+											<input type="checkbox" class="styled" name="hazardSituation"
+												id="9" value="9"> <label for="9">其他 </label>
+										</div>
+
+
+										<div class="checkbox checkbox-inline">
+											<input type="checkbox" class="styled" name="hazardSituation"
+												id="10" value="10"> <label for="10">易燃固体、自燃物品和遇湿易燃物品
+											</label>
+										</div>
+									</div>
+								</div>
+
+
+
+							</div>
+
+							<!--    <div class="form_content">
+					<h4 class="font_ioc_blue"><strong><i class="fa fa-gear"></i>三维坐标</strong></h4>	
+                           
+                       
+                             <div class="item form-group">
+                                 <label class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label" >三维X坐标:
+                                 </label>
+                                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                     <input  class="form-control"
+                                             name="cadX" placeholder="请输入三维X坐标"
+                                 type="text">
+                                 </div>
+                             </div>
+                             
+                                   <div class="item form-group">
+                                 <label class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label" >三维Y坐标:
+                                 </label>
+                                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                     <input  class="form-control"
+                                             name="cadY" placeholder="请输入三维Y坐标"
+                                 type="text">
+                                 </div>
+                             </div>
+                             
+                                   <div class="item form-group">
+                                 <label class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label" >三维Z坐标:
+                                 </label>
+                                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                     <input  class="form-control"
+                                             name="cadZ" placeholder="请输入三维Z坐标"
+                                 type="text">
+                                 </div>
+                             </div>
+			
+                            </div> -->
+							
+							
+						</div>
+					</div>
+	   	
+                    <div class="clear"></div>
+	
+	    </div>
+
+	  
+	</div>			 
+  </div>
+  </div>
+</div>
+
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<script src="../js/buildInfos/keySite_details.js"></script>
+<script src="../js/common.js"></script>
+
+<script th:inline="javascript" th:if="${object.data} !=null">
+ischecked("establishCause",[[${object.data.establishCause}]]);
+ischecked("hazardSituation",[[${object.data.hazardSituation}]]);
+</script>
+</html>

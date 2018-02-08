@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>单位信息</title>
+<!--[if IE 7]>
+    <link href="../css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+<!-- Bootstrap -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!-- 字体图标 -->
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../css/nprogress.css" rel="stylesheet">
+<!-- 日期样式 -->
+<link href="../css/bootstrap-datepicker3.min.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../css/general.css" rel="stylesheet" media="screen">
+<!-- 消息提示 -->
+<link href="../css/toastr.min.css" rel="stylesheet">
+<!-- 文本验证 -->
+<link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../css/build.css">
+<!-- 图片上传 -->
+<link href="../css/uploader.all.css" rel="stylesheet" media="screen">
+<link href="../css/add.css" rel="stylesheet" media="screen">
+
+</head>
+<body>
+	<!-- 头部 -->
+	<div th:replace="fragments/header :: header">头部</div>
+
+	<div class="content_x">
+		<!-- 左菜单 -->
+		<div th:replace="fragments/menu :: menu">左菜单</div>
+
+		<!--右内容 -->
+		<div class="right_col">
+			<div class="padding_20">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="x_panel">
+							<div class="x_top clearfix">
+								<div class="font-left">
+									<i class="fa fa-angle-left font_ioc_blue"></i><a
+										th:href="@{/unit/list}">返回单位列表</a>
+								</div>
+								<div class="pull-right font_black">
+									<i class="fa fa-sign-in "></i><a href="#">导出</a>
+								</div>
+							</div>
+							<div class="x_top x_top1 clearfix">
+								<h4>新增单位基本信息</h4>
+							</div>
+
+							<div class="x_content ">
+								<form class="form-horizontal" id="form" onsubmit="return false;">
+									<input type="hidden" name="isOpenAccount" value="0"> <input
+										type="hidden" name="threeColorWarning" value="3">
+
+									<div class="row">
+										<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+											<div class="pic_updateimg">
+												<div class="pic">
+													<img class="Img" id="pic" src="../img/noimage.png" />
+													<div id="upload-info"></div>
+												</div>
+												<a id="upload-target" class="btn btn-blue btn-color">
+													添加单位图片<i class="glyphicon glyphicon-plus"
+													style="margin-left: 5px;"></i>
+												</a> <input type="hidden" name="unitImg" />
+											</div>
+										</div>
+
+
+										<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+											<div class="form_content">
+												<h4 class="font_ioc_blue">
+													<strong><i class="fa fa-gear"></i>填写单位信息</strong>
+												</h4>
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+														<div class="item form-group">
+															<label
+																class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label"><span
+																class="required">*</span>建筑编号: </label>
+															<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+																<input class="form-control" name="buildCode"
+																	onfocus="getIframe('/unit/build')"
+																	placeholder="请输入建筑编号编号" type="text"> <input
+																	name="buildName" type="hidden">
+
+															</div>
+														</div>
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">隶属单位:
+															</label>
+															<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input type="text" name="subordinateUnit"
+																	placeholder="请输入隶属单位" class="form-control">
+															</div>
+														</div>
+
+
+
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+														<div class="item form-group">
+															<label
+																class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label"><span
+																class="required">*</span>单位名称: </label>
+															<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+																<input class="form-control" name="unitName"
+																	placeholder="请输入单位名称编号" type="text">
+															</div>
+														</div>
+
+														<div class="item form-group">
+															<label
+																class="text-left col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">单位简称:
+															</label>
+															<div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
+																<input class="form-control" name="unitShort"
+																	placeholder="请输入单位简称" type="text">
+															</div>
+														</div>
+													</div>
+												</div>
+
+
+												<div class="item form-group">
+													<label
+														class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">行政区划:
+													</label>
+													<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+														<div id="city">
+															<input type="hidden" name="xzqhCode"> <select
+																class="form-city inline" name="province"></select> <select
+																class="form-city inline" name="city"></select> <select
+																class="form-city inline" name="county"></select> <select
+																class="form-city inline" name="street"></select> <select
+																class="form-city inline" name="community"></select> <select
+																class="form-city inline" name="grid"></select>
+														</div>
+													</div>
+												</div>
+												<div class="item form-group">
+													<label
+														class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">单位性质:
+													</label>
+													<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+														<div class="radio radio-inline radio-primary">
+															<input type="radio" name="unitNature" value="1"
+																id="unitNature1"> <label for="unitNature1">
+																行政单位 </label>
+														</div>
+
+														<div class="radio radio-inline radio-primary">
+															<input type="radio" name="unitNature" value="2"
+																id="unitNature2" checked="checked"> <label
+																for="unitNature2"> 事业单位 </label>
+														</div>
+
+														<div class="radio radio-inline radio-primary">
+															<input type="radio" name="unitNature" value="3"
+																id="unitNature3"> <label for="unitNature3">
+																企业单位 </label>
+														</div>
+
+														<div class="radio radio-inline radio-primary">
+															<input type="radio" name="unitNature" value="4"
+																id="unitNature4"> <label for="unitNature4">
+																物业管理处 </label>
+														</div>
+
+													</div>
+
+												</div>
+
+												<div class="item form-group">
+													<label
+														class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">单位类型:
+													</label>
+													<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+														<div class="radio radio-inline radio-primary">
+															<input type="radio" name="unitType" value="1"
+																id="unitType1" checked="checked"> <label
+																for="unitType1"> 一般单位 </label>
+														</div>
+
+														<div class="radio radio-inline radio-primary">
+															<input type="radio" name="unitType" value="2"
+																id="unitType2"> <label for="unitType2">
+																重点单位 </label>
+														</div>
+
+														<div class="radio radio-inline radio-primary">
+															<input type="radio" name="unitType" value="3"
+																id="unitType3"> <label for="unitType3">
+																三小场所 </label>
+														</div>
+
+														<div class="radio radio-inline radio-primary">
+															<input type="radio" name="unitType" value="4"
+																id="unitType4"> <label for="unitType4">
+																工矿企业 </label>
+														</div>
+
+													</div>
+
+												</div>
+
+
+
+												<div class="item form-group">
+													<label
+														class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">单位地址:
+													</label>
+													<div class=" col-lg-10 col-md-10 col-sm-10 col-xs-12">
+														<textarea class="form-control" name="unitAddress"
+															placeholder="请输入单位的楼层/房屋号"></textarea>
+														<input type="hidden" name="address" />
+													</div>
+												</div>
+											</div>
+
+											<div id="Administrative_add">
+												<div
+													th:replace="UnitInfos/Administrative/Administrative_add :: Administrative_add">头部</div>
+											</div>
+											<div id="EnterpriseUnit_add">
+												<div
+													th:replace="UnitInfos/EnterpriseUnit/EnterpriseUnit_add :: EnterpriseUnit_add">头部</div>
+											</div>
+											<div id="PropertyManagementOffice_add">
+												<div
+													th:replace="UnitInfos/PropertyManagementOffice/PropertyManagementOffice_add :: PropertyManagementOffice_add">头部</div>
+											</div>
+
+											<div class="form-group">
+												<div class="col-md-6 ">
+													<button id="submit" type="button" class="btn btn-success">提交</button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+<script th:replace="fragments/configjs :: js" type="text/javascript"></script>
+<script src="../js/jquery.serializejson.js"></script>
+<script src="../js/UnitInfo/UnitInfo_add.js"></script>
+<!-- 图片上传-->
+<script type="text/javascript" src="../js/Q.js"></script>
+<script type="text/javascript" src="../js/Q.Uploader.js"></script>
+<script type="text/javascript" src="../js/uploader.js"></script>
+<!-- 城市联动-->
+<script src="../js/jquery.citys.js"></script>
+<script th:inline="javascript">
+	Uploader('upload-target', 'unitImg')
+	$('#city').citys(
+			{
+				required : false,
+				onChange : function(info) {
+					var text = info.province + info.city + info.county
+							+ info.street + info.community + info.grid;
+					$("[name='address']").val(text);
+				}
+			});
+	$('#administerInstitution').citys({
+		required : false,
+	});
+</script>
+</html>

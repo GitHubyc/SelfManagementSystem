@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+<!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+<!-- Bootstrap -->
+<link href="../../css/bootstrap.min.css" rel="stylesheet">
+<!-- 字体图标 -->
+<link href="../../css/font-awesome.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../../css/nprogress.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../../css/general.css" rel="stylesheet" media="screen">
+<!-- toastr -->
+<link href="../../css/toastr.min.css" rel="stylesheet">
+<link href="../../css/bootstrapValidator.min.css" rel="stylesheet">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../../css/build.css">
+<link href="../../css/add.css" rel="stylesheet" media="screen">
+
+</head>
+<body class="bg_white">
+	<div class="padding_15">
+		<div class="row">
+			<div class="col-md-12">
+
+				<h4 class="font_ioc_blue">
+					<strong><i class="fa fa-gear"></i>每日巡查基本数据</strong>
+				</h4>
+				<table class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+							<td>序号</td>
+							<td><span> 2017072401</span></td>
+							<td>巡查日期</td>
+							<td><span> 2017-07-24 18:43:08 </span></td>
+							<td>巡查员</td>
+							<td><span> 王旭阳 </span></td>
+						</tr>
+						<tr>
+							<td>核查日期</td>
+							<td><span> 2017-07-24 18:43:08 </span></td>
+							<td>核查人</td>
+							<td><span> </span></td>
+							<td>主管人</td>
+							<td><span> </span></td>
+						</tr>
+						<tr>
+							<td>状态</td>
+							<td><span> <span style="color: red;">异常</span>
+							</span></td>
+							<td>备注</td>
+							<td colspan="3"><span></span></td>
+						</tr>
+
+
+						<tr class="active">
+							<th scope="col">检查项</th>
+							<th scope="col">状态</th>
+							<th scope="col">检查照片</th>
+							<th scope="col">检查内容</th>
+							<th scope="col">整改照片</th>
+							<th scope="col">整改内容</th>
+						</tr>
+
+						<tr>
+							<td>用火用电用气有无违章情况</td>
+							<td><span style="color: green;">正常</span></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td>安全出口、疏散通道是否畅通、有无堵塞、锁闭情况</td>
+							<td><span style="color: red;">异常</span></td>
+							<td><img class="img_mar" src="../../img/1.png" width="40"
+								height="60"></td>
+							<td>测试异常</td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td>消防器材、消防安全标志完好情况</td>
+							<td><span style="color: green;">正常</span></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td>消防安全重点部位的人员在岗在位情况</td>
+							<td><span style="color: green;">正常</span></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td>常闭式防火门是否处于关闭状态、防火卷帘是否堆放物品等情况</td>
+							<td><span style="color: green;">正常</span></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td>场所有无遗留火种</td>
+							<td><span style="color: green;">正常</span></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+					</tbody>
+				</table>
+
+			</div>
+
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>

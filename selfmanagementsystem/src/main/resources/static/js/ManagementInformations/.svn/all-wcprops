@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/service/!svn/ver/1168/selfmanagementsystem/src/main/resources/static/js/ManagementInformations
+END
+ManagementInformation_list.js
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/service/!svn/ver/1060/selfmanagementsystem/src/main/resources/static/js/ManagementInformations/ManagementInformation_list.js
+END
+ManagementInformation_edit.js
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/service/!svn/ver/1168/selfmanagementsystem/src/main/resources/static/js/ManagementInformations/ManagementInformation_edit.js
+END
+ManagementInformation_add.js
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/service/!svn/ver/1164/selfmanagementsystem/src/main/resources/static/js/ManagementInformations/ManagementInformation_add.js
+END

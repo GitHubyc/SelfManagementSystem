@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+<!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+<!-- Bootstrap -->
+<link th:replace="fragments/configcss :: css" />
+<!-- 文本验证 -->
+<link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+<!-- 图片上传 -->
+<link href="../css/bootstrap-fileinput.css" rel="stylesheet" />
+<link href="../css/add.css" rel="stylesheet" media="screen">
+</head>
+<body>
+	<div class="x_scrollbar">
+		<div class="col_left_menu">
+			<h5 th:text="'共'+${#lists.size(object.data)}+'层'">
+				共34层
+				<div class="lc_title_tab">
+					<a href="JavaScript:void(0)"><v
+							class="fa fa fa-edit font-size18"></v> </a>
+			</h5>
+			<div class="tab-content-lc" style="display: block;">
+				<p class="text-c">F地上层>></p>
+				<ul class="list_col_c ds">
+
+					<li th:if="${object.data !=null  and object.data !='null' and  not #lists.isEmpty(object.data)}"
+						th:each="floorinfo : ${object.data}"
+						th:if="${floorinfo.floorPosition}=='F'"
+						th:text="${#numbers.formatInteger(floorinfo.floorNo,1)}+F"
+						th:attr="data-url=@{/floorinfoorkeysite/info(buildCode=${floorinfo.buildCode},floorCode=${floorinfo.floorCode})}">
+					</li>
+				</ul>
+
+				<p class="text-c">B地下层>></p>
+				<ul class="list_col_c dx">
+
+					<li th:if="${object.data !=null  and object.data !='null' and  not #lists.isEmpty(object.data)}"
+						th:each="floorinfo : ${object.data}"
+						th:if="${floorinfo.floorPosition}=='B'"
+						th:text="${#numbers.formatInteger(floorinfo.floorNo,1)}+B"
+						th:attr="data-url=@{/floorinfoorkeysite/info(buildCode=${floorinfo.buildCode},floorCode=${floorinfo.floorCode})}">
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="col_right_tb tab-content-lcxx"
+			th:if="${object.data !=null  and object.data !='null' and  not #lists.isEmpty(object.data)}" th:each="floorinfo : ${object.data}" th:text="加载中..."></div>
+
+
+	</div>
+</body>
+
+<script type="text/javascript" th:src="@{../js/buildInfos/floorInfoorkeysite_list.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+ var str=[[${obj.data.refugeFloorLocation}]] 
+	ischecked(str);
+	</script>
+
+</html>

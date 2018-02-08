@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>消防电梯信息</title>
+        <!--[if IE 7]>
+    <link href="../css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+     <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+	<!-- 字体图标 -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+	 <!-- NProgress -->
+   <link href="../css/nprogress.css" rel="stylesheet">
+    <!-- 公共样式 -->
+	<link href="../css/general.css" rel="stylesheet" media="screen" >
+    <!-- toastr -->
+    <link href="../css/toastr.min.css" rel="stylesheet">
+    <link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+	<!-- 选框样式 -->
+	<link rel="stylesheet" type="text/css" href="../css/build.css">
+	<link href="../css/add.css" rel="stylesheet" media="screen" >
+	
+</head>
+<body class="bg_white">
+  <div class="padding_15">
+   <div class="row">
+  <div class="col-md-12">
+    <div class="x_top clearfix" >
+<h4>查看灭火器</h4>
+   </div>
+   
+	   <div class="x_content" >
+	   	<div class="form-horizontal form_style" id="FireExtinguisher" method="post">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+			<div class="form_content">
+				<h4 class="font_ioc_blue">
+					<strong><i class="fa fa-gear"></i>灭火器基础信息</strong>
+				</h4>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+						<div class="item form-group">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">设施部位:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12"
+									name="facilitiesPart" value="设施部位" type="text">
+							</div>
+						</div>
+
+						<div class="item form-group">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">设施类型:
+							</label>
+							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+								<select class="form-control" name="systemState" value="1">
+
+									<option value="1">水基型灭火器</option>
+									<option value="2">干粉灭火器</option>
+									<option value="3">二氧化碳灭火器</option>
+									<option value="4">清洁气体灭火器</option>
+									<option value="5">细水雾灭火器</option>
+									<option value="6">清洁气体灭火器</option>
+									<option value="7">其他灭火器</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="item form-group">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">生产日期:
+							</label>
+							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 ">
+								<div class="input-group date">
+									<input type="text" class="form-control" name="manufactureDate"
+										value="2012-11-12" /> <span class="input-group-addon">
+										<span class="glyphicon glyphicon-calendar"></span> </span>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+						<div class="item form-group">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">设施类别:
+							</label>
+							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+								<select class="form-control" name="facilitiesType" value="1">
+
+									<option value="1">BC干粉灭火剂</option>
+									<option value="2">ABC干粉灭火剂</option>
+									<option value="3">D类火灾专用灭火剂</option>
+									<option value="4">其他干粉灭火剂</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="item form-group">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">数量:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12" name="quantity"
+									value="10个" type="text">
+							</div>
+						</div>
+
+						<div class="item form-group">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">更换药剂日期:
+							</label>
+							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 ">
+								<div class="input-group date">
+									<input type="text" class="form-control"
+										name="replacePotionDate" value="2014-12-30" /> <span
+										class="input-group-addon"> <span
+										class="glyphicon glyphicon-calendar"></span> </span>
+								</div>
+							</div>
+						</div>
+
+
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="form_content">
+				<h4 class="font_ioc_blue">
+					<strong><i class="fa fa-gear"></i>其它</strong>
+				</h4>
+				<div class="item form-group has-feedback">
+					<label
+						class="text-left  col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">是否设置消防标识:
+					</label>
+					<div class="col-lg-10  col-md-10 col-sm-10 col-xs-12">
+						<select class="form-control" name="doYouHaveFireSign" value="1">
+							<option value="1">是</option>
+							<option value="2">否</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="item form-group">
+					<label
+						class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-12 control-label">操作使用方法:
+					</label>
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+						<textarea class="form-control" name="operationMethod"
+							value="操作使用方法"></textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="form_content">
+				<h4 class="font_ioc_blue">
+					<strong><i class="fa fa-gear"></i>修改单位信息</strong>
+				</h4>
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+						<div class="item form-group">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">检查保养单位:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12"
+									name="inspectionMaintenanceUnit" value="检查保养单位" type="text">
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+						<div class="item form-group">
+							<label
+								class="text-left  col-lg-4 col-md-4 col-sm-4 col-xs-12 control-label">日常监察人:
+							</label>
+							<div class="col-lg-8  col-md-8 col-sm-8 col-xs-12">
+								<input class="form-control col-md-7 col-xs-12"
+									name="routineSupervisor" value="日常监察人" type="text">
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		
+		</div>
+	</div>
+
+	    </div>
+
+	  
+	</div>			 
+  </div>
+  </div>
+
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 弹出窗  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<!-- 表单验证 -->
+<script src="../js/bootstrapValidator.min.js"></script>
+<!--公用 -->
+<script src="../js/common.js"></script>
+<script src="../js/buildInfos/fireextinguisher_details.js" type="text/javascript"></script>
+</html>

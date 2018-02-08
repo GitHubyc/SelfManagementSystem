@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/service/!svn/ver/917/selfmanagementsystem/src/main/resources/templates/Notices
+END
+Notice_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/resources/templates/Notices/Notice_list.html
+END
+Notice_edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/resources/templates/Notices/Notice_edit.html
+END
+Notice_details.html
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/resources/templates/Notices/Notice_details.html
+END
+Notice_add.html
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/service/!svn/ver/697/selfmanagementsystem/src/main/resources/templates/Notices/Notice_add.html
+END

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+</head>
+<body>
+	<div th:fragment="page(form,url)">
+		<script>
+			function getRootPath() {
+				var curWwwPath = window.document.location.href;
+				var pathName = window.document.location.pathname;
+				var pos = curWwwPath.indexOf(pathName);
+				var localhostPaht = curWwwPath.substring(0, pos);
+				var projectName = pathName.substring(0, pathName.substr(1)
+						.indexOf('/') + 1);
+				return (localhostPaht);
+			}
+			/*
+			 **currentPage 页码
+			 **data 检索的数据
+			 */
+			function page(currentPage) {
+				if (currentPage == null || currentPage == '') {
+					currentPage = 1;
+				}
+				var form = '#' + $("#param1").val();
+				var url = $("#param2").val();
+
+				var data = serializeNotNull($(form).serialize());
+				//重新加载页面
+				window.location.href = getRootPath() + url + "?currentPage="
+						+ currentPage + "&" + data;
+			}
+
+			/*
+			 **去掉为空的参数
+			 */
+			function serializeNotNull(serStr) {
+				return serStr.replace(/\s/g, "").replace(/\+/g,"").split("&").filter(function(str) {
+					return !str.endsWith("=")
+				}).join("&");
+			}
+		</script>
+		<input type="hidden" th:value="${form}" id="param1"> <input
+			type="hidden" th:value="${url}" id="param2">
+		<div class="text-right">
+			<ul style="margin:0px;margin-right: 15px;" class="pagination">
+				<li th:if="${object.currentPage!=1 and object.totalPage!=0}"><a
+					href="javascript:page(1);">首页</a>
+				</li>
+				<li th:if="${object.currentPage!=1 and object.totalPage!=0}"><a
+					th:attr="href='javascript:page('+ ${object.currentPage-1} +');'">上一页</a>
+				</li>
+				<li th:if="${object.currentPage-4 gt 0}"><a
+					th:attr="href='javascript:page('+ ${object.currentPage -4} +');'"
+					th:text="${object.currentPage-4}"></a>
+				</li>
+				<li th:if="${object.currentPage-3 gt 0}"><a
+					th:attr="href='javascript:page('+ ${object.currentPage -3} +');'"
+					th:text="${object.currentPage-3}"></a>
+				</li>
+				<li th:if="${object.currentPage-2 gt 0}"><a
+					th:attr="href='javascript:page('+ ${object.currentPage -2} +');'"
+					th:text="${object.currentPage-2}"></a>
+				</li>
+				<li th:if="${object.currentPage-1 gt 0}"><a
+					th:attr="href='javascript:page('+ ${object.currentPage -1} +');'"
+					th:text="${object.currentPage-1}"></a>
+				</li>
+				<li class="active"><span class="current_page line_height"
+					th:text="${object.currentPage}"></span>
+				</li>
+				<li th:if="${object.currentPage+1 le object.totalPage}"><a
+					th:attr="href='javascript:page('+ ${object.currentPage +1} +');'"
+					th:text="${object.currentPage+1}"></a></li>
+				<li th:if="${object.currentPage+2 le object.totalPage}"><a
+					th:attr="href='javascript:page('+ ${object.currentPage +2} +');'"
+					th:text="${object.currentPage+2}"></a>
+				</li>
+				<li th:if="${object.currentPage+3 le object.totalPage}"><a
+					th:attr="href='javascript:page('+ ${object.currentPage +3} +');'"
+					th:text="${object.currentPage+3}"></a>
+				</li>
+				<li th:if="${object.currentPage+4 le object.totalPage}"><a
+					th:attr="href='javascript:page('+ ${object.currentPage +4} +');'"
+					th:text="${object.currentPage+4}"></a>
+				</li>
+
+
+				<li
+					th:if="${object.currentPage lt object.totalPage and object.totalPage!=0}"><a
+					th:attr="href='javascript:page('+ ${object.currentPage+1} +');'">下一页</a>
+				</li>
+				<li
+					th:if="${object.currentPage!=object.totalPage and object.totalPage!=0}"><a
+					th:attr="href='javascript:page('+ ${object.totalPage} +');'">尾页</a>
+				</li>
+				<li><span
+					th:utext="'共'+${object.totalPage}+'页 / '+${object.totalRows}+'条'"></span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

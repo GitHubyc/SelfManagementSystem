@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+<!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+   <![endif]-->
+<!-- Bootstrap -->
+<link th:replace="fragments/configcss :: css" />
+<!-- 文本验证 -->
+<link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+<!-- 图片上传 -->
+<link href="../css/bootstrap-fileinput.css" rel="stylesheet" />
+<link href="../css/add.css" rel="stylesheet" media="screen">
+</head>
+<body>
+        <div class="x_scrollbar">
+                <div class="col_left_menu">
+                    <h5>共34层<div class="lc_title_tab"><span class="font_blue">所有</span><span>-3~15</span><span>16~31</span></div></h5>
+            <div class="tab-content-lc" style="display: block;">
+               <p class="text-c">高层>></p>
+               <ul class="list_col_c">
+                   <li> 31F</li>
+                   <li> 30F</li>
+                   <li> 29F</li>
+                   <li> 28F</li>
+                   <li> 27F</li>
+                   <li> 26F</li>
+                   <li> 25F</li>
+                   <li> 24F</li>
+                   <li> 23F</li>
+                   <li> 22F</li>
+                   <li> 21F</li>
+                   <li> 20F</li>
+                   <li> 19F</li>
+               </ul>
+               <p class="text-c">低层>></p>
+               <ul class="list_col_c">
+                   <li> 18F</li>
+                   <li> 17F</li>
+                   <li> 16F</li>
+                   <li> 15F</li>
+                   <li> 14F</li>
+                   <li> 13F</li>
+                   <li> 12F</li>
+                   <li> 11F</li>
+                   <li> 10F</li>
+                   <li> 9F</li>
+                   <li> 8F</li>
+                   <li> 7F</li>
+                   <li data-toggle="tooltip" data-placement="top" title="此层为避难层"> 6F<span class="icon-dian fa-plus-dian"></span></li>
+                   <li> 5F</li>
+                   <li> 4F</li>
+                   <li> 3F</li>
+                   <li> 2F</li>
+                   <li> 1F</li>
+               </ul>
+               <p class="text-c">地下层>></p>
+               <ul class="list_col_c">
+                   <li> -1F</li>
+                   <li> -2F</li>
+                   <li> -3F</li>
+               </ul>
+            </div>
+                    <div class="tab-content-lc">
+                        <p class="text-c">-3~15层>></p>
+                        <ul class="list_col_c">
+                            <li> 15F</li>
+                            <li> 14F</li>
+                            <li> 13F</li>
+                            <li> 12F</li>
+                            <li> 11F</li>
+                            <li> 10F</li>
+                            <li> 9F</li>
+                            <li> 8F</li>
+                            <li> 7F</li>
+                            <li> 6F</li>
+                            <li> 5F</li>
+                            <li> 4F</li>
+                            <li> 3F</li>
+                            <li> 2F</li>
+                            <li> 1F</li>
+                            <li> -1F</li>
+                            <li> -2F</li>
+                            <li> -3F</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="tab-content-lc">
+                        <p class="text-c">16~31层>></p>
+                        <ul class="list_col_c">
+                            <li> 31F</li>
+                            <li> 30F</li>
+                            <li> 29F</li>
+                            <li> 28F</li>
+                            <li> 27F</li>
+                            <li> 26F</li>
+                            <li> 25F</li>
+                            <li> 24F</li>
+                            <li> 23F</li>
+                            <li> 22F</li>
+                            <li> 21F</li>
+                            <li> 20F</li>
+                            <li> 19F</li>
+                            <li> 18F</li>
+                            <li> 17F</li>
+                            <li> 16F</li>
+                        </ul>
+
+                    </div>
+           </div>
+               <div class="col_right_tb tab-content-lcxx" style="display: block;">
+                   <div class="tz_left"><div class="title_top">图纸信息</div>
+                       <ul class="font_12">
+                           <li>
+                           <div id="listImg1">
+                           <img src="../img/123.png" class="Img"/>
+                          <p class="inline">平面图</p>
+                           <a href="JavaScript:void(0)" class="btn-file">
+                           <span>(上传/修改)</span>
+                           <input type="file" name="buildImage" onchange="ajaxFileUpload1()" id="updateimg1" accept="image/gif,image/jpeg,image/x-png" />
+                         
+                           </a>
+                           </div>
+                           </li>
+                           
+                            <li>
+                             <div id="listImg2">
+                            <img src="../img/456.png" class="Img"/>
+                           <p class="inline">内部3D模型</p>
+                           
+                           <a href="JavaScript:void(0)" class="btn-file">
+                           <span >(上传/修改)</span>
+                           <input type="file" name="buildImage" onchange="ajaxFileUpload2()"  id="updateimg2"   accept="image/gif,image/jpeg,image/x-png" />
+                     
+                           </a>
+                          </div>
+                           </li>
+                           
+                           <li>
+                           <div id="listImg3">
+                          <img src="../img/456.png" class="Img"/>
+                            <p class="inline">内部立面图</p>
+                                      
+                           <a href="JavaScript:void(0)" class="btn-file">
+                           <span>(上传/修改)</span>
+                           <input type="file" name="buildImage"  onchange="ajaxFileUpload3()"  id="updateimg3"  accept="image/gif,image/jpeg,image/x-png" />
+                           </a>
+                          </div>
+                           </li>
+                              <div class="clear"></div>
+                       </ul>
+                   </div>
+                   <div class="fj_right"><div class="title_top">房屋信息 <a id="HouseInfo_add" href="JavaScript:void(0)"><v class="fa fa-plus"></v>新增</a></div>
+                       <ul>
+                           <li>
+                           <div class="floor_line">
+                               <h5>2401 <a href="JavaScript:void(0)" class="HouseInfo_del"><v class="fa fa-trash font-size18"></v></a><a href="JavaScript:void(0)" class="HouseInfo_edit"><v class="fa fa fa-edit font-size18"></v></a></h5>
+                               <p>房屋使用现状：<span class="font_blue">一般单位</span></p>
+                               <p>房屋使用其它现状：<span>F地上楼层</span></p>
+                               <p class="text_box">备注：<span data-toggle="tooltip" data-placement="bottom" title="测测">测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测</span></p>
+                               
+                               </div>
+                           </li>
+
+                             <li>
+                           <div class="floor_line">
+                               <h5>2401 <a href="JavaScript:void(0)" class="HouseInfo_del"><v class="fa fa-trash font-size18"></v></a><a href="JavaScript:void(0)" class="HouseInfo_edit"><v class="fa fa fa-edit font-size18"></v></a></h5>
+                               <p>房屋使用现状：<span class="font_blue">三小产所</span></p>
+                               <p>房屋使用其它现状：<span>F地上楼层</span></p>
+                               <p class="text_box">备注：<span data-toggle="tooltip" data-placement="bottom" title="测测">测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测</span></p>
+                               
+                               </div>
+                           </li>
+
+                             <li>
+                           <div class="floor_line">
+                               <h5>2401 <a href="JavaScript:void(0)" class="HouseInfo_del"><v class="fa fa-trash font-size18"></v></a><a href="JavaScript:void(0)" class="HouseInfo_edit"><v class="fa fa fa-edit font-size18"></v></a></h5>
+                               <p>房屋使用现状：<span class="font_blue">重点单位</span></p>
+                               <p>房屋使用其它现状：<span>F地上楼层</span></p>
+                               <p  class="text_box">备注：<span data-toggle="tooltip" data-placement="bottom" title="测测">测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测测</span></p>
+                              
+                               </div>
+                           </li>
+
+
+                           <li>
+                           <div class="floor_line">
+                              <h5>2401 <a href="JavaScript:void(0)" class="HouseInfo_del"><v class="fa fa fa-trash font-size18"></v></a><a href="JavaScript:void(0)" class="HouseInfo_edit"><v class="fa fa fa-edit font-size18"></v></a></h5>
+                               <i>暂未入信息</i>
+                               </div>
+                           </li>
+   <div class="clear"></div>
+                       </ul>
+                    
+                   </div>
+                   <div class="title_top">重点部位 <a href="JavaScript:void(0)" id="KeySite_add"><v class="fa fa-plus"></v>新增</a></div>
+               <table class="table table-hover text-center">
+                   <thead>
+                   <tr class="active">
+                       <th>名称</th>
+                       <th>所在高度</th>
+                       <th>使用功能</th>
+                       <th>耐火等级</th>
+                       <th>操作</th>
+                   </tr>
+                   </thead>
+                   <tbody>
+                   <tr>
+                       <td>XA-00135</td>
+                       <td>11m</td>
+                       <td>被非法广播</td>
+                       <td>一级</td>
+                       <td>
+                           <button type="button" class="btn btn-yellow KeySite_detail">查看</button>
+                           <button type="button" class="btn btn-blue KeySite_edit">编辑</button>
+                           <button type="button" class="btn btn-red KeySite_del">删除</button>
+                       </td>
+                   </tr>
+
+                  
+
+                   </tbody>
+               </table>
+               </div>
+
+             <div class="col_right_tb tab-content-lcxx">1111</div>
+               <div class="col_right_tb tab-content-lcxx">2222</div>
+           </div>
+   </body>
+
+
+
+</html>     

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>建筑信息</title>
+<!-- Bootstrap -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="../css/nprogress.css" rel="stylesheet">
+<!-- 公共样式 -->
+<link href="../css/general.css" rel="stylesheet" media="screen">
+<!-- toastr -->
+<link href="../css/toastr.min.css" rel="stylesheet">
+<link href="../css/bootstrapValidator.min.css" rel="stylesheet">
+<!-- 选框样式 -->
+<link rel="stylesheet" type="text/css" href="../css/build.css">
+<link href="../css/add.css" rel="stylesheet" media="screen">
+
+</head>
+<body>
+	<form id="form">
+		<input type="hidden" name="facilitieCode" th:value="${facilitieCode}">
+	</form>
+	<div class="title_top">
+		灭火器
+		<span th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+		<a href="JavaScript:void(0)"   th:each="right:${right}" th:if="${right.operateUrl == '/fireextinguisher/add'}"
+			th:onclick="'getIframe(\'/fireextinguisher/add?facilitieCode='+${facilitieCode}+'\')'"><v
+				class="fa fa-plus"></v>新增</a>
+				</span>
+	</div>
+	<table class="table table-hover text-center">
+		<thead>
+			<tr class="active">
+				<th>设施部位</th>
+				<th>设施类型</th>
+				<th>数量</th>
+				<th>生产日期</th>
+				<th>更换药剂日期</th>
+				<th>日常监察人</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${object.data} !=null"
+				th:each="obj,objStat: ${object.data}">
+<td th:text="${obj.facilitiesPart}"></td>
+				<td
+					th:text="
+						(${obj.facilitiesCategory}==1?'水基型灭火器':(
+						${obj.facilitiesCategory}==2?'干粉灭火器':(
+						${obj.facilitiesCategory}==3?'二氧化碳灭火器':(
+						${obj.facilitiesCategory}==4?'清洁气体灭火器':(
+						${obj.facilitiesCategory}==5?'细水雾灭火器':(
+						${obj.facilitiesCategory}==6?'风力灭火机':(
+						${obj.facilitiesCategory}==7?'其他灭火器'
+						)))))))"></td>
+				<td th:text="${obj.quantity}"></td>
+				<td th:text="${obj.manufactureDate}"></td>
+				<td th:text="${obj.replacePotionDate}"></td>
+				<td th:text="${obj.routineSupervisor}"></td>
+
+				<td>
+				<span th:if="${right != null and right !='null' and not #lists.isEmpty(right)}">
+					<button type="button" class="btn btn-yellow"  th:each="right:${right}" th:if="${right.operateUrl == '/fireextinguisher/details'}"
+						th:onclick="'getIframe(\'/fireextinguisher/details?facilitieCode='+${facilitieCode}+'&&facilitieSystemCode='+${obj.facilitieSystemCode}+'\')'">查看</button>
+					<button type="button" class="btn btn-blue"  th:each="right:${right}" th:if="${right.operateUrl == '/fireextinguisher/edit'}"
+						th:onclick="'getIframe(\'/fireextinguisher/edit?facilitieCode='+${facilitieCode}+'&&facilitieSystemCode='+${obj.facilitieSystemCode}+'\')'">编辑</button>
+					<button type="button" class="btn btn-red"  th:each="right:${right}" th:if="${right.operateUrl == '/fireextinguisher/del'}"
+						th:onclick="'del(\'/fireextinguisher/del?facilitieCode='+${facilitieCode}+'&&facilitieSystemCode='+${obj.facilitieSystemCode}+'\')'">删除</button>
+				</span>
+				</td>
+			</tr>
+			<tr th:if="${object.data} ==null">
+				<td colspan="7" align="center">
+					<div class="null">暂无数据</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="margin_top_15">
+		<div
+			th:replace="fragments/pageforload :: pageforload (id='fireextinguisher',form='form',url='/fireextinguisher/list')">分页</div>
+	</div>
+</body>
+<!-- jQuery -->
+<script src="../js/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- 消息提示 -->
+<script type="text/javascript" src="../js/toastr.js"></script>
+<!-- 弹出窗  -->
+<script type="text/javascript" th:src="@{../js/layer.js}"></script>
+<!-- 滚动条-->
+<script src="../js/jquery.nicescroll.js"></script>
+<script src="../js/jquery.scrollTo.min.js"></script>
+<!-- 表单验证 -->
+<script src="../js/bootstrapValidator.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/buildInfos/fireextinguisher_list.js"></script>
+</html>
